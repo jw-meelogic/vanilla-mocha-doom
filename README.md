@@ -19,6 +19,16 @@ On Linux, two different scripts can be used.
 1. `build-and-run.sh` which will build Mocha Doom and run it. You can use it as such: `./build-and-run.sh -iwad ~/DOOM2.WAD`. This is the preferred way to quickly test changes for developers.
 2. `build-jar.sh` which will build a JAR file. You can then run the JAR file as such: `java -jar mochadoom.jar -iwad ~/DOOM2.WAD`. This is the preferred way for distributing a Mocha Doom executable.
 
+### Build with Gradle
+
+[Gradle](https://gradle.org/) is a cross-platform build tool, which can be also used to run and build Mocha Doom.
+First of all, you have to install Gradle following its [installation notes](https://gradle.org/install/). After that you can use the following commands:
+
+* Run Mocha Doom: `gradle clean run`
+* Build a JAR file: `gradle clean build`
+  This creates a JAR file in the `build/libs/` folder.
+  You can then run the JAR file as such: `java -jar build/libs/mochadoom.jar -iwad ~/DOOM.WAD`.
+
 # License
 
 Mocha Doom contains work from many contributors. Here are the main contributors, but it's no limited to this list. Others are listed in the copyright headers of the files where they own copyright.

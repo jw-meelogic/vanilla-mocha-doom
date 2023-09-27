@@ -1,0 +1,29 @@
+plugins {
+    id 'application'
+}
+
+apply plugin: 'java'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+ext {
+   javaMainClass = 'mochadoom.Engine'
+}
+
+jar {
+    archiveBaseName = 'mochadoom'
+    manifest {
+        attributes('Main-Class': javaMainClass)
+    }
+}
+
+application {
+    mainClass.set(javaMainClass)
+}
+
