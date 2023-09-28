@@ -1,8 +1,8 @@
 plugins {
     id 'application'
+    id 'java'
+    id 'distribution'
 }
-
-apply plugin: 'java'
 
 sourceSets {
     main {
@@ -25,5 +25,34 @@ jar {
 
 application {
     mainClass.set(javaMainClass)
+}
+
+distributions {
+    main {
+        distributionBaseName = 'mochadoom'
+        contents {
+            from jar
+            from 'wads'
+            from("$projectDir") {
+                include 'LICENSE.txt'
+                include 'README.md'
+                include 'CONFIG.md'
+                include 'default.cfg'
+                include 'classic.cfg'
+                include 'mochadoom*.sh'
+                include 'mochadoom*.bat'
+            }
+            into '/'
+        }
+    }
+}
+
+distTar.enabled = false
+distZip {
+    eachFile { file ->
+        if (file.path.matches('^(bin|lib)/.*$')) {
+            file.exclude()
+        }
+    }
 }
 
