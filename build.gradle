@@ -47,6 +47,11 @@ distributions {
     }
 }
 
+tasks.withType(JavaCompile).all {
+    options.compilerArgs.add('-Xlint:unchecked')
+    options.compilerArgs.add('-Xlint:deprecation')
+}
+
 distTar.enabled = false
 distZip {
     eachFile { file ->
