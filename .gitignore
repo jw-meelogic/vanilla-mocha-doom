@@ -10,7 +10,6 @@ dist/
 build.xml
 nbproject/
 .gradle
-mochadoom.cfg
 
 # Intellij 
 *.iml

@@ -1238,7 +1238,7 @@ public class WadLoader implements IWadLoader {
 				
 	}
 	
-        // TODO: finalize is deprecated - CloseAllHandles() call is moved to shutdown hook (needs verification)
+        // TODO: finalize is deprecated - CloseAllHandles() call is moved to shutdown hook
 	//@Override
 	//public void finalize(){
 	//	CloseAllHandles();

@@ -1,3 +1,9 @@
-**/*.c linguist-vendored
-**/*.h linguist-vendored
+src/g/g_game.c linguist-vendored
+src/i/i_main.c linguist-vendored
+src/i/i_net.c linguist-vendored
+src/doom/d_french.h linguist-vendored
+src/g/g_game.h linguist-vendored
+src/i/i_net.h linguist-vendored
+src/i/i_system.h linguist-vendored
+src/i/i_video.h linguist-vendored
 

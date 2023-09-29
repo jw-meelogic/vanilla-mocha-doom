@@ -38,7 +38,7 @@ You may also download the freely distributable Shareware version of Doom (includ
      * `mochadoom-classic.bat`
    * Platform independent
      * `java -jar mochadoom.jar`
-     * `java -jar mochadoom.jar -config classic.cfg`
+     * `java -jar mochadoom.jar -config classic.cfg mochadoom.cfg`
 
    Mocha Doom tries to find a valid Doom WAD file in the directory
    defined by the `DOOMWADDIR` environment variable (defaults to the current directory).

@@ -34,22 +34,19 @@ distributions {
             from jar
             from 'wads'
             from("$projectDir") {
-                include 'LICENSE.txt'
+                include 'LICENSE.TXT'
                 include 'README.md'
                 include 'CONFIG.md'
+                include '.doomrc'
                 include 'default.cfg'
                 include 'classic.cfg'
+                include 'mochadoom.cfg'
                 include 'mochadoom*.sh'
                 include 'mochadoom*.bat'
             }
             into '/'
         }
     }
-}
-
-tasks.withType(JavaCompile).all {
-    options.compilerArgs.add('-Xlint:unchecked')
-    options.compilerArgs.add('-Xlint:deprecation')
 }
 
 distTar.enabled = false
@@ -59,5 +56,10 @@ distZip {
             file.exclude()
         }
     }
+}
+
+tasks.withType(JavaCompile).all {
+    options.compilerArgs.add('-Xlint:unchecked')
+    options.compilerArgs.add('-Xlint:deprecation')
 }
 

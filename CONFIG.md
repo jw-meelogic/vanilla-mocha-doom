@@ -6,7 +6,7 @@ In general, Mocha Doom supports all of the standard vanilla/DOS Doom command-lin
 parameters, plus some of its own. Here's the documentation for some that might
 be useful:
 
-* `-config`:
+* `-config <file1> [file2] ...`:
   Specify an alternate configuration file to use (default is `default.cfg`).
 * `-fullscreen`:
   Can also be specified in the `default.cfg` file with the: `fullscreen true` setting.

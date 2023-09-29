@@ -193,9 +193,9 @@ public final class C2JUtils {
         Class<T> c = (Class<T>) os.getClass().getComponentType();
         try {
             for (int i = 0; i < os.length; i++) {
-                os[i] = c.newInstance();
+                os[i] = c.getDeclaredConstructor().newInstance();
             }
-        } catch (IllegalAccessException | InstantiationException e) {
+        } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
             System.err.println("Failure to allocate " + os.length
                     + " objects of class " + c.getName() + "!");
@@ -230,9 +230,9 @@ public final class C2JUtils {
 
         try {
             for (int i = 0; i < os.length; i++) {
-                os[i] = c.newInstance();
+                os[i] = c.getDeclaredConstructor().newInstance();
             }
-        } catch (IllegalAccessException | InstantiationException e) {
+        } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
             System.err.println("Failure to instantiate " + os.length + " objects of class " + c.getName() + "!");
             System.exit(-1);
