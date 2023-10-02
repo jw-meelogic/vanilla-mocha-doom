@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.FixCrLfFilter
+
 plugins {
     id 'application'
     id 'java'
@@ -33,6 +35,14 @@ distributions {
         contents {
             from jar
             from 'wads'
+            from('scripts') {
+                include 'mochadoom*.sh'
+                filter(FixCrLfFilter, eol: FixCrLfFilter.CrLf.newInstance('unix'))
+            }
+            from('scripts') {
+                include 'mochadoom*.bat'
+                filter(FixCrLfFilter, eol: FixCrLfFilter.CrLf.newInstance('dos'))
+            }
             from("$projectDir") {
                 include 'LICENSE.TXT'
                 include 'README.md'
@@ -41,14 +51,13 @@ distributions {
                 include 'default.cfg'
                 include 'classic.cfg'
                 include 'mochadoom.cfg'
-                include 'mochadoom*.sh'
-                include 'mochadoom*.bat'
             }
             into '/'
         }
     }
 }
 
+startScripts.enabled = false
 distTar.enabled = false
 distZip {
     eachFile { file ->
