@@ -7,10 +7,10 @@ parameters, plus some of its own. Here's the documentation for some that might
 be useful:
 
 * `-config <file1> [file2] ...`:
-  Specify an alternate configuration file to use (default is `default.cfg`).
+  Specify alternate configuration files to use (default is `default.cfg mochadoom.cfg`).
 * `-fullscreen`:
-  Can also be specified in the `default.cfg` file with the: `fullscreen true` setting.
-  It will attempt switching to a fullscreen mode compatible with the current 
+  Can also be specified in `mochadoom.cfg` file with the: `fullscreen true` setting.
+  It will attempt switching to a fullscreen mode compatible with the current
   resolution, or the closest available reported by the host OS.
   NOTE: Windows users might have to disable the Direct3D pipeline
   with the `-Dsun.java2d.d3d=false` JVM parameter for this to work.
@@ -32,19 +32,20 @@ be useful:
   confined in the game window. Only used with `-oldawtevents`,
   where it's turned OFF by default. Otherwise, it's not effective.
 * `-multiply <n>`:
-  Multiplies the base resolution by n times. Acceptable
-  values are 1-5. Base resolution is 320x200, default is `-multiply 3`
-  unless overriden. Has priority over `-height` and `-width`
+  Multiplies the base resolution by `n` times. Acceptable
+  values are 1-5. Base resolution is 320x200, default is `-multiply 3` (960x600)
+  unless overriden. Maximum is 5 (1600x1000) which fits best for Full HD screens.
+  This parameter has priority over `-height` and `-width`.
 * `-width <x>`:
   Specifies window width to use e.g. `-width 640`.
   For now, this will be forbily set to the closest multiple
-  of the base width, which is 320 pixels, so actual values 
-  are only 320, 640, 960, etc. with a maximum of 5 times 
+  of the base width, which is 320 pixels, so actual values
+  are only 320, 640, 960, etc. with a maximum of 5 times
   the base width.
 * `-height <y>`:
   Similar to `-width`, but operates on height. Base height
-  is 200 pixels, so actual values are only 200, 400, 600,
-  etc. If both are used, the one which yield the largest
+  is 200 pixels, so actual values are only 200, 400, 600, etc.
+  If both are used, the one which yield the largest
   scaling will be used (scaling is isotropic).
 * `-file <file1> [file2] ...`:
   Used to append PWADs. Can accept multiple files and 
@@ -53,7 +54,7 @@ be useful:
   Allows specifying which IWAD to use
 * `-millis`:
   Uses system  millisecond accuracy for the timer.
-  Default is nanosecond accuracy, but you may wish 
+  Default is nanosecond accuracy, but you may wish
   to change it if you get timing issues e.g. with
   certain older AMD Athlon 64 X2 CPUs.
 * `-fasttic`:
@@ -62,9 +63,9 @@ be useful:
 * `-serialrender`:
   Selects the (default) serial rendering code. This is OK for most machines.
 * `-parallelrenderer [m] [n]`:
-  Selects the parallel rendering code, which can be up to 100% 
-  faster on multicore machines, depending on the scene being 
-  rendered. The optional parameters m and n specify the number 
+  Selects the parallel rendering code, which can be up to 100%
+  faster on multicore machines, depending on the scene being
+  rendered. The optional parameters `m` and `n` specify the number
   of wall and floor rendering threads to use.
   The default values are 2 and 1 respectively.
 * `-fastdemo <demolump>`:
@@ -93,18 +94,30 @@ be useful:
 * `+map <ExMy> or <MAPxy>`:
   Warps to the specified Episode and Mission (e.g. E1M9) or
   game map (for Doom II, e.g. MAP31).
+* `-episode [episode]`:
+  Starts on episode (1-3)
+* `-loadgame [game number]`:
+  Starts from a saved game (0-5)
+* `-nomonsters`:
+  Starts the game without monsters
+* `-respawn`:
+  Causes enemies to respawn in non-Nightmare
+* `-skill [skill level]`:
+  Starts on skill level (1-5)
+* `-fast`:
+  Monsters at Skills 1 through 4 are accelerated (similar to Skill 5)
 
 NOTE: Demo lumps are automatically appended a `.lmp` extension upon loading/saving.
 DO NOT SPECIFY IT YOURSELF, otherwise it will result in a load error.
 
 ## Configuration file
 
-The Doom configuration file is a text file which holds settings set by `setup.exe` and from inside the game and its menus.
+The Doom configuration file is a text file which holds settings set by vanilla `setup.exe` and from inside the game and its menus.
 The file is normally named `default.cfg`, but the `-config` command line parameter can be used to specify an alternate file to use.
 
 The file takes the format of a list of configuration settings, with each line of the form: `<name> <value>`
 
-### Settings
+### Vanilla Settings
 
 #### Display
 
@@ -172,7 +185,7 @@ The file takes the format of a list of configuration settings, with each line of
   The volume of the background music, ranging from 0–15. The default is 8.
 * `snd_channels`:
   The number of sound channels to use. The default is 3.
-* `snd_musicdevice`:
+* `snd_musicdevice` (obsolete):
   Numeric value indicating which kind of music card is installed:
   (0) None
   (2) Adlib
@@ -183,20 +196,20 @@ The file takes the format of a list of configuration settings, with each line of
   (7) Sound Canvas
   (8) General MIDI
   (9) Soud Blaster AWE32
-* `snd_sfxdevice`:
+* `snd_sfxdevice` (obsolete):
   Numeric value indicating which kind of card to use for sound effects:
   (0) None
   (1) PC Speaker
   (2) Sound Blaster
   (3) Pro Audio Spectrum
   (4) Gravis UltraSound
-* `snd_sbport`:
+* `snd_sbport` (obsolete):
   I/O Port to use to access the soundblaster card.
-* `snd_sbirq`:
+* `snd_sbirq` (obsolete):
   IRQ to use to access the soundblaster card.
-* `snd_sbdma`:
+* `snd_sbdma` (obsolete):
   DMA channel to use when accessing the soundblaster card.
-* `snd_mport`:
+* `snd_mport` (obsolete):
   I/O Port to use to access the music card.
 
 #### Other
@@ -224,7 +237,7 @@ The file takes the format of a list of configuration settings, with each line of
 * `chatmacro9`:
   Multiplayer chat macro sent when alt+9 is pressed.
 
-### Additional settings
+#### Additional settings
 
 The `joyb_speed` setting can be set to 29 to make the player always run in most Doom versions and Doom engine games.
 Originally it was discovered that setting the value to 31 would produce the effect, but that value does not work on the engines of some games,
@@ -236,4 +249,36 @@ though note that setting it to a value higher than 30 will make the game termina
 
 The configuration file can be rearranged and comments added; however, the game will overwrite any such changes on exit.
 The file can be made read-only to avoid this problem.
+
+### Mocha Doom Settings
+
+* `fullscreen`: `false` by default. Turns on fullscreen mode instead of the default windowed mode
+* `fullscreen_mode`: options: `Best` (default, picks the closest supported resolution), `Native` (the current display mode)
+* `fullscreen_stretch`: options: `Centre`, `Stretch`, `Fit` (default), `Aspect_4_3`. Try with `fullscreen_mode=Native` if you experience trouble.
+* `fullscreen_interpolation`: options: `Nearest` (default), `Bilinear`, `Biqubic`
+* `alwaysrun`: `false` by default
+* `vanilla_key_behavior`: `true` by default
+* `automap_plotter_style`: options: `Thin` (default, vanilla), `Thick` (scaled), `Deep` (slightly rounded scaled)
+* `enable_colormap_lump`: `true` by default, enables usage of COLORMAP lump read from WAD during lights and specials generation
+* `color_depth`: options: `Indexed` (default, 256 colors), `HiColor` (32768 colors), `TrueColor`: (16777216), `AlphaTrueColor` (16777216, with Alpha transparency)
+* `extend_plats_limit`: `true` by default, resize instead of "P_AddActivePlat: no more plats!"
+* `extend_button_slots_limit`: `true` by default, resize instead of "P_StartButton: no button slots left!"
+* `fix_blockmap`: `true` by default, add support for 512x512 blockmap
+* `fix_gamma_ramp`: `false` by default, vanilla do not use pure black color because Gamma LUT calculated without it, doubling 128
+* `fix_gamma_palette`: `false` by default, in vanilla, switching gamma with F11 hides Berserk or Rad suit tint
+* `fix_sky_change`: `false` by default, in vanilla, sky does not change when you exit the level and the next level with new sky
+* `fix_sky_palette`: `false` by default, in vanilla, sky color does not change when under effect of Invulnerability powerup
+* `fix_medi_need`: `false` by default, in vanilla, message "Picked up a medikit that you REALLY need!" never appears due to bug
+* `fix_ouch_face`: `false` by default, in vanilla, ouch face displayed only when acuired 25+ health when damaged for 25+ health
+* `line_of_sight`: options: `Vanilla` (default), `Boom`
+* `vestrobe`: `false` by default, strobe effect on automap cut off from vanilla
+* `scale_screen_tiles`: `true` by default, if you scale screen tiles, it looks like vanilla
+* `scale_melt`: `true` by default, if you scale melt and use DoomRandom generator (not truly random), it looks exacly like vanilla
+* `semi_translucent_fuzz`: `false` by default, only works in `AlphaTrueColor` mode. Also ignored with `fuzz_mix=true`
+* `fuzz_mix`: `false` by default, Maes unique features on Fuzz effect. Vanilla dont have that, so they are switched off by default
+* `parallelism_realcolor_tint`: available number of processors, used for real color tinting to speed up
+* `parallelism_patch_columns`: `0` by default. When drawing screen graphics patches, this speeds up column drawing, `<= 0` is serial
+* `greyscale_filter`: options: `Lightness`, `Average`, `Luminance` (default for invulnerability map), `Luminosity`. Used for FUZZ effect or with `-greypal` comand line argument.
+* `scene_renderer_mode`: options: `Serial` (default), `Parallel`, `Parallel2` (deprecated). In vanilla, scene renderer is serial. Parallel can be faster.
+* `reconstruct_savegame_pointers`: `true` by default, in vanilla, infighting targets are not restored on savegame load
 

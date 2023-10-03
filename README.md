@@ -6,8 +6,9 @@
 [![Java CI with Gradle](https://github.com/gaborbata/mochadoom/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/gaborbata/mochadoom/actions/workflows/gradle.yml)
 
 Mocha Doom is a pure Java Doom source port. Most of the hard work of porting Doom to Java has already been done,
-thanks to Velktron (Maes), but he has stopped working on it in 2013. Although the port is almost complete,
-some work remains to do, most importantly the network code for the multiplayer is missing.
+thanks to Velktron (Maes) (see [Programming tricks](PROGRAMMING.md) for technical details), but he has stopped working on it in 2013.
+
+Although the port is almost complete, some work remains to do, most importantly the network code for the multiplayer is missing.
 
 This fork of Mocha Doom is intended to support the classic key controls, and provide some pre-compiled binaries for convenience.
 
@@ -16,7 +17,7 @@ This fork of Mocha Doom is intended to support the classic key controls, and pro
 You can find the latest distribution package under the [releases](https://github.com/gaborbata/mochadoom/releases/latest) link.
 
 Mocha Doom can play original variants of Doom. If you don't own any, the easiest way to obtain them is to purchase them from Steam or GOG.
-You may also download the freely distributable Shareware version of Doom (included in this repository) from one of the following links:
+You may also download the freely distributable Shareware version of Doom (also included in this repository) from one of the following links:
 * http://cdn.debian.net/debian/pool/non-free/d/doom-wad-shareware/doom-wad-shareware_1.9.fixed.orig.tar.gz
   (extract it and copy the `DOOM1.WAD` file into your Mocha Doom directory).
 * https://distro.ibiblio.org/slitaz/sources/packages/d/doom1.wad
@@ -47,6 +48,10 @@ You may also download the freely distributable Shareware version of Doom (includ
 
    `mochadoom -iwad wads/DOOM1.WAD`.
 
+### Configuration
+
+Check [CONFIG.md](CONFIG.md) for more options.
+
 ### Doom with classic controls
 
 You can use `classic.cfg` configuration in order to have the old-school classic key controls.
@@ -64,8 +69,6 @@ You can use `classic.cfg` configuration in order to have the old-school classic 
 | key_strafe      | 56 (Alt)         | 56 (Alt)                       |
 | key_speed       | 54 (Shift)       | 54 (Shift)                     |
 | use_mouse       | 1 (enabled)      | 0 (disabled)                   |
-
-Check [CONFIG.md](CONFIG.md) for more options.
 
 ## How to build
 

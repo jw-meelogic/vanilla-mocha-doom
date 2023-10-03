@@ -47,6 +47,7 @@ distributions {
                 include 'LICENSE.TXT'
                 include 'README.md'
                 include 'CONFIG.md'
+                include 'PROGRAMMING.md'
                 include '.doomrc'
                 include 'default.cfg'
                 include 'classic.cfg'
