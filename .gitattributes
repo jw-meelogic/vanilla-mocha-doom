@@ -1,3 +1,14 @@
 *.c linguist-detectable=false
 *.h linguist-detectable=false
 
+DMUtils/* linguist-vendored=true
+demos/* linguist-vendored=true
+pwads/* linguist-vendored=true
+wads/* linguist-vendored=true
+
+*.png binary
+*.lmp binary
+*.7z binary
+*.zip binary
+*.wad binary
+
