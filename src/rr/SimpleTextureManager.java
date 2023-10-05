@@ -270,6 +270,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
             totalwidth += texture.width;
         }
+        System.out.print("]");
 
         // Precalculate whatever possible.  
         for (int i = 0; i < numtextures; i++) {

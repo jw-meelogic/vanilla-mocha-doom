@@ -231,6 +231,7 @@ public class SpriteManager<T, V> implements ISpriteManager {
         spriteoffset = new int[numspritelumps];
         spritetopoffset = new int[numspritelumps];
 
+        System.out.print("[");
         for (i = 0; i < numspritelumps; i++) {
             if ((i & 63) == 0) {
                 System.out.print(".");
@@ -242,6 +243,7 @@ public class SpriteManager<T, V> implements ISpriteManager {
             spriteoffset[i] = patch.leftoffset << FRACBITS;
             spritetopoffset[i] = patch.topoffset << FRACBITS;
         }
+        System.out.print("]");
     }
 
     /**
