@@ -75,7 +75,7 @@ You can use `classic.cfg` configuration in order to have the old-school classic 
 ### IDE
 
 1. Open the project with IntelliJ IDEA, Eclipse or NetBeans
-2. Build and run the project
+2. Build and run the project (entry point: `mochadoom.Engine`)
 
 ### Linux shell scripts
 

@@ -122,7 +122,7 @@ The file takes the format of a list of configuration settings, with each line of
 #### Display
 
 * `screenblocks`:
-  Controls the screensize, ranging from 3–11. A value of 10 gives a fullscreen window with the status bar, while 11 gives fullscreen without status bar. The default value is 9.
+  Controls the screensize, ranging from 3-11. A value of 10 gives a fullscreen window with the status bar, while 11 gives fullscreen without status bar. The default value is 9 (10 in Mocha Doom).
 * `detaillevel`:
   Boolean value which controls the resolution of the screen. The logic here is inverted: 0 is high resolution, while 1 is low resolution.
 * `usegamma`:
@@ -253,7 +253,7 @@ The file can be made read-only to avoid this problem.
 ### Mocha Doom Settings
 
 * `fullscreen`: `false` by default. Turns on fullscreen mode instead of the default windowed mode
-* `fullscreen_mode`: options: `Best` (default, picks the closest supported resolution), `Native` (the current display mode)
+* `fullscreen_mode`: options: `Best` (picks the closest supported resolution), `Native` (default, the current display mode)
 * `fullscreen_stretch`: options: `Centre`, `Stretch`, `Fit` (default), `Aspect_4_3`. Try with `fullscreen_mode=Native` if you experience trouble.
 * `fullscreen_interpolation`: options: `Nearest` (default), `Bilinear`, `Biqubic`
 * `alwaysrun`: `false` by default

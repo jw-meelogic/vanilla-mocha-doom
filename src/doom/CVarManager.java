@@ -46,7 +46,7 @@ public class CVarManager {
 
     public CVarManager(final List<String> commandList) {
         LOGGER.log(Level.INFO,
-                String.format("%d command-line variables", processAllArgs(commandList)));
+                String.format("%d command-line variable(s).", processAllArgs(commandList)));
     }
 
     /**

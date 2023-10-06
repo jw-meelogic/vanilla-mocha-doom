@@ -90,7 +90,7 @@ public enum Settings {
     joyb_strafe(FILE_DOOM, 1),
     joyb_use(FILE_DOOM, 3),
     joyb_speed(FILE_DOOM, 2),
-    screenblocks(FILE_DOOM, 9),
+    screenblocks(FILE_DOOM, 10),
     detaillevel(FILE_DOOM, 0),
     snd_channels(FILE_DOOM, 8),
     snd_musicdevice(FILE_DOOM, 3), // unused, here for compatibility
@@ -115,7 +115,7 @@ public enum Settings {
      */
     mb_used(FILE_MOCHADOOM, 2),
     fullscreen(FILE_MOCHADOOM, false),
-    fullscreen_mode(FILE_MOCHADOOM, FullscreenOptions.FullMode.Best),
+    fullscreen_mode(FILE_MOCHADOOM, FullscreenOptions.FullMode.Native),
     fullscreen_stretch(FILE_MOCHADOOM, FullscreenOptions.StretchMode.Fit),
     fullscreen_interpolation(FILE_MOCHADOOM, FullscreenOptions.InterpolationMode.Nearest),
     alwaysrun(FILE_MOCHADOOM, false), // Always run is OFF

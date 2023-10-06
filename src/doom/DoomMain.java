@@ -2715,13 +2715,13 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
                 .setVideoScale(vs).setBppMode(bppMode).setWadLoader(wadLoader)
                 .build();
 
-        LOGGER.log(Level.INFO, "V_Init: allocate screens.");
+        LOGGER.log(Level.INFO, "V_Init: Allocate screens.");
 
         // Disk access visualizer
         this.diskDrawer = new DiskDrawer(this, DiskDrawer.STDISK);
 
         // init subsystems
-        LOGGER.log(Level.INFO, "AM_Init: Init Automap colors");
+        LOGGER.log(Level.INFO, "AM_Init: Init Automap colors.");
         this.autoMap = new automap.Map<>(this);
 
         this.wiper = graphicSystem.createWiper(random);
@@ -2740,7 +2740,7 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
         LOGGER.log(Level.INFO, "M_Init: Init miscellaneous info.");
         menu.Init();
 
-        LOGGER.log(Level.INFO, "R_Init: Init DOOM refresh daemon");
+        LOGGER.log(Level.INFO, "R_Init: Init DOOM refresh daemon.");
         sceneRenderer.Init();
 
         LOGGER.log(Level.INFO, "P_Init: Init Playloop state.");
@@ -2869,7 +2869,7 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
         switch (getGameMode()) {
             case shareware:
             case indetermined:
-                LOGGER.log(Level.INFO, "Game info: Shareware!");
+                LOGGER.log(Level.INFO, "Game Info: Shareware!");
                 break;
             case registered:
             case retail:
@@ -2877,14 +2877,14 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
             case pack_tnt:
             case pack_plut:
             case pack_xbla:
-                LOGGER.log(Level.INFO, "Game info: Commercial product - do not distribute!");
-                LOGGER.log(Level.INFO, "Game note: Please report software piracy to the SPA: 1-800-388-PIR8");
+                LOGGER.log(Level.INFO, "Game Info: Commercial product - do not distribute!");
+                LOGGER.log(Level.INFO, "Game Note: Please report software piracy to the SPA: 1-800-388-PIR8");
                 break;
             case freedoom1:
             case freedoom2:
             case freedm:
-                LOGGER.log(Level.INFO, "Game info: Copyright (c) 2001-2017 Contributors to the Freedoom project. All rights reserved.");
-                LOGGER.log(Level.INFO, "Game note: See https://github.com/freedoom/freedoom/blob/master/COPYING.adoc");
+                LOGGER.log(Level.INFO, "Game Info: Copyright (c) 2001-2017 Contributors to the Freedoom project. All rights reserved.");
+                LOGGER.log(Level.INFO, "Game Note: See https://github.com/freedoom/freedoom/blob/master/COPYING.adoc");
                 break;
             default:
                 // Ouch.
@@ -3696,7 +3696,7 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
             ArbitrateNetStart();
         }
 
-        LOGGER.log(Level.INFO, String.format("D_CheckNetGame: startskill %s  deathmatch: %s  startmap: %d  startepisode: %d",
+        LOGGER.log(Level.FINE, String.format("D_CheckNetGame: startskill %s, deathmatch: %s, startmap: %d, startepisode: %d",
                 startskill.toString(), Boolean.toString(deathmatch), startmap, startepisode));
 
         // read values out of doomcom
@@ -3715,7 +3715,7 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
             nodeingame[i] = true;
         }
 
-        LOGGER.log(Level.INFO, String.format("D_CheckNetGame: player %d of %d (%d nodes)", (consoleplayer + 1), doomcom.numplayers, doomcom.numnodes));
+        LOGGER.log(Level.FINE, String.format("D_CheckNetGame: Player %d of %d (%d node(s))", (consoleplayer + 1), doomcom.numplayers, doomcom.numnodes));
     }
 
     /**
