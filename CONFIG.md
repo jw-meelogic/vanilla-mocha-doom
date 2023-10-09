@@ -255,7 +255,7 @@ The file can be made read-only to avoid this problem.
 * `fullscreen`: `false` by default. Turns on fullscreen mode instead of the default windowed mode
 * `fullscreen_mode`: options: `Best` (picks the closest supported resolution), `Native` (default, the current display mode)
 * `fullscreen_stretch`: options: `Centre`, `Stretch`, `Fit` (default), `Aspect_4_3`. Try with `fullscreen_mode=Native` if you experience trouble.
-* `fullscreen_interpolation`: options: `Nearest` (default), `Bilinear`, `Biqubic`
+* `fullscreen_interpolation`: options: `Nearest` (default, fast and crispy), `Bilinear` (smoother resize quality, slower), `Bicubic` (slow, best vailable resize quality)
 * `alwaysrun`: `false` by default
 * `vanilla_key_behavior`: `true` by default
 * `automap_plotter_style`: options: `Thin` (default, vanilla), `Thick` (scaled), `Deep` (slightly rounded scaled)
