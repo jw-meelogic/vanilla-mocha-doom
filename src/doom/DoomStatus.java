@@ -22,20 +22,20 @@ import static g.Signals.ScanCode.SC_6;
 import static g.Signals.ScanCode.SC_7;
 import static g.Signals.ScanCode.SC_8;
 import static g.Signals.ScanCode.SC_9;
-import static g.Signals.ScanCode.SC_A;
-import static g.Signals.ScanCode.SC_D;
+import static g.Signals.ScanCode.SC_COMMA;
 import static g.Signals.ScanCode.SC_END;
 import static g.Signals.ScanCode.SC_LALT;
 import static g.Signals.ScanCode.SC_LCTRL;
-import static g.Signals.ScanCode.SC_LEFT;
+import static g.Signals.ScanCode.SC_NUMKEY2;
+import static g.Signals.ScanCode.SC_NUMKEY4;
+import static g.Signals.ScanCode.SC_NUMKEY6;
+import static g.Signals.ScanCode.SC_NUMKEY8;
+import static g.Signals.ScanCode.SC_PERIOD;
 import static g.Signals.ScanCode.SC_PGDOWN;
 import static g.Signals.ScanCode.SC_PGUP;
 import static g.Signals.ScanCode.SC_Q;
-import static g.Signals.ScanCode.SC_RIGHT;
 import static g.Signals.ScanCode.SC_RSHIFT;
-import static g.Signals.ScanCode.SC_S;
 import static g.Signals.ScanCode.SC_SPACE;
-import static g.Signals.ScanCode.SC_W;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -400,12 +400,12 @@ public abstract class DoomStatus<T, V> {
     protected byte[] savebuffer;
 
     /* TODO Proper reconfigurable controls. Defaults hardcoded for now. T3h h4x, d00d. */
-    public int key_right = SC_RIGHT.ordinal();
-    public int key_left = SC_LEFT.ordinal();
-    public int key_up = SC_W.ordinal();
-    public int key_down = SC_S.ordinal();
-    public int key_strafeleft = SC_A.ordinal();
-    public int key_straferight = SC_D.ordinal();
+    public int key_right = SC_NUMKEY6.ordinal();
+    public int key_left = SC_NUMKEY4.ordinal();
+    public int key_up = SC_NUMKEY8.ordinal();
+    public int key_down = SC_NUMKEY2.ordinal();
+    public int key_strafeleft = SC_COMMA.ordinal();
+    public int key_straferight = SC_PERIOD.ordinal();
     public int key_fire = SC_LCTRL.ordinal();
     public int key_use = SC_SPACE.ordinal();
     public int key_strafe = SC_LALT.ordinal();
@@ -435,7 +435,7 @@ public abstract class DoomStatus<T, V> {
     public int joybspeed;
 
     /** Cancel vertical mouse movement by default */
-    protected boolean novert = false;	// AX: The good default
+    protected boolean novert = true;
 
     protected int MAXPLMOVE() {
         return forwardmove[1];

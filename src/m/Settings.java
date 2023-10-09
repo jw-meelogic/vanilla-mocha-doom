@@ -32,16 +32,16 @@ import static doom.englsh.HUSTR_CHATMACRO6;
 import static doom.englsh.HUSTR_CHATMACRO7;
 import static doom.englsh.HUSTR_CHATMACRO8;
 import static doom.englsh.HUSTR_CHATMACRO9;
-import static g.Signals.ScanCode.SC_A;
-import static g.Signals.ScanCode.SC_D;
+import static g.Signals.ScanCode.SC_COMMA;
 import static g.Signals.ScanCode.SC_LALT;
 import static g.Signals.ScanCode.SC_LCTRL;
-import static g.Signals.ScanCode.SC_LEFT;
-import static g.Signals.ScanCode.SC_RIGHT;
+import static g.Signals.ScanCode.SC_NUMKEY2;
+import static g.Signals.ScanCode.SC_NUMKEY4;
+import static g.Signals.ScanCode.SC_NUMKEY6;
+import static g.Signals.ScanCode.SC_NUMKEY8;
+import static g.Signals.ScanCode.SC_PERIOD;
 import static g.Signals.ScanCode.SC_RSHIFT;
-import static g.Signals.ScanCode.SC_S;
 import static g.Signals.ScanCode.SC_SPACE;
-import static g.Signals.ScanCode.SC_W;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -71,17 +71,17 @@ public enum Settings {
     sfx_volume(FILE_DOOM, 8),
     music_volume(FILE_DOOM, 8),
     show_messages(FILE_DOOM, 1),
-    key_right(FILE_DOOM, SC_RIGHT.ordinal()),
-    key_left(FILE_DOOM, SC_LEFT.ordinal()),
-    key_up(FILE_DOOM, SC_W.ordinal()),
-    key_down(FILE_DOOM, SC_S.ordinal()),
-    key_strafeleft(FILE_DOOM, SC_A.ordinal()),
-    key_straferight(FILE_DOOM, SC_D.ordinal()),
+    key_right(FILE_DOOM, SC_NUMKEY6.ordinal()),
+    key_left(FILE_DOOM, SC_NUMKEY4.ordinal()),
+    key_up(FILE_DOOM, SC_NUMKEY8.ordinal()),
+    key_down(FILE_DOOM, SC_NUMKEY2.ordinal()),
+    key_strafeleft(FILE_DOOM, SC_COMMA.ordinal()),
+    key_straferight(FILE_DOOM, SC_PERIOD.ordinal()),
     key_fire(FILE_DOOM, SC_LCTRL.ordinal()),
     key_use(FILE_DOOM, SC_SPACE.ordinal()),
     key_strafe(FILE_DOOM, SC_LALT.ordinal()),
     key_speed(FILE_DOOM, SC_RSHIFT.ordinal()),
-    use_mouse(FILE_DOOM, 1),
+    use_mouse(FILE_DOOM, 0),
     mouseb_fire(FILE_DOOM, 0),
     mouseb_strafe(FILE_DOOM, 1), // AX: Fixed
     mouseb_forward(FILE_DOOM, 2), // AX: Value inverted with the one above

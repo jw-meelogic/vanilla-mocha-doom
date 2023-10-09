@@ -10,8 +10,9 @@ be useful:
   Specify alternate configuration files to use (default is `default.cfg mochadoom.cfg`).
 * `-fullscreen`:
   Can also be specified in `mochadoom.cfg` file with the: `fullscreen true` setting.
+  You can also use `Alt+Enter` key combination to switch to fullscreen in the game.
   It will attempt switching to a fullscreen mode compatible with the current
-  resolution, or the closest available reported by the host OS.
+  resolution, or the closest available reported by the host OS (depending on the `fullscreen_mode` setting).
   NOTE: Windows users might have to disable the Direct3D pipeline
   with the `-Dsun.java2d.d3d=false` JVM parameter for this to work.
 * `-truecolor`:
@@ -21,16 +22,9 @@ be useful:
   Uses the all-new hicolor renderering mode, an enhancement that restores the
   look and feel of the historical Doom v0.4 Alpha's HiColor mode,
   with 15-bit color depth and lighting.
-* `-oldawtevents`:
-  Forces using the older awt event handling system.
-  Use it only if the new default one gives you trouble.
 * `-novert [disable]`:
   By default, vertical mouse movement for the player will
   be disabled, unless you use the `-novert disable` command.
-* `-grabmouse`:
-  Forces a more aggressive way of keeping the mouse
-  confined in the game window. Only used with `-oldawtevents`,
-  where it's turned OFF by default. Otherwise, it's not effective.
 * `-multiply <n>`:
   Multiplies the base resolution by `n` times. Acceptable
   values are 1-5. Base resolution is 320x200, default is `-multiply 3` (960x600)
@@ -217,44 +211,37 @@ The file takes the format of a list of configuration settings, with each line of
 * `show_messages`:
   Boolean value which controls whether messages are displayed in the heads up display. The default is 1 (on)
 * `chatmacro0`:
-  Multiplayer chat macro sent when alt+0 is pressed.
+  Multiplayer chat macro sent when `Alt+0` is pressed.
 * `chatmacro1`:
-  Multiplayer chat macro sent when alt+1 is pressed.
+  Multiplayer chat macro sent when `Alt+1` is pressed.
 * `chatmacro2`:
-  Multiplayer chat macro sent when alt+2 is pressed.
+  Multiplayer chat macro sent when `Alt+2` is pressed.
 * `chatmacro3`:
-  Multiplayer chat macro sent when alt+3 is pressed.
+  Multiplayer chat macro sent when `Alt+3` is pressed.
 * `chatmacro4`:
-  Multiplayer chat macro sent when alt+4 is pressed.
+  Multiplayer chat macro sent when `Alt+4` is pressed.
 * `chatmacro5`:
-  Multiplayer chat macro sent when alt+5 is pressed.
+  Multiplayer chat macro sent when `Alt+5` is pressed.
 * `chatmacro6`:
-  Multiplayer chat macro sent when alt+6 is pressed.
+  Multiplayer chat macro sent when `Alt+6` is pressed.
 * `chatmacro7`:
-  Multiplayer chat macro sent when alt+7 is pressed.
+  Multiplayer chat macro sent when `Alt+7` is pressed.
 * `chatmacro8`:
-  Multiplayer chat macro sent when alt+8 is pressed.
+  Multiplayer chat macro sent when `Alt+8` is pressed.
 * `chatmacro9`:
-  Multiplayer chat macro sent when alt+9 is pressed.
+  Multiplayer chat macro sent when `Alt+9` is pressed.
 
-#### Additional settings
-
-The `joyb_speed` setting can be set to 29 to make the player always run in most Doom versions and Doom engine games.
-Originally it was discovered that setting the value to 31 would produce the effect, but that value does not work on the engines of some games,
-such as Final Doom, Heretic, and Strife.
-Doom v1.0 is noteworthy in that neither 29 nor 31 enables autorun; the only currently known working value is 2029.
-
-The configuration file can be used to set the mouse sensitivity above the regular maximum of 9,
-though note that setting it to a value higher than 30 will make the game terminate upon entering the options menu.
-
-The configuration file can be rearranged and comments added; however, the game will overwrite any such changes on exit.
+NOTE: The configuration file can be rearranged and comments added; however, the game will overwrite any such changes on exit.
 The file can be made read-only to avoid this problem.
 
 ### Mocha Doom Settings
 
-* `fullscreen`: `false` by default. Turns on fullscreen mode instead of the default windowed mode
-* `fullscreen_mode`: options: `Best` (picks the closest supported resolution), `Native` (default, the current display mode)
-* `fullscreen_stretch`: options: `Centre`, `Stretch`, `Fit` (default), `Aspect_4_3`. Try with `fullscreen_mode=Native` if you experience trouble.
+The file is normally named `mochadoom.cfg`, but the `-config` command line parameter can be used to specify an alternate file to use.
+
+* `fullscreen`: `false` by default. `true` value turns on fullscreen mode instead of the default windowed mode.
+* `fullscreen_mode`: options: `Best` (picks the closest supported resolution, might be buggy), `Native` (default, the current display mode)
+* `fullscreen_stretch`: options: `Centre`, `Stretch`, `Fit` (default), `Aspect_4_3`.
+  Try with `fullscreen_mode=Native` if you experience problems.
 * `fullscreen_interpolation`: options: `Nearest` (default, fast and crispy), `Bilinear` (smoother resize quality, slower), `Bicubic` (slow, best vailable resize quality)
 * `alwaysrun`: `false` by default
 * `vanilla_key_behavior`: `true` by default
@@ -279,6 +266,6 @@ The file can be made read-only to avoid this problem.
 * `parallelism_realcolor_tint`: available number of processors, used for real color tinting to speed up
 * `parallelism_patch_columns`: `0` by default. When drawing screen graphics patches, this speeds up column drawing, `<= 0` is serial
 * `greyscale_filter`: options: `Lightness`, `Average`, `Luminance` (default for invulnerability map), `Luminosity`. Used for FUZZ effect or with `-greypal` comand line argument.
-* `scene_renderer_mode`: options: `Serial` (default), `Parallel`, `Parallel2` (deprecated). In vanilla, scene renderer is serial. Parallel can be faster.
+* `scene_renderer_mode`: options: `Serial` (default), `Parallel`. In vanilla, scene renderer is serial. Parallel can be faster.
 * `reconstruct_savegame_pointers`: `true` by default, in vanilla, infighting targets are not restored on savegame load
 

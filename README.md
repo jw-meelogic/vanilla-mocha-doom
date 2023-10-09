@@ -8,9 +8,11 @@
 Mocha Doom is a pure Java Doom source port. Most of the hard work of porting Doom to Java has already been done,
 thanks to Velktron (Maes) (see [Programming tricks](PROGRAMMING.md) for technical details), but he has stopped working on it in 2013.
 
-Although the port is almost complete, some work remains to do, most importantly the network code for the multiplayer is missing.
+Although the port is almost complete and many bugs have been fixed by contributors,
+some work remains to do, most importantly the network code for the multiplayer is missing.
 
-This fork of Mocha Doom is intended to support the classic key controls, and provide some pre-compiled binaries for convenience.
+This fork of Mocha Doom is intended to support the classic key controls,
+and provide some pre-compiled binaries and startup scripts for convenience.
 
 ## Download
 
@@ -29,17 +31,20 @@ You may also download the freely distributable Shareware version of Doom (also i
 2. Download the latest [release](https://github.com/gaborbata/mochadoom/releases/latest)
    (or [build](https://github.com/gaborbata/mochadoom#how-to-build) a JAR file).
 3. Once you have the JAR file, you can run Mocha Doom with one of the following batch/scripts/commands.
-   Each script has a `classic` version which launches Doom with classic key controls.
+   Each script has a `classic` and `modern` version which launches Doom with classic or modern key controls, respectively.
 
    * Linux
      * `mochadoom.sh`
      * `mochadoom-classic.sh`
+     * `mochadoom-modern.sh`
    * Windows
      * `mochadoom.bat`
      * `mochadoom-classic.bat`
+     * `mochadoom-modern.bat`
    * Platform independent
      * `java -jar mochadoom.jar`
      * `java -jar mochadoom.jar -config classic.cfg mochadoom.cfg`
+     * `java -jar mochadoom.jar -config modern.cfg mochadoom.cfg`
 
    Mocha Doom tries to find a valid Doom WAD file in the directory
    defined by the `DOOMWADDIR` environment variable (defaults to the current directory).
@@ -50,25 +55,27 @@ You may also download the freely distributable Shareware version of Doom (also i
 
 ### Configuration
 
-Check [CONFIG.md](CONFIG.md) for more options.
+Check [CONFIG.md](CONFIG.md) for more options to tune rendering speed and quality of Mocha Doom.
 
-### Doom with classic controls
+### Doom with classic or modern key controls
 
-You can use `classic.cfg` configuration in order to have the old-school classic key controls.
+You can use `classic.cfg` (default) configuration in order to have the old-school classic key controls.
+If you prefere the modern keyboard/mouse layout, use the `modern.cfg` configuration.
+If no configuration is provided, the `default.cfg` will be used which is the same as `classic.cfg`.
 
-| Configuration   | Default          | Classic                        |
-| --------------- | ---------------- | ------------------------------ |
-| key_right       | 77 (right arrow) | 77 (right arrow)               |
-| key_left        | 75 (left arrow)  | 75 (left arrow)                |
-| key_up          | 17 (W)           | 72 (up arrow)                  |
-| key_down        | 31 (S)           | 80 (down arrow)                |
-| key_strafeleft  | 30 (A)           | 51 (Alt+left arrow) or comma   |
-| key_straferight | 32 (D)           | 52 (Alt+right arrow) or period |
-| key_fire        | 29 (Control)     | 29 (Control)                   |
-| key_use         | 57 (Space)       | 57 (Space)                     |
-| key_strafe      | 56 (Alt)         | 56 (Alt)                       |
-| key_speed       | 54 (Shift)       | 54 (Shift)                     |
-| use_mouse       | 1 (enabled)      | 0 (disabled)                   |
+| Configuration   | Classic (Default)              | Modern (WASD + mouse) |
+| --------------- | ------------------------------ | --------------------- |
+| key_right       | 77 (right arrow)               | 77 (right arrow)      |
+| key_left        | 75 (left arrow)                | 75 (left arrow)       |
+| key_up          | 72 (up arrow)                  | 17 (W)                |
+| key_down        | 80 (down arrow)                | 31 (S)                |
+| key_strafeleft  | 51 (Alt+left arrow) or comma   | 30 (A)                |
+| key_straferight | 52 (Alt+right arrow) or period | 32 (D)                |
+| key_fire        | 29 (Control)                   | 29 (Control)          |
+| key_use         | 57 (Space)                     | 57 (Space)            |
+| key_strafe      | 56 (Alt)                       | 56 (Alt)              |
+| key_speed       | 54 (Shift)                     | 54 (Shift)            |
+| use_mouse       | 0 (disabled)                   | 1 (enabled)           |
 
 ## How to build
 

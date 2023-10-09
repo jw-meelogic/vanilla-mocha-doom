@@ -51,6 +51,7 @@ distributions {
                 include '.doomrc'
                 include 'default.cfg'
                 include 'classic.cfg'
+                include 'modern.cfg'
                 include 'mochadoom.cfg'
             }
             into '/'
