@@ -81,7 +81,7 @@ public enum Settings {
     key_use(FILE_DOOM, SC_SPACE.ordinal()),
     key_strafe(FILE_DOOM, SC_LALT.ordinal()),
     key_speed(FILE_DOOM, SC_RSHIFT.ordinal()),
-    use_mouse(FILE_DOOM, 0),
+    use_mouse(FILE_DOOM, 1),
     mouseb_fire(FILE_DOOM, 0),
     mouseb_strafe(FILE_DOOM, 1), // AX: Fixed
     mouseb_forward(FILE_DOOM, 2), // AX: Value inverted with the one above

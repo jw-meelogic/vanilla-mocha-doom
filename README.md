@@ -59,11 +59,11 @@ Check [CONFIG.md](CONFIG.md) for more options to tune rendering speed and qualit
 
 ### Doom with classic or modern key controls
 
-You can use `classic.cfg` (default) configuration in order to have the old-school classic key controls.
-If you prefere the modern keyboard/mouse layout, use the `modern.cfg` configuration.
+You can use `classic.cfg` (default) configuration in order to have the old-school classic key controls (i.e. arrow keys).
+If you prefere the modern keyboard/mouse layout (WASD), use the `modern.cfg` configuration.
 If no configuration is provided, the `default.cfg` will be used which is the same as `classic.cfg`.
 
-| Configuration   | Classic (Default)              | Modern (WASD + mouse) |
+| Configuration   | Classic (Default)              | Modern (WASD)         |
 | --------------- | ------------------------------ | --------------------- |
 | key_right       | 77 (right arrow)               | 77 (right arrow)      |
 | key_left        | 75 (left arrow)                | 75 (left arrow)       |
@@ -75,7 +75,6 @@ If no configuration is provided, the `default.cfg` will be used which is the sam
 | key_use         | 57 (Space)                     | 57 (Space)            |
 | key_strafe      | 56 (Alt)                       | 56 (Alt)              |
 | key_speed       | 54 (Shift)                     | 54 (Shift)            |
-| use_mouse       | 0 (disabled)                   | 1 (enabled)           |
 
 ## How to build
 
