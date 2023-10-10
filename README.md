@@ -72,9 +72,13 @@ If no configuration is provided, the `default.cfg` will be used which is the sam
 | key_strafeleft  | 51 (Alt+left arrow) or comma   | 30 (A)                |
 | key_straferight | 52 (Alt+right arrow) or period | 32 (D)                |
 | key_fire        | 29 (Control)                   | 29 (Control)          |
-| key_use         | 57 (Space)                     | 57 (Space)            |
+| key_use         | 57 (Space)                     | 18 (E)                |
 | key_strafe      | 56 (Alt)                       | 56 (Alt)              |
 | key_speed       | 54 (Shift)                     | 54 (Shift)            |
+| use_mouse       | 1 (enabled)                    | 1 (enabled)           |
+| mouseb_fire     | 0 (left button)                | 0 (left button)       |
+| mouseb_strafe   | 1 (right button)               | 1 (right button)      |
+| mouseb_forward  | 2 (mid button)                 | 2 (mid button)        |
 
 ## How to build
 

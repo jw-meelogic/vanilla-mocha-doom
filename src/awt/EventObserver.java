@@ -149,14 +149,11 @@ public class EventObserver<Handler extends Enum<Handler> & EventBase<Handler>> {
      */
     private final Cursor hiddenCursor;
 
-    private final boolean mouseEnabled;
-
     /**
      * To construct the Observer you only need to provide it with the class of Enum used
      * to contain dictionary, the Component it will be working on and acceptor of event_t's
      */
-    public EventObserver(Class<Handler> handlerClass, Component component, Consumer<? super event_t> doomEventConsumer, boolean mouseEnabled) {
-        this.mouseEnabled = mouseEnabled;
+    public EventObserver(Class<Handler> handlerClass, Component component, Consumer<? super event_t> doomEventConsumer) {
         this.actionStateHolder = new ActionStateHolder<>(handlerClass, this);
         this.eventSortedHandlers = sortHandlers(handlerClass.getEnumConstants());
         this.doomEventConsumer = doomEventConsumer;
@@ -184,11 +181,6 @@ public class EventObserver<Handler extends Enum<Handler> & EventBase<Handler>> {
         final Optional<Handler> maybe = findById(eventSortedHandlers, ev.getID());
         final Handler handler;
         if (!maybe.isPresent() || !actionStateHolder.hasActionsEnabled(handler = maybe.get(), ActionMode.PERFORM)) {
-            return;
-        }
-
-        // do not observe mouse events if mouse is disabled
-        if (!mouseEnabled && EventHandler.MOUSE_EVENT_HANDLERS.contains(handler)) {
             return;
         }
 
@@ -254,12 +246,10 @@ public class EventObserver<Handler extends Enum<Handler> & EventBase<Handler>> {
      *  - Good Sign 2017/04/24
      */
     protected void centreCursor(final AWTEvent event) {
-        if (mouseEnabled) {
-            final int centreX = component.getWidth() >> 1;
-            final int centreY = component.getHeight() >> 1;
-            if (component.isShowing()) {
-                MOUSE_ROBOT.ifPresent(rob -> mouseEvent.resetIn(rob, component.getLocationOnScreen(), centreX, centreY));
-            }
+        final int centreX = component.getWidth() >> 1;
+        final int centreY = component.getHeight() >> 1;
+        if (component.isShowing()) {
+            MOUSE_ROBOT.ifPresent(rob -> mouseEvent.resetIn(rob, component.getLocationOnScreen(), centreX, centreY));
         }
         modifyCursor(event);
     }

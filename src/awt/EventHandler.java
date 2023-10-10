@@ -226,16 +226,6 @@ public enum EventHandler implements EventBase<EventHandler> {
         relationMapper.map(RelationType.ENABLE, Relate(COMPONENT_MOVE, MOUSE_CLICK));
     });
 
-    public static final Set<EventBase<?>> MOUSE_EVENT_HANDLERS = Collections.unmodifiableSet(EnumSet.of(
-            EventHandler.MOUSE_CLICK,
-            EventHandler.MOUSE_DRAG,
-            EventHandler.MOUSE_ENTER,
-            EventHandler.MOUSE_EXIT,
-            EventHandler.MOUSE_MOVE,
-            EventHandler.MOUSE_PRESS,
-            EventHandler.MOUSE_RELEASE
-    ));
-
     public static void menuCaptureChanges(EventObserver<EventHandler> observer, boolean capture) {
         if (capture) {
             observer.enableAction(MOUSE_MOVE, ActionMode.PERFORM);

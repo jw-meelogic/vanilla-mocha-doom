@@ -73,7 +73,7 @@ public class DoomWindowController<E extends Component & DoomWindow<E>, H extends
         this.defaultHeight = defaultHeight;
         this.dimension = new DimensionImpl(defaultWidth, defaultHeight);
         this.doomFrame = new DoomFrame<>(dimension, component, imageSource);
-        this.observer = new EventObserver<>(handlerClass, component, doomEventConsumer, Engine.getConfig().equals(Settings.use_mouse, 1));
+        this.observer = new EventObserver<>(handlerClass, component, doomEventConsumer);
         Toolkit.getDefaultToolkit().addAWTEventListener(observer::observe, ALL_EVENTS_MASK);
         sizeInit();
         doomFrame.turnOn();
