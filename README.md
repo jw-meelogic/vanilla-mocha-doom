@@ -1,9 +1,9 @@
 # Mocha Doom
 
-![Top Language](https://img.shields.io/github/languages/top/gaborbata/mochadoom.svg?style=flat)
-![Code Size](https://img.shields.io/github/languages/code-size/gaborbata/mochadoom.svg?style=flat)
-![License](https://img.shields.io/github/license/gaborbata/mochadoom.svg?style=flat&logo=gnu)
-[![Java CI with Gradle](https://github.com/gaborbata/mochadoom/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/gaborbata/mochadoom/actions/workflows/gradle.yml)
+![Top Language](https://img.shields.io/github/languages/top/gaborbata/vanilla-mocha-doom.svg?style=flat)
+![Code Size](https://img.shields.io/github/languages/code-size/gaborbata/vanilla-mocha-doom.svg?style=flat)
+![License](https://img.shields.io/github/license/gaborbata/vanilla-mocha-doom.svg?style=flat&logo=gnu)
+[![Java CI with Gradle](https://github.com/gaborbata/vanilla-mocha-doom/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/gaborbata/vanilla-mocha-doom/actions/workflows/gradle.yml)
 
 Mocha Doom is a pure Java Doom source port. Most of the hard work of porting Doom to Java has already been done,
 thanks to Velktron (Maes) (see [Programming tricks](PROGRAMMING.md) for technical details), but he has stopped working on it in 2013.
@@ -16,7 +16,7 @@ and provide some pre-compiled binaries and startup scripts for convenience.
 
 ## Download
 
-You can find the latest distribution package under the [releases](https://github.com/gaborbata/mochadoom/releases/latest) link.
+You can find the latest distribution package under the [releases](https://github.com/gaborbata/vanilla-mocha-doom/releases/latest) link.
 
 Mocha Doom can play original variants of Doom. If you don't own any, the easiest way to obtain them is to purchase them from Steam or GOG.
 You may also download the freely distributable Shareware version of Doom (also included in this repository) from one of the following links:
@@ -28,8 +28,8 @@ You may also download the freely distributable Shareware version of Doom (also i
 
 1. Mocha Doom requires Java, so first of all make sure you have installed Java and please make sure `PATH`,
    or `JAVA_HOME` environment variables point to that installation.
-2. Download the latest [release](https://github.com/gaborbata/mochadoom/releases/latest)
-   (or [build](https://github.com/gaborbata/mochadoom#how-to-build) a JAR file).
+2. Download the latest [release](https://github.com/gaborbata/vanilla-mocha-doom/releases/latest)
+   (or [build](https://github.com/gaborbata/vanilla-mocha-doom#how-to-build) a JAR file).
 3. Once you have the JAR file, you can run Mocha Doom with one of the following batch/scripts/commands.
    Each script has a `classic` and `modern` version which launches Doom with classic or modern key controls, respectively.
 
