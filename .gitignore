@@ -10,6 +10,9 @@ dist/
 build.xml
 nbproject/
 .gradle
+gradle/
+gradlew
+gradlew.bat
 
 # Intellij 
 *.iml
