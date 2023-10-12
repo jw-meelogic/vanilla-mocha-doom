@@ -8,13 +8,6 @@ be useful:
 
 * `-config <file1> [file2] ...`:
   Specify alternate configuration files to use (default is `default.cfg mochadoom.cfg`).
-* `-fullscreen`:
-  Can also be specified in `mochadoom.cfg` file with the: `fullscreen true` setting.
-  You can also use `Alt+Enter` key combination to switch to fullscreen in the game.
-  It will attempt switching to a fullscreen mode compatible with the current
-  resolution, or the closest available reported by the host OS (depending on the `fullscreen_mode` setting).
-  NOTE: Windows users might have to disable the Direct3D pipeline
-  with the `-Dsun.java2d.d3d=false` JVM parameter for this to work.
 * `-truecolor`:
   Uses the all-new truecolor renderering mode, an enhancement that combines the
   oldschool renderer's look with true 24-bit depth colormaps and lighting.
@@ -242,6 +235,10 @@ The file can be made read-only to avoid this problem.
 The file is normally named `mochadoom.cfg`, but the `-config` command line parameter can be used to specify an alternate file to use.
 
 * `fullscreen`: `false` by default. `true` value turns on fullscreen mode instead of the default windowed mode.
+  You can also use `Alt+Enter` key combination to switch to fullscreen in the game.
+  It will attempt switching to a fullscreen mode compatible with the current resolution,
+  or the closest available reported by the host OS (depending on the `fullscreen_mode` setting).
+  NOTE: Windows users might have to disable the Direct3D pipeline with the `-Dsun.java2d.d3d=false` JVM parameter for this to work.
 * `fullscreen_mode`:
   * `Best` (picks the closest supported resolution, might be buggy)
   * `Native` (default, the current display mode)
