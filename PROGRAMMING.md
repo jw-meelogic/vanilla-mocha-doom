@@ -1,8 +1,8 @@
 # Programming tricks
 
-Some of Doom's source code features and quirks and how they are addressed in Java/MochaDoom
+## Some of Doom's source code features and quirks and how they are addressed in Java/MochaDoom
 
-If you read the introduction at the main page, you'll have read me mentioning the infamous "original C Doom source code" a LOT of
+You'll have read me mentioning the infamous "original C Doom source code" a LOT of
 times, and how it's hard to map it to other languages that are not C/C++/assembler etc.
 
 Well, here you can read some more in-depth details of what is going on in the world of Doom source ports, and how Mocha Doom has

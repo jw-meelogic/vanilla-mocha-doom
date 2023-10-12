@@ -116,11 +116,14 @@ The file takes the format of a list of configuration settings, with each line of
 #### Display
 
 * `screenblocks`:
-  Controls the screensize, ranging from 3-11. A value of 10 gives a fullscreen window with the status bar, while 11 gives fullscreen without status bar. The default value is 9 (10 in Mocha Doom).
+  Controls the screensize, ranging from 3-11. A value of 10 gives a fullscreen window with the status bar,
+  while 11 gives fullscreen without status bar. The default value is 9 (10 in Mocha Doom).
 * `detaillevel`:
-  Boolean value which controls the resolution of the screen. The logic here is inverted: 0 is high resolution, while 1 is low resolution.
+  Boolean value which controls the resolution of the screen.
+  The logic here is inverted: 0 is high resolution, while 1 is low resolution.
 * `usegamma`:
-  Gamma correction setting. This ranges from 0–4, with 0 representing no gamma correction, while 4 gives maximum gamma correction. The default value is 0.
+  Gamma correction setting. This ranges from 0–4, with 0 representing no gamma correction, while 4 gives maximum gamma correction.
+  The default value is 0.
 
 #### Joystick
 
@@ -239,15 +242,31 @@ The file can be made read-only to avoid this problem.
 The file is normally named `mochadoom.cfg`, but the `-config` command line parameter can be used to specify an alternate file to use.
 
 * `fullscreen`: `false` by default. `true` value turns on fullscreen mode instead of the default windowed mode.
-* `fullscreen_mode`: options: `Best` (picks the closest supported resolution, might be buggy), `Native` (default, the current display mode)
-* `fullscreen_stretch`: options: `Centre`, `Stretch`, `Fit` (default), `Aspect_4_3`.
+* `fullscreen_mode`:
+  * `Best` (picks the closest supported resolution, might be buggy)
+  * `Native` (default, the current display mode)
+* `fullscreen_stretch`:
+  * `Centre`
+  * `Stretch`
+  * `Fit` (default)
+  * `Aspect_4_3`.
   Try with `fullscreen_mode=Native` if you experience problems.
-* `fullscreen_interpolation`: options: `Nearest` (default, fast and crispy), `Bilinear` (smoother resize quality, slower), `Bicubic` (slow, best vailable resize quality)
+* `fullscreen_interpolation`:
+  * `Nearest` (default, fast and crispy)
+  * `Bilinear` (smoother resize quality, slower)
+  * `Bicubic` (slow, best vailable resize quality)
 * `alwaysrun`: `false` by default
 * `vanilla_key_behavior`: `true` by default
-* `automap_plotter_style`: options: `Thin` (default, vanilla), `Thick` (scaled), `Deep` (slightly rounded scaled)
+* `automap_plotter_style`:
+  * `Thin` (default, vanilla)
+  * `Thick` (scaled)
+  * `Deep` (slightly rounded scaled)
 * `enable_colormap_lump`: `true` by default, enables usage of COLORMAP lump read from WAD during lights and specials generation
-* `color_depth`: options: `Indexed` (default, 256 colors), `HiColor` (32768 colors), `TrueColor`: (16777216), `AlphaTrueColor` (16777216, with Alpha transparency)
+* `color_depth`:
+  * `Indexed` (default, 256 colors)
+  * `HiColor` (32768 colors)
+  * `TrueColor`: (16777216)
+  * `AlphaTrueColor` (16777216, with Alpha transparency)
 * `extend_plats_limit`: `true` by default, resize instead of "P_AddActivePlat: no more plats!"
 * `extend_button_slots_limit`: `true` by default, resize instead of "P_StartButton: no button slots left!"
 * `fix_blockmap`: `true` by default, add support for 512x512 blockmap
@@ -257,7 +276,9 @@ The file is normally named `mochadoom.cfg`, but the `-config` command line param
 * `fix_sky_palette`: `false` by default, in vanilla, sky color does not change when under effect of Invulnerability powerup
 * `fix_medi_need`: `false` by default, in vanilla, message "Picked up a medikit that you REALLY need!" never appears due to bug
 * `fix_ouch_face`: `false` by default, in vanilla, ouch face displayed only when acuired 25+ health when damaged for 25+ health
-* `line_of_sight`: options: `Vanilla` (default), `Boom`
+* `line_of_sight`:
+  * `Vanilla` (default)
+  * `Boom`
 * `vestrobe`: `false` by default, strobe effect on automap cut off from vanilla
 * `scale_screen_tiles`: `true` by default, if you scale screen tiles, it looks like vanilla
 * `scale_melt`: `true` by default, if you scale melt and use DoomRandom generator (not truly random), it looks exacly like vanilla
@@ -265,7 +286,15 @@ The file is normally named `mochadoom.cfg`, but the `-config` command line param
 * `fuzz_mix`: `false` by default, Maes unique features on Fuzz effect. Vanilla dont have that, so they are switched off by default
 * `parallelism_realcolor_tint`: available number of processors, used for real color tinting to speed up
 * `parallelism_patch_columns`: `0` by default. When drawing screen graphics patches, this speeds up column drawing, `<= 0` is serial
-* `greyscale_filter`: options: `Lightness`, `Average`, `Luminance` (default for invulnerability map), `Luminosity`. Used for FUZZ effect or with `-greypal` comand line argument.
-* `scene_renderer_mode`: options: `Serial` (default), `Parallel`. In vanilla, scene renderer is serial. Parallel can be faster.
+* `greyscale_filter`:
+  * `Lightness`
+  * `Average`
+  * `Luminance` (default for invulnerability map)
+  * `Luminosity`
+  Used for FUZZ effect or with `-greypal` comand line argument.
+* `scene_renderer_mode`:
+  * `Serial` (default)
+  * `Parallel`
+  In vanilla, scene renderer is serial. Parallel can be faster.
 * `reconstruct_savegame_pointers`: `true` by default, in vanilla, infighting targets are not restored on savegame load
 
