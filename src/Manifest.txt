@@ -1,1 +1,1 @@
-Main-Class: mochadoom/Engine
+Main-Class: mochadoom.Engine

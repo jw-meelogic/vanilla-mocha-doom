@@ -99,7 +99,7 @@ On Linux, two different scripts can be used.
 
 2. `build-jar.sh` which will build a JAR file. You can then run the JAR file as such:
 
-   `java -jar mochadoom.jar -iwad wads/DOOM1.WAD`.
+   `java -jar build/libs/mochadoom.jar -iwad wads/DOOM1.WAD`.
 
    This is the preferred way for distributing a Mocha Doom executable.
 
