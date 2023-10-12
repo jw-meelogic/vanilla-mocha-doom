@@ -2681,7 +2681,7 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
         // TODO: find out if we have requests for a specific resolution,
         // and try honouring them as closely as possible.       
         // 23/5/2011: Experimental dynamic resolution subsystem
-        this.vs = VisualSettings.parse(cVarManager);
+        this.vs = VisualSettings.parse(cVarManager, CM);
         this.spriteManager = new SpriteManager<>(this);
 
         // Heads-up, Menu, Level Loader

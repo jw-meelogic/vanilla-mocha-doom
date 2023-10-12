@@ -246,9 +246,9 @@ public class EventObserver<Handler extends Enum<Handler> & EventBase<Handler>> {
      *  - Good Sign 2017/04/24
      */
     protected void centreCursor(final AWTEvent event) {
-        final int centreX = component.getWidth() >> 1;
-        final int centreY = component.getHeight() >> 1;
         if (component.isShowing()) {
+            int centreX = component.getWidth() >> 1;
+            int centreY = component.getHeight() >> 1;
             MOUSE_ROBOT.ifPresent(rob -> mouseEvent.resetIn(rob, component.getLocationOnScreen(), centreX, centreY));
         }
         modifyCursor(event);

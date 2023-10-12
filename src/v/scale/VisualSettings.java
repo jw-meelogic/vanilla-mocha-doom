@@ -18,22 +18,28 @@ package v.scale;
 
 import doom.CVarManager;
 import doom.CommandVariable;
+import doom.ConfigManager;
+import m.Settings;
 
 public class VisualSettings {
 
-    /** Default video scale is "triple vanilla: 3 x (320 x 200) */
-    public final static VideoScale vanilla = new VideoScaleInfo(1.0f);
-    public final static VideoScale double_vanilla = new VideoScaleInfo(2.0f);
-    public final static VideoScale triple_vanilla = new VideoScaleInfo(3.0f);
-    public final static VideoScale default_scale = triple_vanilla;
+    /** Default video scale is "triple VANILLA: 3 x (320 x 200) */
+    public static final VideoScale VANILLA = new VideoScaleInfo(1.0f);
+    public static final VideoScale DOUBLE_VANILLA = new VideoScaleInfo(2.0f);
+    public static final VideoScale TRIPLE_VANILLA = new VideoScaleInfo(3.0f);
+    public static final VideoScale DEFAULT_SCALE = TRIPLE_VANILLA;
 
-    /** Parses the command line for resolution-specific commands, and creates
-     *  an appropriate IVideoScale object.
-     *  
-     * @param CM
-     * @return
+    private static final int SCALE_MAX = 5;
+
+    /**
+     * Parses the command line for resolution-specific commands, and creates
+     * an appropriate IVideoScale object.
+     *
+     * @param CVM the command line config manager
+     * @param CM the config manager
+     * @return the video scale info instance
      */
-    public final static VideoScale parse(CVarManager CVM) {
+    public final static VideoScale parse(CVarManager CVM, ConfigManager CM) {
 
         { // check multiply
             // -multiply parameter defined from linux doom.
@@ -41,8 +47,8 @@ public class VisualSettings {
             final int multiply = CVM.get(CommandVariable.MULTIPLY, Integer.class, 0).orElse(-1);
 
             // If -multiply was successful, trump any others.
-            // Implied to be a solid multiple of the vanilla resolution.
-            if (multiply > 0 && multiply <= 5) {
+            // Implied to be a solid multiple of the VANILLA resolution.
+            if (multiply > 0 && multiply <= SCALE_MAX) {
                 return new VideoScaleInfo(multiply);
             }
         } // forget multiply
@@ -56,24 +62,29 @@ public class VisualSettings {
 
         // Nothing to do?
         if (height == -1 && width == -1) {
-            return default_scale;
+            // check multiply from mochadoom settings
+            int multiply = CM.getValue(Settings.multiply, Integer.class);
+            if (multiply > 0 && multiply <= SCALE_MAX) {
+                return new VideoScaleInfo(multiply);
+            }
+            return DEFAULT_SCALE;
         }
 
         // Break them down to the nearest multiple of the base width or height.
         mulx = Math.round((float) width / VideoScale.BASE_WIDTH);
         muly = Math.round((float) height / VideoScale.BASE_HEIGHT);
 
-        // Do not accept zero or sub-vanilla resolutions
+        // Do not accept zero or sub-VANILLA resolutions
         if (mulx > 0 || muly > 0) {
             // Use the maximum multiplier. We don't support skewed
             // aspect ratios yet.
             mulf = Math.max(mulx, muly);
-            if (mulf >= 1 && mulf <= 5) {
+            if (mulf >= 1 && mulf <= SCALE_MAX) {
                 return new VideoScaleInfo(mulf);
             }
         }
 
         // In all other cases...
-        return default_scale;
+        return DEFAULT_SCALE;
     }
 }
