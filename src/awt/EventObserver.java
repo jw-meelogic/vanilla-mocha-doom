@@ -179,9 +179,8 @@ public class EventObserver<Handler extends Enum<Handler> & EventBase<Handler>> {
      * EventHandler class do not provide listener itself - but should work with any.
      */
     public void observe(final AWTEvent ev) {
-        final Optional<Handler> maybe = findById(eventSortedHandlers, ev.getID());
-        final Handler handler;
-        if (!maybe.isPresent() || !actionStateHolder.hasActionsEnabled(handler = maybe.get(), ActionMode.PERFORM)) {
+        final Handler handler = findById(eventSortedHandlers, ev.getID());
+        if (handler == null || !actionStateHolder.hasActionsEnabled(handler, ActionMode.PERFORM)) {
             return;
         }
 

@@ -34,11 +34,12 @@ import java.util.function.IntSupplier;
  * The base for construction of Event handling dictionaries
  * EventHandler is a reference implementation of this base
  * 
- * Note the type safety with generics. It could be a complex task, but you can avoid
- * unchecked casts and warnings suppression. Whoa... Make my head swirl around!
- *  - Good Sign 2017/04/24
+ * Note the type safety with generics.It could be a complex task, but you can avoid
+ unchecked casts and warnings suppression. Whoa... Make my head swirl around!
+  - Good Sign 2017/04/24
  * 
  * @author Good Sign
+ * @param <Handler> the type of handler
  */
 public interface EventBase<Handler extends Enum<Handler> & EventBase<Handler>> extends IntSupplier {
 
@@ -49,13 +50,19 @@ public interface EventBase<Handler extends Enum<Handler> & EventBase<Handler>> e
         return values;
     }
 
-    static <H extends Enum<H> & EventBase<H>> Optional<H> findById(H[] values, int eventId) {
+    /**
+     * Find event by id
+     * @param <H> type of event
+     * @param values event values
+     * @param eventId the id
+     * @return the event (can be null)
+    */
+    static <H extends Enum<H> & EventBase<H>> H findById(H[] values, int eventId) {
         final int index = Arrays.binarySearch(values, (IntSupplier) () -> eventId, EVENT_SORT);
         if (index < 0) {
-            return Optional.empty();
+            return null;
         }
-
-        return Optional.of(values[index]);
+        return values[index];
     }
 
     @SafeVarargs

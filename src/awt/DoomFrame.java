@@ -168,7 +168,7 @@ public class DoomFrame<Window extends Component & DoomWindow<Window>> extends JF
                     localG2d.setRenderingHint(KEY_RENDERING, VALUE_RENDER_SPEED);
                     localG2d.setRenderingHint(KEY_COLOR_RENDERING, VALUE_COLOR_RENDER_SPEED);
 
-                    // add fullscreen interpolation applyFullscreenOptions
+                    // add fullscreen interpolation options
                     applyFullscreenOptions(localG2d);
                 }
             }
