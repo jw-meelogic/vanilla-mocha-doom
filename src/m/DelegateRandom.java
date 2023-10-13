@@ -67,11 +67,11 @@ public class DelegateRandom implements IRandom {
         if (arandom != null && ((!which && arandom instanceof DoomRandom) || (which && arandom instanceof JavaRandom))) {
             this.altRandom = random;
             this.random = arandom;
-            LOGGER.log(Level.INFO, String.format("M_Random: Switching to %s\n", random.getClass().getSimpleName()));
+            LOGGER.log(Level.INFO, String.format("M_Random: Switching to %s", random.getClass().getSimpleName()));
         } else {
             this.altRandom = random;
             this.random = which ? new JavaRandom() : new DoomRandom();
-            LOGGER.log(Level.INFO, String.format("M_Random: Switching to %s (new instance)\n", random.getClass().getSimpleName()));
+            LOGGER.log(Level.INFO, String.format("M_Random: Switching to %s (new instance)", random.getClass().getSimpleName()));
         }
         //random.ClearRandom();
     }

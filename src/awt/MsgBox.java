@@ -78,6 +78,7 @@ public class MsgBox extends Dialog implements ActionListener {
         setLocation(d.width / 3, d.height / 3);
     }
 
+    @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == ok) {
             isOk = true;

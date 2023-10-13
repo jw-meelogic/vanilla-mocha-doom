@@ -629,7 +629,7 @@ public class WadLoader implements IWadLoader {
     @Override
     public int LumpLength(int lump) {
         if (lump >= numlumps) {
-            I.Error("W_LumpLength: %i >= numlumps", lump);
+            I.Error("W_LumpLength: %d >= numlumps", lump);
         }
 
         return (int) lumpinfo[lump].size;
@@ -662,7 +662,7 @@ public class WadLoader implements IWadLoader {
         InputStream handle = null;
 
         if (lump >= this.numlumps) {
-            I.Error("W_ReadLump: %i >= numlumps", lump);
+            I.Error("W_ReadLump: %d >= numlumps", lump);
             return;
         }
 
@@ -727,7 +727,7 @@ public class WadLoader implements IWadLoader {
     public <T> T CacheLumpNum(int lump, int tag, Class<T> what) {
 
         if (lump >= numlumps) {
-            I.Error("W_CacheLumpNum: %i >= numlumps", lump);
+            I.Error("W_CacheLumpNum: %d >= numlumps", lump);
         }
 
         // Nothing cached here...
@@ -810,7 +810,7 @@ public class WadLoader implements IWadLoader {
             Class<?> what) throws IOException {
 
         if (lump >= numlumps) {
-            I.Error("W_CacheLumpNum: %i >= numlumps", lump);
+            I.Error("W_CacheLumpNum: %d >= numlumps", lump);
         }
 
         // Nothing cached here...
@@ -872,7 +872,7 @@ public class WadLoader implements IWadLoader {
     @Override
     public <T extends CacheableDoomObject> T[] CacheLumpNumIntoArray(int lump, int num, ArraySupplier<T> what, IntFunction<T[]> arrGen) {
         if (lump >= numlumps) {
-            I.Error("CacheLumpNumIntoArray: %i >= numlumps", lump);
+            I.Error("CacheLumpNumIntoArray: %d >= numlumps", lump);
         }
 
         /**

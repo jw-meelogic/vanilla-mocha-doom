@@ -400,7 +400,7 @@ public class BasicNetworkInterface implements DoomSystemNetworking {
         } else if (doomcom.command == CMD_GET) {
             netget.invoke();
         } else {
-            DOOM.doomSystem.Error("Bad net cmd: %i\n", doomcom.command);
+            DOOM.doomSystem.Error("Bad net cmd: %d", doomcom.command);
         }
 
     }
