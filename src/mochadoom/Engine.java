@@ -53,7 +53,7 @@ public class Engine {
         }
 
         /**
-         * Add eventHandler listeners to JFrame and its Canvas elememt
+         * Add eventHandler listeners to JFrame and its Canvas element
          */
         /*content.addKeyListener(listener);        
         content.addMouseListener(listener);
