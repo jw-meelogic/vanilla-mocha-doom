@@ -1,6 +1,6 @@
 package i;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: SystemSoundInterface.java,v 1.2 2011/05/17 16:51:20 velktron Exp $

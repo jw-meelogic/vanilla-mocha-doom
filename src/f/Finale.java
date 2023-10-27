@@ -35,7 +35,7 @@ import v.graphics.Blocks;
 import v.renderers.DoomScreen;
 import static v.renderers.DoomScreen.FG;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: Finale.java,v 1.28 2012/09/24 17:16:23 velktron Exp $

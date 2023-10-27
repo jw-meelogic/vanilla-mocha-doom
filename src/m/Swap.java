@@ -1,6 +1,6 @@
 package m;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: Swap.java,v 1.2 2011/07/27 20:48:20 velktron Exp $

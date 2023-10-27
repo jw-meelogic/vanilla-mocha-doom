@@ -2,7 +2,7 @@ package g;
 
 import rr.line_t;
 
-/* Emacs style mode select   -*- C++ -*-
+/* Emacs style mode select   -*- Java -*-
  *-----------------------------------------------------------------------------
  *
  *

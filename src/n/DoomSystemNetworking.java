@@ -1,6 +1,6 @@
 package n;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: DoomSystemNetworking.java,v 1.1 2010/11/17 23:55:06 velktron Exp $

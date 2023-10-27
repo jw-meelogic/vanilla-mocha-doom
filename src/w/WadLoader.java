@@ -1,4 +1,4 @@
-// Emacs style mode select -*- C++ -*-
+// Emacs style mode select -*- Java -*-
 // -----------------------------------------------------------------------------
 //
 // $Id: WadLoader.java,v 1.64 2014/03/28 00:55:32 velktron Exp $

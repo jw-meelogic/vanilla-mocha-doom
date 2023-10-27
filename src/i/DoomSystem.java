@@ -1,4 +1,4 @@
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: DoomSystem.java,v 1.18 2013/06/04 11:29:39 velktron Exp $

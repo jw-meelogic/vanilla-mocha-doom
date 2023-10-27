@@ -69,7 +69,7 @@ import w.DoomBuffer;
 import w.wadfile_info_t;
 
 /*
- * Emacs style mode select -*- C++ -*-
+ * Emacs style mode select -*- Java -*-
  * -----------------------------------------------------------------------------
  * PrBoom: a Doom port merged with LxDoom and LSDLDoom based on BOOM, a modified
  * and improved DOOM engine Copyright (C) 1999 by id Software, Chi Hoang, Lee

@@ -3,7 +3,7 @@ package data;
 import static m.fixed_t.FRACBITS;
 import static m.fixed_t.FRACUNIT;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: Tables.java,v 1.22 2011/05/06 09:21:59 velktron Exp $

@@ -1,5 +1,5 @@
 package data;
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: sounds.java,v 1.1 2010/06/30 08:58:51 velktron Exp $

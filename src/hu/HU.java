@@ -1,6 +1,6 @@
 package hu;
 
-// Emacs style mode select -*- C++ -*-
+// Emacs style mode select -*- Java -*-
 // -----------------------------------------------------------------------------
 //
 // $Id: HU.java,v 1.32 2012/09/24 17:16:23 velktron Exp $

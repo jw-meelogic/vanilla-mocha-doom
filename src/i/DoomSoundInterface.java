@@ -1,6 +1,6 @@
 package i;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: DoomSoundInterface.java,v 1.3 2011/02/11 00:11:13 velktron Exp $

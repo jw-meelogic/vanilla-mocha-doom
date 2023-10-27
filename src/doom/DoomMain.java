@@ -193,7 +193,7 @@ import v.scale.VisualSettings;
 import w.IWadLoader;
 import w.WadLoader;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: DoomMain.java,v 1.109 2012/11/06 16:04:58 velktron Exp $

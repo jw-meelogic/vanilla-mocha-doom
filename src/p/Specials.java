@@ -9,7 +9,7 @@ import rr.line_t;
 import rr.sector_t;
 import rr.side_t;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: Specials.java,v 1.7 2011/06/01 00:09:08 velktron Exp $

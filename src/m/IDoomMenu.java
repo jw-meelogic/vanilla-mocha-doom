@@ -8,7 +8,7 @@ import static doom.SourceCode.M_Menu.M_StartControlPanel;
 import static doom.SourceCode.M_Menu.M_Ticker;
 import doom.event_t;
 
-// Emacs style mode select -*- C++ -*-
+// Emacs style mode select -*- Java -*-
 // -----------------------------------------------------------------------------
 //
 // $Id: IDoomMenu.java,v 1.5 2011/09/29 15:16:23 velktron Exp $

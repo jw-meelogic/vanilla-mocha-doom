@@ -1,5 +1,5 @@
 package st;
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: IDoomStatusBar.java,v 1.4 2012/09/24 17:16:23 velktron Exp $

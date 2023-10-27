@@ -1,5 +1,5 @@
 package data;
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: dstrings.java,v 1.4 2010/10/01 16:47:51 velktron Exp $

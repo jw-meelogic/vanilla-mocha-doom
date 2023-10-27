@@ -254,7 +254,7 @@ public class dcolors {
 	static private void	BuildSpecials ()
 	{
 		int		c,gray;
-		float	red, green, blue;;
+		float	red, green, blue;
 		int palsrc;
 
 		palsrc = 0;

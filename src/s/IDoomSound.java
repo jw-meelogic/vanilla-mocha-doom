@@ -8,7 +8,7 @@ import doom.CommandVariable;
 import doom.DoomMain;
 import p.mobj_t;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: IDoomSound.java,v 1.5 2011/08/24 15:55:12 velktron Exp $

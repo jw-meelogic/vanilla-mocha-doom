@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import mochadoom.Loggers;
 import w.DoomBuffer;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: BasicNetworkInterface.java,v 1.5 2011/05/26 13:39:06 velktron Exp $

@@ -22,7 +22,7 @@ import static p.MobjFlags.MF_SOLID;
 import static p.MobjFlags.MF_SPAWNCEILING;
 import static p.MobjFlags.MF_SPECIAL;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: info.java,v 1.13 2013/06/03 12:36:42 velktron Exp $

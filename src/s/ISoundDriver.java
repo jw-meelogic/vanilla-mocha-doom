@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import mochadoom.Loggers;
 
-//Emacs style mode select   -*- C++ -*- 
+//Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: ISoundDriver.java,v 1.1 2012/11/08 17:12:42 velktron Exp $

@@ -1,6 +1,6 @@
 package boom;
 
-/* Emacs style mode select   -*- C++ -*-
+/* Emacs style mode select   -*- Java -*-
  *-----------------------------------------------------------------------------
  *
  *

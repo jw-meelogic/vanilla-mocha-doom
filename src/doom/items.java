@@ -1,5 +1,5 @@
 package doom;
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: items.java,v 1.3 2010/12/20 17:15:08 velktron Exp $

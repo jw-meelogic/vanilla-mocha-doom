@@ -4,7 +4,7 @@ import data.mobjtype_t;
 import java.util.Random;
 import p.ActiveStates;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: JavaRandom.java,v 1.3 2013/06/03 11:00:03 velktron Exp $

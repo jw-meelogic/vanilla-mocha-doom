@@ -1,6 +1,6 @@
 package doom;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: englsh.java,v 1.5 2011/05/31 21:46:20 velktron Exp $

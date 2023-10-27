@@ -1,6 +1,6 @@
 package st;
 
-// Emacs style mode select -*- C++ -*-
+// Emacs style mode select -*- Java -*-
 // -----------------------------------------------------------------------------
 //
 // $Id: StatusBar.java,v 1.47 2011/11/01 23:46:37 velktron Exp $
@@ -574,8 +574,8 @@ public class StatusBar extends AbstractStatusBar {
         ST_ARMSY = (int) (172 * DOOM.vs.getSafeScaling());
         ST_ARMSBGX = (int) (104 * DOOM.vs.getSafeScaling());
         ST_ARMSBGY = (int) (168 * DOOM.vs.getSafeScaling());
-        ST_ARMSXSPACE = 12 * DOOM.vs.getSafeScaling();;
-        ST_ARMSYSPACE = 10 * DOOM.vs.getSafeScaling();;
+        ST_ARMSXSPACE = 12 * DOOM.vs.getSafeScaling();
+        ST_ARMSYSPACE = 10 * DOOM.vs.getSafeScaling();
 
         // Frags pos.
         ST_FRAGSX = (int) (138 * DOOM.vs.getSafeScaling());
@@ -588,7 +588,7 @@ public class StatusBar extends AbstractStatusBar {
         ST_ARMORY = (int) (171 * DOOM.vs.getSafeScaling());
 
         // Key icon positions.
-        ST_KEY0WIDTH = 8 * DOOM.vs.getSafeScaling();;
+        ST_KEY0WIDTH = 8 * DOOM.vs.getSafeScaling();
         ST_KEY0HEIGHT = 5 * DOOM.vs.getSafeScaling();
 
         ST_KEY0X = (int) (239 * DOOM.vs.getSafeScaling());

@@ -1,6 +1,6 @@
 package f;
 
-/* Emacs style mode select   -*- C++ -*- 
+/* Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: EndLevel.java,v 1.11 2012/09/24 17:16:23 velktron Exp $

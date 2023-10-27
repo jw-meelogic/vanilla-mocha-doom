@@ -22,7 +22,7 @@ import javax.imageio.ImageIO;
 import mochadoom.Loggers;
 import w.IWritableDoomObject;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: MenuMisc.java,v 1.29 2012/09/24 17:16:22 velktron Exp $

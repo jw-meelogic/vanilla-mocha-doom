@@ -11,7 +11,7 @@ import static m.fixed_t.FRACBITS;
 import static m.fixed_t.FRACUNIT;
 import static m.fixed_t.MAPFRACUNIT;
 
-// Emacs style mode select   -*- C++ -*- 
+// Emacs style mode select   -*- Java -*-
 //-----------------------------------------------------------------------------
 //
 // $Id: Defines.java,v 1.48 2012/09/24 17:16:22 velktron Exp $
