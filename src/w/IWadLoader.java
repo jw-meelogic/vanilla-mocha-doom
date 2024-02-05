@@ -117,8 +117,7 @@ public interface IWadLoader {
      * @param <T>
      */
     @W_Wad.C(W_CacheLumpNum)
-    public abstract <T> T CacheLumpNum(int lump, int tag,
-            Class<T> what);
+    public abstract <T extends CacheableDoomObject> T CacheLumpNum(int lump, int tag, Class<T> what);
 
     // MAES 24/8/2011: superseded by auto-allocating version with proper 
     // container-based caching.
