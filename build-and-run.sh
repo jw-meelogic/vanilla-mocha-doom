@@ -15,5 +15,5 @@ javac -d $CLASSES_DIR -cp $SOURCES_DIR $SOURCES_DIR/mochadoom/Engine.java
 
 # run
 echo "Run..."
-java -cp $CLASSES_DIR mochadoom.Engine "$@"
+java -Dsun.java2d.opengl=true -cp $CLASSES_DIR mochadoom.Engine "$@"
 

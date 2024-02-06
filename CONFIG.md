@@ -35,7 +35,7 @@ be useful:
   If both are used, the one which yield the largest
   scaling will be used (scaling is isotropic).
 * `-file <file1> [file2] ...`:
-  Used to append PWADs. Can accept multiple files and 
+  Used to append PWADs. Can accept multiple files and
   quoted names in a row, except names starting with '-' and '+'.
 * `-iwad <iwad_file>`:
   Allows specifying which IWAD to use
@@ -238,7 +238,9 @@ The file is normally named `mochadoom.cfg`, but the `-config` command line param
   You can also use `Alt+Enter` key combination to switch to fullscreen in the game.
   It will attempt switching to a fullscreen mode compatible with the current resolution,
   or the closest available reported by the host OS (depending on the `fullscreen_mode` setting).
-  NOTE: Windows users might have to disable the Direct3D pipeline with the `-Dsun.java2d.d3d=false` JVM parameter for this to work.
+  NOTE:
+  * Windows users might have to disable the Direct3D pipeline with the `-Dsun.java2d.d3d=false` JVM parameter for this to work.
+  * Linux users might need to enable the OpenGL-based pipeline, which provides hardware acceleration: `-Dsun.java2d.opengl=true`
 * `fullscreen_mode`:
   * `Best` (picks the closest supported resolution, might be buggy)
   * `Native` (default, the current display mode)

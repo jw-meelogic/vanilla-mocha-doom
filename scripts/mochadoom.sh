@@ -33,4 +33,4 @@ else
 fi
 
 # execute Mocha Doom
-exec "$JAVACMD" -jar "$MOCHA_DOOM_PATH/mochadoom.jar" "$@"
+exec "$JAVACMD" -Dsun.java2d.opengl=true -jar "$MOCHA_DOOM_PATH/mochadoom.jar" "$@"
