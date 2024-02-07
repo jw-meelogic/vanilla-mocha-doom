@@ -40,7 +40,7 @@ public class SpeakerSound implements CacheableDoomObject {
         479, 465, 452};
 
     /* From analysis of fraggle's PC Speaker timings, it was found
-     * that their natural logarithm had the following intercept 
+     * that their natural logarithm had the following intercept
      * (starting at x=1) and slope. Therefore, it's possible
      * to go beyong the original 95 hardcoded values.
      */
@@ -61,13 +61,13 @@ public class SpeakerSound implements CacheableDoomObject {
         }
     }
 
-    /** Will return a very basic, 8-bit 11.025 KHz rendition of the sound 
+    /** Will return a very basic, 8-bit 11.025 KHz rendition of the sound
      *  This ain't no CuBase or MatLab, so if you were expecting perfect
      *  sound and solid DSP, go elsewhere.
-     * 
+     *
      */
     public byte[] toRawSample() {
-        // Length is in 1/140th's of a second 
+        // Length is in 1/140th's of a second
         byte[] chunk = new byte[this.length * 11025 / 140];
 
         int counter = 0;

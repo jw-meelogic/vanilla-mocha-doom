@@ -12,24 +12,24 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 
 /** A convenient message box class to pop up here and there.
- *  
+ *
  * @author zyklon
  *
  */
 public class MsgBox extends Dialog implements ActionListener {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -872019680203708495L;
     private Button ok, can;
     private boolean isOk = false;
 
-    /*  
+    /*
 	 * * @param frame parent frame
-	 * 
+	 *
 	 * @param msg message to be displayed
-	 * 
+	 *
 	 * @param okcan true : ok cancel buttons, false : ok button only
      */
     public boolean isOk() {

@@ -25,7 +25,7 @@ import java.util.List;
  * I think they may be invalid if the game uses custom COLORMAP, so we need an ability
  * to regenerate them when loading such lump.
  * Thus, it is an Enum... but only almost.
- * 
+ *
  * Added new LUT's for HiColor and TrueColor renderers
  * They are capable of tinting and gamma correcting full direct colors(not indexed) on the fly
  *  - Good Sign

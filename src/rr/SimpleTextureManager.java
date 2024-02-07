@@ -29,9 +29,9 @@ import w.lumpinfo_t;
 
 /** An attempt to separate texture mapping functionality from
  *  the rest of the rendering. Seems to work like a charm, and
- *  it makes it clearer what needs and what doesn't need to be 
+ *  it makes it clearer what needs and what doesn't need to be
  *  exposed.
- * 
+ *
  * @author Maes
  *
  */
@@ -50,7 +50,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
     // is stored in vertical runs of opaque pixels (posts).
     // A column is composed of zero or more posts,
     // a patch or sprite is composed of zero or more columns.
-    // 
+    //
     protected int firstflat;
     protected int lastflat;
     protected int numflats;
@@ -78,12 +78,12 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
     /** Tells us which patch lump covers which column of which texture */
     protected short[][] texturecolumnlump;
 
-    /** This is supposed to store indexes into a patch_t lump which point to the columns themselves 
+    /** This is supposed to store indexes into a patch_t lump which point to the columns themselves
      *  Instead, we're going to return indexes to columns inside a particular patch.
      *  In the case of patches inside a non-cached multi-patch texture (e.g. those made of non-overlapping
      *  patches), we're storing indexes INSIDE A PARTICULAR PATCH. E.g. for STARTAN1, which is made of two
      *  32-px wide patches, it should go something like 0, 1,2 ,3...31, 0,1,2,....31.
-     *  
+     *
      * */
     protected char[][] texturecolumnofs;
 
@@ -180,7 +180,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         int directory = 1;
         int texset = TEXTURE1;
         // Load the patch names from pnames.lmp.
-        //name[8] = 0;    
+        //name[8] = 0;
         patchlookup = loadPatchNames("PNAMES");
 
         // Load the map texture definitions from textures.lmp.
@@ -201,7 +201,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         numtextures = _numtextures[0] + _numtextures[1];
 
         textures = new texture_t[numtextures];
-        // MAES: Texture hashtable.          
+        // MAES: Texture hashtable.
         TextureCache = new Hashtable<>(numtextures);
 
         texturecolumnlump = new short[numtextures][];
@@ -270,7 +270,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
             totalwidth += texture.width;
         }
 
-        // Precalculate whatever possible.  
+        // Precalculate whatever possible.
         for (int i = 0; i < numtextures; i++) {
             GenerateLookup(i);
         }
@@ -285,7 +285,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
     /** Assigns proper lumpnum to patch names. Check whether flats and patches of the same name coexist.
      *  If yes, priority should go to patches. Otherwise, it's a "flats on walls" case.
-     * 
+     *
      * @param pnames
      * @return
      * @throws IOException
@@ -353,11 +353,11 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
     /**
      * R_GenerateLookup
-     * 
+     *
      * Creates the lookup tables for a given texture (aka, where inside the texture cache
      * is the offset for particular column... I think.
-     * 
-     * @throws IOException 
+     *
+     * @throws IOException
      */
     @Override
     public void GenerateLookup(int texnum) throws IOException {
@@ -385,7 +385,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         collump = texturecolumnlump[texnum];
         colofs = texturecolumnofs[texnum];
 
-        /* Now count the number of columns  that are covered by more 
+        /* Now count the number of columns  that are covered by more
          * than one patch. Fill in the lump / offset, so columns
          * with only a single patch are all done.
          */
@@ -413,7 +413,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
             }
             for (; x < x2; x++) {
                 /* Obviously, if a patch starts at x it does cover the x-th column
-             *  of a texture, even if transparent. 
+             *  of a texture, even if transparent.
                  */
                 patchcount[x]++;
                 // Column "x" of composite texture "texnum" is covered by this patch.
@@ -421,16 +421,16 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
                 /* This is supposed to be a raw pointer to the beginning of the column
              * data, as it appears inside the PATCH.
-             * 
+             *
              * Instead, we can return the actual column index (x-x1)
              * As an example, the second patch of STARTAN1 (width 64) starts
              * at column 32. Therefore colofs should be something like
              * 0,1,2,...,31,0,1,....31, indicating that the 32-th column of
              * STARTAN1 is the 0-th column of the patch that is assigned to that column
              * (the latter can be looked up in texturecolumnlump[texnum].
-             * 
+             *
              * Any questions?
-             * 
+             *
                  */
                 colofs[x] = (char) (x - x1);
                 // This implies that colofs[x] is 0 for a void column?
@@ -468,12 +468,12 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
     /**
      * R_GenerateComposite
-     * Using the texture definition, the composite texture is created 
+     * Using the texture definition, the composite texture is created
      * from the patches and each column is cached. This method is "lazy"
      * aka it's only called when a cached/composite texture is needed.
-     * 
+     *
      * @param texnum
-     * 
+     *
      */
     public void GenerateComposite(int texnum) {
         byte[][] block;
@@ -544,24 +544,24 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
     /**
      * R_GenerateMaskedComposite
-     * 
+     *
      * Generates a "masked composite texture": the result is a MASKED texture
-     * (with see-thru holes), but this time  multiple patches can be used to 
+     * (with see-thru holes), but this time  multiple patches can be used to
      * assemble it, unlike standard Doom where this is not allowed.
-     *  
-     * Called only if a request for a texture in the general purpose GetColumn 
-     * method (used only for masked renders) turns out not to be pointing to a standard 
-     * cached texture, nor to a disk lump(which is the standard Doom way of indicating a 
+     *
+     * Called only if a request for a texture in the general purpose GetColumn
+     * method (used only for masked renders) turns out not to be pointing to a standard
+     * cached texture, nor to a disk lump(which is the standard Doom way of indicating a
      * composite single patch texture) but to a cached one which, however, is composite.
-     * 
+     *
      * Confusing, huh?
-     * 
-     * Normally, this results in a disaster, as the masked rendering methods 
+     *
+     * Normally, this results in a disaster, as the masked rendering methods
      * don't expect cached/composite textures at all, and you get all sorts of nasty
-     * tutti frutti and medusa effects. Not anymore ;-) 
-     * 
+     * tutti frutti and medusa effects. Not anymore ;-)
+     *
      * @param texnum
-     * 
+     *
      */
     @Override
     public void GenerateMaskedComposite(int texnum) {
@@ -626,29 +626,29 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
         }
 
-        // Patch drawn on cache, synthesize patch_t using it. 
+        // Patch drawn on cache, synthesize patch_t using it.
         this.patchcomposite[texnum] = MultiPatchSynthesizer.synthesize(this.CheckTextureNameForNum(texnum), block, pixmap, texture.width, texture.height);
     }
 
     /**
      *  R_DrawColumnInCache
      *  Clip and draw a column from a patch into a cached post.
-     *  
+     *
      *  This means that columns are effectively "uncompressed" into cache, here,
      *  and that composite textures are generally uncompressed...right?
-     *  
+     *
      *  Actually: "compressed" or "masked" textures are retrieved in the same way.
      *  There are both "masked" and "unmasked" drawing methods. If a masked
      *  column is passed to a method that expects a full, dense column...well,
-     *  it will look fugly/overflow/crash. Vanilla Doom tolerated this, 
+     *  it will look fugly/overflow/crash. Vanilla Doom tolerated this,
      *  we're probably going to have more problems.
-     *  
+     *
      *  @param patch Actually it's a single column to be drawn. May overdraw existing ones or void space.
      *  @param cache the column cache itself. Actually it's the third level [texture][column]->data.
      *  @param offset an offset inside the column cache (UNUSED)
      *  @param originy vertical offset. Caution with masked stuff!
      *  @param cacheheight the maximum height it's supposed to reach when drawing?
-     *  
+     *
      */
     public void DrawColumnInCache(column_t patch, byte[] cache, int offset,
             int originy, int cacheheight) {
@@ -738,17 +738,17 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
      *
      * Scans WADs for F_START/F_END lumps, and also any additional
      * F1_ and F2_ pairs.
-     * 
-     * Correct behavior would be to detect F_START/F_END lumps, 
-     * and skip any marker lumps sandwiched in between. If F_START and F_END are external, 
+     *
+     * Correct behavior would be to detect F_START/F_END lumps,
+     * and skip any marker lumps sandwiched in between. If F_START and F_END are external,
      * use external override.
-     * 
-     * Also, in the presence of external FF_START lumps, merge their contents 
+     *
+     * Also, in the presence of external FF_START lumps, merge their contents
      * with those previously read.
-     * 
-     * The method is COMPATIBLE with resource pre-coalesing, however it's not 
+     *
+     * The method is COMPATIBLE with resource pre-coalesing, however it's not
      * trivial to change back to the naive code because of the "translationless"
-     * system used (all flats are assumed to lie in a linear space). This 
+     * system used (all flats are assumed to lie in a linear space). This
      * speeds up lookups.
      *
      */
@@ -775,7 +775,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         // priority, so its usefulness as an absolute end-index for regular flats
         // is dodgy at best. Gotta love the inconsistent mundo hacks!
         //int lastflatlump=W.GetNumForName(LUMPEND);
-        // 
+        //
         int lump = firstflat;
         int seq = 0;
         String name;
@@ -811,7 +811,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
                         FlatNames.put(name, lump);
                         // Remove old lump, but keep sequence.
                         int oldseq = FlatCache.remove(removed);
-                        // Put new lump number with old sequence. 
+                        // Put new lump number with old sequence.
                         FlatCache.put(lump, oldseq);
                     } else {  // Add normally
                         FlatCache.put(lump, seq);
@@ -832,7 +832,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         flatstorage = new int[numflats];
 
         // MAJOR CHANGE: flattranslation stores absolute lump numbers. Adding
-        // firstlump is not necessary anymore.      
+        // firstlump is not necessary anymore.
         // Now, we're pretty sure that we have a progressive value mapping.
         Enumeration<Integer> stuff = FlatCache.keys();
         while (stuff.hasMoreElements()) {
@@ -845,7 +845,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
         for (int i = 0; i < numflats; i++) {
             flattranslation[i] = i;
-            //  System.out.printf("Verification: flat[%d] is %s in lump %d\n",i,W.GetNameForNum(flattranslation[i]),flatstorage[i]);  
+            //  System.out.printf("Verification: flat[%d] is %s in lump %d\n",i,W.GetNameForNum(flattranslation[i]),flatstorage[i]);
         }
     }
 
@@ -857,13 +857,13 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
     /**
      * R_PrecacheLevel
      * Preloads all relevant graphics for the level.
-     * 
+     *
      * MAES: Everything except sprites.
      * A Texturemanager != sprite manager.
      * So the relevant functionality has been split into
      * PrecacheThinkers (found in common rendering code).
-     * 
-     * 
+     *
+     *
      */
     int flatmemory;
     int texturememory;
@@ -879,14 +879,14 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         // recache sprites.
         /* MAES: this code into PrecacheThinkers
         spritepresent = new boolean[numsprites];
-        
-        
+
+
         for (th = P.thinkercap.next ; th != P.thinkercap ; th=th.next)
         {
         if (th.function==think_t.P_MobjThinker)
             spritepresent[((mobj_t )th).sprite.ordinal()] = true;
         }
-        
+
         spritememory = 0;
         for (i=0 ; i<numsprites ; i++)
         {
@@ -976,7 +976,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
     /**
      * R_FlatNumForName
      * Retrieval, get a flat number for a flat name.
-     * 
+     *
      * Unlike the texture one, this one is not used frequently. Go figure.
      */
     @Override
@@ -1047,7 +1047,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
     }
 
     /** This affects ONLY THE TRANSLATION TABLE, not the lump storage.
-     * 
+     *
      */
     @Override
     public final void setFlatTranslation(int flatnum, int amount) {
@@ -1109,7 +1109,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
     /** Generates a "cached" masked column against a black background.
      *  Synchronized so concurrency issues won't cause random glitching and
      *  errors.
-     * 
+     *
      * @param lump
      * @param column
      * @return raw, 0-pointed column data.
@@ -1132,7 +1132,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
     /** Actually generates a tutti-frutti-safe cached patch out of
      * a masked or unmasked single-patch lump.
-     * 
+     *
      * @param lump
      * @return
      */
@@ -1163,7 +1163,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         int offset;
         /** Its implicit position as indicated by the directory's ordering */
         int entry;
-        /** Its MAXIMUM possible length, depending on what follows it. 
+        /** Its MAXIMUM possible length, depending on what follows it.
          *  Not trivial to compute without thoroughtly examining the entire lump */
         int length;
 
@@ -1200,9 +1200,9 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
      * Special version of GetColumn meant to be called concurrently by different
      * (MASKED) seg rendering threads, identfiex by index. This serves to avoid stomping
      * on mutual cached textures and causing crashes.
-     * 
+     *
      * Returns column_t, so in theory it could be made data-agnostic.
-     * 
+     *
      */
     public column_t GetSmpColumn(int tex, int col, int id) {
         int lump, ofs;
@@ -1247,7 +1247,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
                     getMaskedComposite(tex).name, getMaskedComposite(tex).columns.length));
         }
 
-        // Last resort. 
+        // Last resort.
         smp_lastpatch[id] = getMaskedComposite(tex);
         smp_lasttex[id] = tex;
         smp_composite[id] = true;
@@ -1267,13 +1267,13 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
      * R_GetColumn original version: returns raw pointers to byte-based column
      * data. Works for both masked and unmasked columns, but is not
      * tutti-frutti-safe.
-     * 
+     *
      * Use GetCachedColumn instead, if rendering non-masked stuff, which is also
      * faster.
-     * 
+     *
      * @throws IOException
-     * 
-     * 
+     *
+     *
      */
     public byte[] GetColumn(int tex, int col) {
         int lump, ofs;
@@ -1318,7 +1318,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
                     String.format("Composite patch %s %d", getMaskedComposite(tex).name, getMaskedComposite(tex).columns.length));
         }
 
-        // Last resort. 
+        // Last resort.
         lastpatch = getMaskedComposite(tex);
         lasttex = tex;
         composite = true;
@@ -1329,17 +1329,17 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
 
     /**
      * R_GetColumnStruct: returns actual pointers to columns.
-     * Agnostic of the underlying type. 
-     * 
+     * Agnostic of the underlying type.
+     *
      * Works for both masked and unmasked columns, but is not
      * tutti-frutti-safe.
-     * 
+     *
      * Use GetCachedColumn instead, if rendering non-masked stuff, which is also
      * faster.
-     * 
+     *
      * @throws IOException
-     * 
-     * 
+     *
+     *
      */
     @Override
     public column_t GetColumnStruct(int tex, int col) {
@@ -1384,7 +1384,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
                     String.format("Composite patch %s %d", getMaskedComposite(tex).name, getMaskedComposite(tex).columns.length));
         }
 
-        // Last resort. 
+        // Last resort.
         lastpatch = getMaskedComposite(tex);
         lasttex = tex;
         composite = true;
@@ -1403,11 +1403,11 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
      * R_GetColumn variation which is tutti-frutti proof. It only returns cached
      * columns, and even pre-caches single-patch textures intead of trashing the
      * WAD manager (should be faster, in theory).
-     * 
+     *
      * Cannot be used for drawing masked textures, use classic GetColumn
      * instead.
-     * 
-     * 
+     *
+     *
      * @throws IOException
      */
     @Override
@@ -1442,7 +1442,7 @@ public class SimpleTextureManager implements TextureManager<byte[]> {
         smp_composite = new boolean[num_threads];// = false;
         smp_lasttex = new int[num_threads];// = -1;
         smp_lastlump = new int[num_threads];// = -1;
-        smp_lastpatch = new patch_t[num_threads];// = null;        
+        smp_lastpatch = new patch_t[num_threads];// = null;
     }
 
 }

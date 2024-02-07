@@ -10,7 +10,7 @@ of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 See the GNU General Public License for more details.
 
@@ -34,20 +34,20 @@ import m.Swap;
 import mochadoom.Loggers;
 
 /**
- * An extension of RandomAccessFile, which handles readString/WriteString specially 
+ * An extension of RandomAccessFile, which handles readString/WriteString specially
  * and offers several Doom related (and cross-OS) helper functions for reading/writing
  * arrays of multiple objects or fixed-length strings from/to disk.
- * 
+ *
  * TO DEVELOPERS: this is the preferrered method of I/O for anything implemented.
- * In addition, Doomfiles can be passed to objects implementing the IReadableDoomObject 
+ * In addition, Doomfiles can be passed to objects implementing the IReadableDoomObject
  * and IWritableDoomObject interfaces, which will "autoread" or "autowrite" themselves
  * to the implied stream.
- * 
+ *
  * TODO: in the light of greater future portabililty and compatibility in certain
  * environments, PERHAPS this should have been implemented using Streams. Perhaps
  * it's possible to change the underlying implementation without (?) changing too
- * much of the exposed interface, but it's not a priority for me right now. 
- * 
+ * much of the exposed interface, but it's not a priority for me right now.
+ *
  */
 public class DoomIO {
 
@@ -95,7 +95,7 @@ public class DoomIO {
 
     /** MAES: Reads a specified number of bytes from a file into a new String.
      *  With many lengths being implicit, we need to actually take the loader by the hand.
-     *  
+     *
      * @param len
      * @return
      * @throws IOException
@@ -136,7 +136,7 @@ public class DoomIO {
 
     /** MAES: Reads a specified number of bytes from a file into a new, NULL TERMINATED String.
      *  With many lengths being implicit, we need to actually take the loader by the hand.
-     *  
+     *
      * @param len
      * @return
      * @throws IOException
@@ -170,7 +170,7 @@ public class DoomIO {
 
     /** MAES: Reads multiple strings with a specified number of bytes from a file.
      * If the array is not large enough, only partial reads will occur.
-     *  
+     *
      * @param len
      * @return
      * @throws IOException
@@ -195,8 +195,8 @@ public class DoomIO {
         return dest;
     }
 
-    /** Writes a length specified string (Pascal style) to a file. 
-     * 
+    /** Writes a length specified string (Pascal style) to a file.
+     *
      * */
     public static void writeString(DataOutputStream dos, String s) {
         try {
@@ -215,9 +215,9 @@ public class DoomIO {
     }
 
     /** Writes a String with a specified len to a file.
-     *  This is useful for fixed-size String fields in 
-     *  files. Any leftover space will be filled with 0x00s. 
-     * 
+     *  This is useful for fixed-size String fields in
+     *  files. Any leftover space will be filled with 0x00s.
+     *
      * @param s
      * @param len
      * @throws IOException
@@ -329,7 +329,7 @@ public class DoomIO {
 
     /** Reads an array of "int booleans" into an array or
      * proper booleans. 4 bytes per boolean are used!
-     * 
+     *
      * @param s
      * @param len
      * @throws IOException
@@ -402,7 +402,7 @@ public class DoomIO {
     }
 
     /** Will read an array of proper Unicode chars.
-     * 
+     *
      * @param charr
      * @param len
      * @throws IOException
@@ -420,7 +420,7 @@ public class DoomIO {
 
     /** Will read a bunch of non-unicode chars into a char array.
      *  Useful when dealing with legacy text files.
-     * 
+     *
      * @param charr
      * @param len
      * @throws IOException
@@ -436,7 +436,7 @@ public class DoomIO {
         }
     }
 
-    /** Writes an item reference. 
+    /** Writes an item reference.
    public void writeItem(gitem_t item) throws IOException {
        if (item == null)
            writeInt(-1);
@@ -444,7 +444,7 @@ public class DoomIO {
            writeInt(item.index);
    }
      */
-    /** Reads the item index and returns the game item. 
+    /** Reads the item index and returns the game item.
    public gitem_t readItem() throws IOException {
        int ndx = readInt();
        if (ndx == -1)
@@ -452,7 +452,7 @@ public class DoomIO {
        else
            return GameItemList.itemlist[ndx];
    }
-     * @throws IOException 
+     * @throws IOException
      */
     public static final long readUnsignedLEInt(DataInputStream dis) throws IOException {
         int tmp = dis.readInt();
@@ -489,7 +489,7 @@ public class DoomIO {
     }
 
     /** Reads a "big boolean" using 4 bytes.
-     * 
+     *
      * @return
      * @throws IOException
      */

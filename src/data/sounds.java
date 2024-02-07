@@ -208,7 +208,7 @@ public class sounds {
                 new sfxinfo_t("punch", false, 64, -1, -1, 0),
                 new sfxinfo_t("hoof", false, 70, -1, -1, 0),
                 new sfxinfo_t("metal", false, 70, -1, -1, 0),
-                // MAES: here C referenced a field before it was defined. 
+                // MAES: here C referenced a field before it was defined.
                 // We'll make do by defining a new "linked" boolean field, and
                 // handling special cases in a separate initializer.
                 new sfxinfo_t("chgun", false, 64, true, 150, 0, 0),
@@ -237,10 +237,10 @@ public class sounds {
             };
 
     /** MAES: This method is here to handle exceptions in definitions of static sfx.
-     *  Only the chaingun sound needs to be cross-linked to the pistol sound, but in 
+     *  Only the chaingun sound needs to be cross-linked to the pistol sound, but in
      *  Java you can't do that until the array is actually created. So remember to run
      *  this explicitly, and add any further rules you want!
-     *  
+     *
      */
     public static void init() {
         for (int i = 0; i < S_sfx.length; i++) {

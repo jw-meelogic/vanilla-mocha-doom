@@ -15,18 +15,18 @@ import v.scale.VideoScale;
 /**  Alternate parallel sprite renderer using a split-screen strategy.
  *  For N threads, each thread gets to render only the sprites that are entirely
  *  in its own 1/Nth portion of the screen.
- *  
+ *
  *  Sprites that span more than one section, are drawn partially. Each thread
- *  only has to worry with the priority of its own sprites. Similar to the 
+ *  only has to worry with the priority of its own sprites. Similar to the
  *  split-seg parallel drawer.
- * 
+ *
  *  Uses the "masked workers" subsystem, there is no column pipeline: workers
  *  "tap" directly in the sprite sorted table and act accordingly (draw entirely,
  *  draw nothing, draw partially).
- *  
+ *
  *  It uses masked workers to perform the actual work, each of which is a complete
- *  Thing Drawer. 
- * 
+ *  Thing Drawer.
+ *
  * @author velktron
  *
  */

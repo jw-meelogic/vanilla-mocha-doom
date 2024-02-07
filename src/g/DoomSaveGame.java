@@ -18,10 +18,10 @@ import w.IReadableDoomObject;
 import w.IWritableDoomObject;
 
 /** represents the header of Doom savegame, so that basic info can be checked quickly.
- * 
+ *
  *  To load the whole game and check if there are final mistakes, you must go through it all.
  *  Savegames need to be aware of ALL status and context, so maybe they should be inner classes?
- *  
+ *
  */
 public class DoomSaveGame implements CacheableDoomObject, IReadableDoomObject, IWritableDoomObject {
 
@@ -59,9 +59,9 @@ public class DoomSaveGame implements CacheableDoomObject, IReadableDoomObject, I
             playeringame[i] = buf.get() != 0;
         }
 
-        // load a base level (this doesn't advance the pointer?) 
-        //G_InitNew (gameskill, gameepisode, gamemap); 
-        // get the times 
+        // load a base level (this doesn't advance the pointer?)
+        //G_InitNew (gameskill, gameepisode, gamemap);
+        // get the times
         int a = C2JUtils.toUnsignedByte(buf.get());
         int b = C2JUtils.toUnsignedByte(buf.get());
         int c = C2JUtils.toUnsignedByte(buf.get());
@@ -89,9 +89,9 @@ public class DoomSaveGame implements CacheableDoomObject, IReadableDoomObject, I
             f.writeBoolean(playeringame[i]);
         }
 
-        // load a base level (this doesn't advance the pointer?) 
-        //G_InitNew (gameskill, gameepisode, gamemap); 
-        // get the times 
+        // load a base level (this doesn't advance the pointer?)
+        //G_InitNew (gameskill, gameepisode, gamemap);
+        // get the times
         byte a = (byte) (0x0000FF & (leveltime >>> 16));
         byte b = (byte) (0x00FF & (leveltime >>> 8));
         byte c = (byte) (0x00FF & (leveltime));
@@ -124,9 +124,9 @@ public class DoomSaveGame implements CacheableDoomObject, IReadableDoomObject, I
             playeringame[i] = f.readBoolean();
         }
 
-        // load a base level (this doesn't advance the pointer?) 
-        //G_InitNew (gameskill, gameepisode, gamemap); 
-        // get the times 
+        // load a base level (this doesn't advance the pointer?)
+        //G_InitNew (gameskill, gameepisode, gamemap);
+        // get the times
         int a = f.readUnsignedByte();
         int b = f.readUnsignedByte();
         int c = f.readUnsignedByte();

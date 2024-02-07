@@ -18,7 +18,7 @@ package doom;
 
 /**
  * A new way to define Command Line Arguments for the Engine
- * 
+ *
  * @author Good Sign
  */
 public enum CommandVariable {

@@ -2,8 +2,8 @@ package data;
 
 /**
  *   SoundFX struct.
- *    
- *   
+ *
+ *
  *
  */
 public class sfxinfo_t {
@@ -72,7 +72,7 @@ public class sfxinfo_t {
     }
 
     /** MAES: Call this constructor if you don't want a cross-linked sound.
-     * 
+     *
      * @param name
      * @param singularity
      * @param priority

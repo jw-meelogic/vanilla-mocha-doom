@@ -39,28 +39,28 @@ import java.util.stream.Stream;
  * As a way to preserve vanilla until full understand the code, everything inside of underlying engine
  * is still considered black box and changes to it are minimal.
  * But I've tried to make high-level API on top level effective.
- * 
+ *
  * For example, we do not need to create some MochaDoomInputEvent for unique combination of AWTEvent and
  * its type - it can be easily switched by ID value from AWTEvent's ow information method. Also, we can
  * certainly know which ScanCodes we will get and what are their minimal and max values, because
- * of using Enum for them (my favorite type of data structure, huh!) 
+ * of using Enum for them (my favorite type of data structure, huh!)
  * And if we know that ScanCodes can only be something very limited, and every KeyEvent (an AWTEvent for keys)
  * will be translated into one of them, we only have to pre-create two copies of DOOM's event structure
  * for each entry of ScanCode Enum: one for press state, one for release.
- * 
+ *
  * Note: SysRq / Print Screen key only sends release state, so it have to send press to underlying engine
  * on release or it will be ignored.
  *  - Good Sign 2017/04/21
- * 
+ *
  * The secondary purpose of this class is to automatically handle relations between different
  * event handlers. Everything like "when window is not in focus, don't process keys".
  *  - Good Sign 2017/04/22
- * 
+ *
  * New way of on-event actions and definitions:
  * Enums and lambdas are magic combination. Here you cave a static pre-defined constant pool of events and
  * abstract reactions on them that can work with many copies of Observer if you want, and with different ways
  * of listening for events.
- * 
+ *
  * How to use:
  * define enum constant with arbitrary name (i.e. JOYSTICK_SOEMTHING)
  * then write its arguments:
@@ -72,7 +72,7 @@ import java.util.stream.Stream;
  * ActionMode.REVERT is what you want to do when some event negates effect of this event
  * (i.e. when the user switched to another application, clear joystick pressed button states)
  *  - Good Sign 2017/04/24
- * 
+ *
  * @author Good Sign
  */
 public enum EventHandler implements EventBase<EventHandler> {
@@ -175,7 +175,7 @@ public enum EventHandler implements EventBase<EventHandler> {
         /**
          * This set of rules are for ultimately releasing any capture on mouse and keyboard,
          * and also releases all pressed keys and mouse buttons.
-         * 
+         *
          * Disables itself too, but enables event on the focus return.
          */
         relationMapper.map(RelationType.REVERT, Relate(WINDOW_LOSE_FOCUS, KEY_PRESS, MOUSE_PRESS));
@@ -187,7 +187,7 @@ public enum EventHandler implements EventBase<EventHandler> {
          * The next set of rules is for active focus gain. It could be done in two ways:
          * natural, when window become visible topmost window with active borders,
          * and when you click with mouse into the unfocused window.
-         * 
+         *
          * For clicky way, it must cause window focus and immediate capture of the mouse.
          * Enables back losing focus, disables itself and natural focus gain.
          */

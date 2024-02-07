@@ -4,10 +4,10 @@ import i.IDoomSystem;
 
 /**
  * EI VITTU, this gives a clean 25% boost. Da fack...
- * 
- * 
+ *
+ *
  * @author admin
- * 
+ *
  */
 public final class R_DrawColumnUnrolled extends DoomColumnFunction<byte[], short[]> {
 

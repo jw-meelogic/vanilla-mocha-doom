@@ -27,14 +27,14 @@ import static v.graphics.Palettes.PAL_NUM_COLORS;
 /**
  * Colormap-friendly vanilla-like BlurryMap for HiColor && TrueColor modes
  * (though it shares plain "BLURRYMAP" for Indexed too)
- * 
+ *
  * DOOM's colormap #6 was deciphered to be actually applying greyscale averaging filter.
  * So, the vanilla effect is something like "n% darker and greyscale", where n% varies
  * I think I've succeeded in replicating it for real color modes
  *  - Good Sign 2017/04/15
- * 
+ *
  * Now should be 100%, I've accounted for shift of number of generated lights for 24 bit color
- * 
+ *
  * @author Good Sign
  */
 public class BlurryTable implements FuzzMix, Colors {
@@ -58,7 +58,7 @@ public class BlurryTable implements FuzzMix, Colors {
 
     /**
      * Only support indexed "BLURRYMAP" with indexed colorMap
-     * @param colorMap 
+     * @param colorMap
      */
     public BlurryTable(byte[][] colorMap) {
         this.LUT_b5 = null;

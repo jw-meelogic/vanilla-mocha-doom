@@ -131,7 +131,7 @@ public class cheatseq_t {
     /**
      * Called in st_stuff module, which handles the input. Returns true if the
      * cheat was successful, false if failed. MAES: Let's make this boolean.
-     * 
+     *
      * @param cht
      * @param key
      * @return
@@ -167,7 +167,7 @@ public class cheatseq_t {
     /**
      * Called in st_stuff module, which handles the input. Returns true if the
      * cheat was successful, false if failed. MAES: Let's make this boolean.
-     * 
+     *
      * @param key
      * @return
      */
@@ -202,7 +202,7 @@ public class cheatseq_t {
     /**
      * Scrambles a character. 7 -> 0 6 -> 1 5 -> 5 4 -> 3 3 -> 4 2 -> 2 1 -> 6 0
      * -> 7
-     * 
+     *
      * @param a
      * @return
      */

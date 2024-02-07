@@ -129,7 +129,7 @@ public interface ActionsTeleportation extends ActionsSectors {
 
     //
     // TELEPORT MOVE
-    // 
+    //
     //
     // P_TeleportMove
     //

@@ -21,9 +21,9 @@ public class visplane_t {
     public static int BOTTOMOFFSET;
 
     // Multithreading trickery (for strictly x-bounded drawers)
-    // The thread if is encoded in the upper 3 bits (puts an upper limit 
-    // of 8 floor threads), and the stomped value is encoded in the next 12 
-    // bits (this puts an upper height limit of 4096 pixels). 
+    // The thread if is encoded in the upper 3 bits (puts an upper limit
+    // of 8 floor threads), and the stomped value is encoded in the next 12
+    // bits (this puts an upper height limit of 4096 pixels).
     // Not the cleanest system possible, but it's backwards compatible
     // TODO: expand visplane buffers to full-fledged ints?
     public static final char SENTINEL = 0x8000;

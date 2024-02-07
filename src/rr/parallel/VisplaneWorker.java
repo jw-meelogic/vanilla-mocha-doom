@@ -25,10 +25,10 @@ import v.graphics.Palettes;
 
 /** Visplane worker which shares work in an equal-visplane number strategy
  *  with other workers. Might be unbalanced if one worker gets too large
- *  visplanes and others get smaller ones. Balancing strategy is applied in 
+ *  visplanes and others get smaller ones. Balancing strategy is applied in
  *  run(), otherwise it's practically similar to a PlaneDrwer.
- *  
- *  
+ *
+ *
  * @author velktron
  *
  */

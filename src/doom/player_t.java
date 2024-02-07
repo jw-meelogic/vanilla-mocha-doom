@@ -376,7 +376,7 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
         }
         /* Flight stuff from Heretic
     	fly = cmd.lookfly>>4;
-    		
+
     	if(fly > 7)
     	{
     		fly -= 16;
@@ -669,10 +669,10 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
     public final void PlayerFinishLevel() {
         memset(powers, 0, powers.length);
         memset(cards, false, cards.length);
-        mo.flags &= ~mobj_t.MF_SHADOW;     // cancel invisibility 
-        extralight = 0;          // cancel gun flashes 
-        fixedcolormap = Palettes.COLORMAP_FIXED;       // cancel ir gogles 
-        damagecount = 0;         // no palette changes 
+        mo.flags &= ~mobj_t.MF_SHADOW;     // cancel invisibility
+        extralight = 0;          // cancel gun flashes
+        fixedcolormap = Palettes.COLORMAP_FIXED;       // cancel ir gogles
+        damagecount = 0;         // no palette changes
         bonuscount = 0;
         lookdir = 0; // From heretic
     }
@@ -995,28 +995,28 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
 
     /*
      P_SetPsprite
-    
-    
+
+
     public void
     SetPsprite
     ( player_t  player,
       int       position,
-      statenum_t    newstate ) 
+      statenum_t    newstate )
     {
         pspdef_t    psp;
         state_t state;
-        
+
         psp = psprites[position];
-        
+
         do
         {
         if (newstate==null)
         {
             // object removed itself
             psp.state = null;
-            break;  
+            break;
         }
-        
+
         state = states[newstate.ordinal()];
         psp.state = state;
         psp.tics = (int) state.tics;    // could be 0
@@ -1027,7 +1027,7 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
             psp.sx = (int) (state.misc1 << FRACBITS);
             psp.sy = (int) (state.misc2 << FRACBITS);
         }
-        
+
         // Call action routine.
         // Modified handling.
         if (state.action.getType()==acp2)
@@ -1036,9 +1036,9 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
             if (psp.state==null)
             break;
         }
-        
+
         newstate = psp.state.nextstate;
-        
+
         } while (psp.tics==0);
         // an initial state of 0 could cycle through
     }
@@ -1254,7 +1254,7 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
 
             newweapon = weapontype_t.values()[(cmd.buttons & BT_WEAPONMASK) >> BT_WEAPONSHIFT];
 
-            // If chainsaw is available, it won't change back to the fist 
+            // If chainsaw is available, it won't change back to the fist
             // unless player also has berserk.
             if (newweapon == weapontype_t.wp_fist
                     && player.weaponowned[weapontype_t.wp_chainsaw.ordinal()]
@@ -1373,14 +1373,14 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
         // players[player]=new player_t();
         this.reset();
 
-        // And we copy the old frags into the "new" player. 
+        // And we copy the old frags into the "new" player.
         C2JUtils.memcpy(this.frags, localFrags, this.frags.length);
 
         this.killcount = localKillCount;
         this.itemcount = localItemCount;
         this.secretcount = localSecretCount;
 
-        usedown = attackdown = true;  // don't do anything immediately 
+        usedown = attackdown = true;  // don't do anything immediately
         playerstate = PST_LIVE;
         health[0] = MAXHEALTH;
         readyweapon = pendingweapon = weapontype_t.wp_pistol;
@@ -1486,7 +1486,7 @@ public class player_t /*extends mobj_t */ implements Cloneable, IReadableDoomObj
         ByteBuffer b = ByteBuffer.allocate(280);
         this.pack(b);
         // Total size should be 280 bytes.
-        // Write everything nicely and at once.        
+        // Write everything nicely and at once.
         f.write(b.array());
     }
 

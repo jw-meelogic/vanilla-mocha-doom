@@ -1,8 +1,8 @@
 package rr.drawfuns;
 
-/** Flags used to mark column functions according to type, 
+/** Flags used to mark column functions according to type,
  *  for quick type identification.
- * 
+ *
  * @author velktron
  *
  */

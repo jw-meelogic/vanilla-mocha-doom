@@ -541,7 +541,7 @@ public class StatusBar extends AbstractStatusBar {
 
     cheatseq_t cheat_tnthom = new cheatseq_t("tnthom", false);
 
-    // 
+    //
     String[] mapnames;
 
     //
@@ -1003,7 +1003,7 @@ public class StatusBar extends AbstractStatusBar {
                     && (plyr.attacker != plyr.mo)) {
                 // being attacked
                 priority = 7;
-                /** 
+                /**
                  * Another switchable fix of mine
                  * - Good Sign 2017/04/02
                  */
@@ -1048,7 +1048,7 @@ public class StatusBar extends AbstractStatusBar {
         if (priority < 7) {
             // getting hurt because of your own damn stupidity
             if (plyr.damagecount != 0) {
-                /** 
+                /**
                  * Another switchable fix of mine
                  * - Good Sign 2017/04/02
                  */
@@ -1118,10 +1118,10 @@ public class StatusBar extends AbstractStatusBar {
      * Clearly we can't do that in Java unless said variables are inside an
      * array and we provide both the array AND an index. For other cases, we
      * must simply build ad-hoc hacks.
-     * 
+     *
      * In any case, only "status" updates are performed here. Actual visual
      * updates are performed by the Drawer.
-     * 
+     *
      */
     public void updateWidgets() {
 
@@ -1395,7 +1395,7 @@ public class StatusBar extends AbstractStatusBar {
 
     public void unloadGraphics() {
 
-        int i; // unload the numbers, tall and short 
+        int i; // unload the numbers, tall and short
         for (i = 0; i < 10; i++) {
             DOOM.wadLoader.UnlockLumpNum(tallnum[i]);
             tallnum[i] = null;
@@ -1407,10 +1407,10 @@ public class StatusBar extends AbstractStatusBar {
         DOOM.wadLoader.UnlockLumpNum(tallpercent);
         tallpercent = null;
 
-        // unload arms background          
+        // unload arms background
         DOOM.wadLoader.UnlockLumpNum(armsbg);
         armsbg = null;
-        // unload gray #'s          
+        // unload gray #'s
         for (i = 0; i < 6; i++) {
             DOOM.wadLoader.UnlockLumpNum(arms[i][0]);
             arms[i][0] = null;
@@ -1581,10 +1581,10 @@ public class StatusBar extends AbstractStatusBar {
 
     }
 
-    /** Binary Icon widget 
+    /** Binary Icon widget
      *  This is used for stuff such as keys or weapons, which you either have
      *  or you don't.
-     * 
+     *
      * */
     class st_binicon_t
             implements StatusBarWidget {
@@ -1776,11 +1776,11 @@ public class StatusBar extends AbstractStatusBar {
         int oldnum;
 
         /**
-         * Array in which to point with num. 
-         * 
+         * Array in which to point with num.
+         *
          * Fun fact: initially I tried to use Integer and Boolean, but those are
          * immutable -_-. Fuck that, Java.
-         * 
+         *
          */
         int[] numarray;
 
@@ -1816,7 +1816,7 @@ public class StatusBar extends AbstractStatusBar {
             this.numindex = numindex; // _D_ fixed this bug
         }
 
-        // 
+        //
         // A fairly efficient way to draw a number
         // based on differences from the old number.
         // Note: worth the trouble?

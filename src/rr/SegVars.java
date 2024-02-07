@@ -18,9 +18,9 @@ public class SegVars {
 
     /**
      * R_ClearDrawSegs
-     * 
+     *
      * The drawseg list is reset by pointing back at 0.
-     * 
+     *
      */
     public void ClearDrawSegs() {
         ds_p = 0;

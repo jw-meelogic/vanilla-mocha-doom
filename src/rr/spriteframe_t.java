@@ -23,8 +23,8 @@ public class spriteframe_t implements Cloneable {
 
     /** If false use 0 for any position.
      * Note: as eight entries are available,
-     * we might as well insert the same name eight times. 
-     * 
+     * we might as well insert the same name eight times.
+     *
      * FIXME: this is used as a tri-state.
      * 0= false
      * 1= true

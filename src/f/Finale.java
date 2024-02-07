@@ -51,7 +51,7 @@ import static v.renderers.DoomScreen.FG;
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // DESCRIPTION:
 //  Game completion, final screen animation.
 //
@@ -559,7 +559,7 @@ public class Finale<T> {
 
     /**
      * F_CastDrawer
-     * 
+     *
      * @throws IOException
      */
     // public void V_DrawPatchFlipped (int x, int y, int scrn, patch_t patch);

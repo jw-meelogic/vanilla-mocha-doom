@@ -26,13 +26,13 @@ import w.IWadLoader;
  * class is the base for all implementations, and contains the gory clipping
  * and priority stuff. It can terminate by drawing directly, or by buffering
  * into a pipeline for parallelized drawing.
- * 
+ *
  * It need to be aware of almost everything in the renderer, which means that
- * it's a PITA to keep "disembodied". Then again, this probably means it's more 
+ * it's a PITA to keep "disembodied". Then again, this probably means it's more
  * extensible...
- * 
- * 
- * 
+ *
+ *
+ *
  */
 public abstract class AbstractThings<T, V> implements IMaskedDrawer<T, V> {
 
@@ -167,7 +167,7 @@ public abstract class AbstractThings<T, V> implements IMaskedDrawer<T, V> {
 
     /**
      * R_RenderMaskedSegRange
-     * 
+     *
      * @param ds
      * @param x1
      * @param x2
@@ -768,7 +768,7 @@ public abstract class AbstractThings<T, V> implements IMaskedDrawer<T, V> {
      * Used for sprites and masked mid textures.
      * Masked means: partly transparent, i.e. stored
      *  in posts/runs of opaque pixels.
-     *  
+     *
      *  NOTE: this version accepts raw bytes, in case you  know what you're doing.
      *  NOTE: this is a legacy function. Do not reactivate unless
      *  REALLY needed.
@@ -782,12 +782,12 @@ public abstract class AbstractThings<T, V> implements IMaskedDrawer<T, V> {
         int basetexturemid; // fixed_t
         int topdelta;
         int length;
-        
+
         basetexturemid = dc_texturemid;
         // That's true for the whole column.
         dc_source = column;
         int pointer=0;
-        
+
         // for each post...
         while((topdelta=0xFF&column[pointer])!=0xFF)
         {
@@ -799,10 +799,10 @@ public abstract class AbstractThings<T, V> implements IMaskedDrawer<T, V> {
 
         dc_yl = (topscreen+FRACUNIT-1)>>FRACBITS;
         dc_yh = (bottomscreen-1)>>FRACBITS;
-            
+
         if (dc_yh >= mfloorclip[p_mfloorclip+dc_x])
             dc_yh = mfloorclip[p_mfloorclip+dc_x]-1;
-        
+
         if (dc_yl <= mceilingclip[p_mceilingclip+dc_x])
             dc_yl = mceilingclip[p_mceilingclip+dc_x]+1;
 
@@ -810,19 +810,19 @@ public abstract class AbstractThings<T, V> implements IMaskedDrawer<T, V> {
         if (dc_yl <= dc_yh && dc_yh < viewheight)
         {
             // Set pointer inside column to current post's data
-            // Rremember, it goes {postlen}{postdelta}{pad}[data]{pad} 
+            // Rremember, it goes {postlen}{postdelta}{pad}[data]{pad}
             dc_source_ofs = pointer+3;
             dc_texturemid = basetexturemid - (topdelta<<FRACBITS);
 
             // Drawn by either R_DrawColumn
             //  or (SHADOW) R_DrawFuzzColumn.
             dc_texheight=0; // Killough
-                
+
             maskedcolfunc.invoke();
         }
         pointer+=length + 4;
         }
-        
+
         dc_texturemid = basetexturemid;
     }
      */

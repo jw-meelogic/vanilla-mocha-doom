@@ -25,7 +25,7 @@ public class drawseg_t {
     /** do not clip sprites below this (fixed_t) */
     public int tsilheight;
 
-    /** Indexes to lists for sprite clipping, 
+    /** Indexes to lists for sprite clipping,
         all three adjusted so [x1] is first value. */
     private int psprtopclip, psprbottomclip, pmaskedtexturecol;
 

@@ -6,10 +6,10 @@ import w.IWritableDoomObject;
 
 /** Yeah, this is actually a PCX header implementation, and Mocha Doom
  *  saved PCX screenshots. Implemented it back just to shot that it can be
- *  done (will switch to PNG ASAP though). 
- *  
+ *  done (will switch to PNG ASAP though).
+ *
  *  @author Maes
- * 
+ *
  */
 public class pcx_t implements IWritableDoomObject {
 
@@ -38,7 +38,7 @@ public class pcx_t implements IWritableDoomObject {
     /** vertical dots per inch when printed (unreliable) */
     char vres;
 
-    /** 16-color palette (16 RGB triples between 0-255) 
+    /** 16-color palette (16 RGB triples between 0-255)
      *  UNUSED in Doom. */
     byte[] palette = new byte[48];
 

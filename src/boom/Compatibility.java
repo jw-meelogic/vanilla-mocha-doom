@@ -1,7 +1,7 @@
 package boom;
 
 /** cph - move compatibility levels here so we can use them in d_server.c
- * 
+ *
  * @author cph
  *
  */

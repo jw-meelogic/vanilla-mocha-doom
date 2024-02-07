@@ -35,7 +35,7 @@ import p.ActiveStates;
  * demo, version information will be changed, and JavaRandom used,
  * when you play this demo, DoomRandom will not be picked, when you play
  * another demo, it will pick DoomRandom.
- * 
+ *
  * When you dont pass -javarandom, but play demo recorded with JavaRandom,
  * it will pick JavaRandom for this demo playback
  *  - Good Sign 2017/04/14
@@ -113,4 +113,3 @@ class JavaRandom implements IRandom {
 //
 //Revision 1.1  2011/05/29 22:15:32  velktron
 //Introduced IRandom interface.
-

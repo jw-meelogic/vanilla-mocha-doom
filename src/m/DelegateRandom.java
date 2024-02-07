@@ -33,14 +33,14 @@ import utils.C2JUtils;
  * By default, MochaDoom now uses JavaRandom, however it switches
  * to DoomRandom (supposedly Vanilla DOOM v1.9 compatible, tested only in Chocolate DOOM)
  * whenever you start recording or playing demo. When you start then new game, MochaDoom restores new JavaRandom.
- * 
+ *
  * However, if you start MochaDoom with -javarandom command line argument and -record demo,
  * then MochaDoom will record the demo using JavaRandom. Such demo will be neither compatible
  * with Vanilla DOOM v1.9, nor with another source port.
- * 
+ *
  * Only MochaDoom can play JavaRandom demos.
  *  - Good Sign 2017/04/10
- * 
+ *
  * @author Good Sign
  */
 public class DelegateRandom implements IRandom {

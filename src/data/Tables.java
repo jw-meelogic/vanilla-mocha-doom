@@ -108,7 +108,7 @@ import static m.fixed_t.FRACUNIT;
 // DESCRIPTION:
 //	Lookup tables.
 //	Do not try to look them up :-).
-//	In the order of appearance: 
+//	In the order of appearance:
 //
 //	int finetangent[4096]	- Tangens LUT.
 //	 Should work with BAM fairly well (12 of 16bit,
@@ -120,8 +120,8 @@ import static m.fixed_t.FRACUNIT;
 //
 //	int tantoangle[2049]	- ArcTan LUT,
 //	  maps tan(angle) to angle fast. Gotta search.
-//	
-//    
+//
+//
 //-----------------------------------------------------------------------------
 public final class Tables {
 
@@ -130,11 +130,11 @@ public final class Tables {
     public static final double PI = 3.141592657;
 
     /** Normally set to 12, and this sets the value of other constants too.
-     *  Howevever changing it will also distort the view, resulting in a 
-     *  nightmare-like vision. There are some practical minimum and 
+     *  Howevever changing it will also distort the view, resulting in a
+     *  nightmare-like vision. There are some practical minimum and
      *  maximums as well.
-     *  
-     * 
+     *
+     *
      */
     public static final int BITSPRECISION = 12;
     public static final int FINEANGLES = 2 << BITSPRECISION;
@@ -161,32 +161,32 @@ public final class Tables {
  * mapped to 2^32 values!!! But the lookup tables are only 8K (2^13)
  * long (for sine/cosine), which means that we're 19 bits too precise
  * -> ergo, >>ANGLETOFINESHIFT must be applied.
- * 
+ *
  * Also, the original angle_t type was "unsigned int", so we should be
- * using longs here. However, as BAM is used only after shifting, so 
+ * using longs here. However, as BAM is used only after shifting, so
  * using ints doesn't cause a problem for LUT access.
- *  
- * However, some problems may arise with comparisons and ordinary arithmetic: 
- * e.g. ANG270 is supposed to be larger not only than ANG180, but also from 
+ *
+ * However, some problems may arise with comparisons and ordinary arithmetic:
+ * e.g. ANG270 is supposed to be larger not only than ANG180, but also from
  * ANG45, which does not hold true if those constants were stored as ints.
- * 
- * As a rule of thumb, whenever you need to store JUST a BAM index, then 
+ *
+ * As a rule of thumb, whenever you need to store JUST a BAM index, then
  * ints are ok (actually, you'll have to cast down to int anyway).
- * 
- * Whenever you need to add or compare angles directly however, you need 
+ *
+ * Whenever you need to add or compare angles directly however, you need
  * longs. Furthermore, you must account for possible rollovers by modding
  * with 0x100000000 or else long ints will store angles exceeding 360 degrees!
  * Under no circumstances the value actually stored in the "long angles" should
  * exceed 0xFFFFFFFF.
- * 
+ *
  * An example: comparing any two long angles directly is OK, provided they were
  * constructed correctly.
- * 
+ *
  * Adding, subtracting, multiplying etc. with two or more angles however requires
  * rollover compensation (e.g. result=(a+b+c) is wrong, result=(a+b+c)%0xFFFFFFFF
  * is correct and will produce an angle you can "trust".
- * 
- * 
+ *
+ *
      */
     /** Doom angle constants. */
     public static final long ANG45 = 0x20000000L,
@@ -211,12 +211,12 @@ public final class Tables {
     public static final int[] finesine = new int[FINEANGLES + QUARTERMARK];
     public static final int[] finecosine = new int[FINEANGLES];
 
-    /** Any denominator smaller than 512 will result in 
+    /** Any denominator smaller than 512 will result in
      *  maximum slope (45 degrees, or an index into tantoangle of 2048)
      *  The original method used unsigned args. So if this returns NEGATIVES
      *  in any way, it means you fucked up. Another "consistency" for Doom.
      *  Even though it was called upon fixed_t signed numbers.
-     * 
+     *
      */
     public static final int SlopeDiv(long num, long den) {
         int ans;
@@ -232,34 +232,34 @@ public final class Tables {
 
     /** Finetangent table. It only has 4096 values corresponding roughly
      * to -90/+90 angles, with values between are -/+ 2607 for "infinity".
-     * 
+     *
      * Since in vanilla accesses to the table can overflow way beyond 4096
      * indexes, the access index must be clipped to 4K tops via an accessor,
      * or, in order to simulate some aspects of vanilla overflowing, replicate
      * 4K of finesine's values AFTER the 4K index. This removes the need
      * for access checking, at the cost of some extra memory. It also allows
      * a small degree of "vanilla like" compatibility.
-     * 
-     * 
+     *
+     *
      */
     public final static int[] finetangent = new int[2 * FINETANS];
 
 // MAES: original range 2049
-// This obviously 
+// This obviously
 // Range goes from 0x00000000 to 0x20000000, so in theory plain ints should be enough...
     /** This maps a value 0-2048 to a BAM unsigned integer angle, ranging from 0x0 to 0x2000000:
-     * 
-     * In practice, this means there are only tangent values for angles up to 45 degrees. 
-     *  
+     *
+     * In practice, this means there are only tangent values for angles up to 45 degrees.
+     *
      * These values are valid BAM measurements in the first quadrant
-     * 
-     * 
+     *
+     *
      */
     public static final int[] tantoangle = new int[SLOPERANGE + 1];
 
-    /** Use this to get a value from the finesine table. It will be automatically shifte, 
+    /** Use this to get a value from the finesine table. It will be automatically shifte,
      *  Equivalent to finesine[angle>>>ANGLETOFINESHIFT]
-     * 
+     *
      * @param angle in BAM units
      * @return
      */
@@ -269,9 +269,9 @@ public final class Tables {
 
     /** Use this to get a value from the finesine table using a long argument.
      * It will automatically shift, apply rollover module and cast.
-     * 
+     *
      * Equivalent to finesine[(int) ((angle>>ANGLETOFINESHIFT)%ANGLEMODULE)];
-     * 
+     *
      * @param angle in BAM units
      * @return
      */
@@ -279,7 +279,7 @@ public final class Tables {
         return finesine[(int) ((angle & BITS32) >>> ANGLETOFINESHIFT)];
     }
 
-    /** Use this to get a value from the finecosine table. It will be automatically shifted, 
+    /** Use this to get a value from the finecosine table. It will be automatically shifted,
      * Equivalent to finecosine[angle>>>ANGLETOFINESHIFT]
      * @param angle in BAM units
      * @return
@@ -288,9 +288,9 @@ public final class Tables {
         return finecosine[angle >>> ANGLETOFINESHIFT];
     }
 
-    /** Use this to get a value from the finecosine table. 
+    /** Use this to get a value from the finecosine table.
      * It will automatically shift, apply rollover module and cast.
-     *  
+     *
      * Equivalent to finecosine[(int) ((angle&BITS32)>>>ANGLETOFINESHIFT)]
      * @param angle in BAM units
      * @return
@@ -299,7 +299,7 @@ public final class Tables {
         return finecosine[(int) ((angle & BITS32) >>> ANGLETOFINESHIFT)];
     }
 
-    /** Compare BAM angles in 32-bit format 
+    /** Compare BAM angles in 32-bit format
      *  "Greater or Equal" bam0>bam1
      * */
     public static final boolean GE(int bam0, int bam1) {
@@ -353,9 +353,9 @@ public final class Tables {
         return (int) ((long) (0x0FFFFFFFFL & bam0) / (0x0FFFFFFFFL & bam1));
     }
 
-    /** Converts a long angle to a BAM LUT-ready angle (13 bits, between 0-8191). 
-     *  Cuts away rollover. 
-     *  
+    /** Converts a long angle to a BAM LUT-ready angle (13 bits, between 0-8191).
+     *  Cuts away rollover.
+     *
      * @param angle
      * @return
      */
@@ -363,9 +363,9 @@ public final class Tables {
         return (int) ((angle & BITS32) >>> ANGLETOFINESHIFT);
     }
 
-    /** Converts a long angle to a TAN BAM  LUT-ready angle (12 bits, between 0-4195). 
-     *  Cuts away rollover. 
-     *  
+    /** Converts a long angle to a TAN BAM  LUT-ready angle (12 bits, between 0-4195).
+     *  Cuts away rollover.
+     *
      * @param angle
      * @return
      */
@@ -373,8 +373,8 @@ public final class Tables {
         return (int) ((angle & BITS31) >>> ANGLETOFINESHIFT);
     }
 
-    /** Converts an 32-bit int angle to a BAM LUT-ready angle (13 bits, between 0-8192). 
-     * 
+    /** Converts an 32-bit int angle to a BAM LUT-ready angle (13 bits, between 0-8192).
+     *
      * @param angle
      * @return
      */
@@ -390,18 +390,18 @@ public final class Tables {
     /** MAES: I brought this function "back from the dead" since
      *  Java has some pretty low static limits for statically defined LUTs.
      *  In order to keep the codebase clutter and static allocation to a minimum,
-     *  I decided to procedurally generate the tables during runtime, 
+     *  I decided to procedurally generate the tables during runtime,
      *  using the original functions.
-     *    
+     *
      *  The code has been thoroughly checked in both Sun's JDK and GCC and was
      *  found to, indeed, produce the same values found in the finesine/finecosine
      *  and finetangent tables, at least on Intel.
-     *  
-     *  The "tantoangle" table is also generated procedurally, but since there 
+     *
+     *  The "tantoangle" table is also generated procedurally, but since there
      *  was no "dead code" to build upon, it was recreated through reverse
-     *  engineering and also found to be 100% faithful to the original data.  
-     * 
-     * 
+     *  engineering and also found to be 100% faithful to the original data.
+     *
+     *
      */
     public static void InitTables() {
         int i;
@@ -445,18 +445,18 @@ public final class Tables {
      *  accessed in special cases (overflow) so we only need to consider 0..2047 aka 11 bits.
      *  So: we take "minislopes" 0-2048, we blow them up to a full fixed_t unit with <<5.
      *  We make this into a float (?), then use trigonometric ATAN, and then go to BAM.
-     *  
+     *
      *  Any questions?
-     *  
+     *
          */
- /* This is the recreated code 
+ /* This is the recreated code
     for (i=0 ; i<SLOPERANGE+1 ; i++)
     {
-    
+
     a=(float)((i<<DBITS)/65536.0);
-    t=(int)((float)(2*Math.atan(a)/PI)*0x40000000); 
+    t=(int)((float)(2*Math.atan(a)/PI)*0x40000000);
     tantoangle[i] = t;
-    } 
+    }
          */
         // This is the original R_InitPointToAngle code that created this table.
         for (i = 0; i <= SLOPERANGE; i++) {

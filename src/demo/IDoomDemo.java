@@ -9,16 +9,16 @@ public interface IDoomDemo extends IWritableDoomObject {
     public static final int DEMOMARKER = 0x80;
 
     /** Get next demo command, in its raw format. Use
-     * its own adapters if you need it converted to a 
+     * its own adapters if you need it converted to a
      * standard ticcmd_t.
-     *  
+     *
      * @return
      */
     IDemoTicCmd getNextTic();
 
     /** Record a demo command in the IDoomDemo's native format.
      * Use the IDemoTicCmd's objects adaptors to convert it.
-     * 
+     *
      * @param tic
      */
     void putTic(IDemoTicCmd tic);

@@ -10,4 +10,3 @@ public enum li_namespace {
     ns_demos,
     ns_hires //e6y
 } // haleyjd 05/21/02: renamed from "namespace"
-

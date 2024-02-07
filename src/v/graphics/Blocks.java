@@ -22,7 +22,7 @@ import v.scale.VideoScale;
 
 /**
  * Manipulating Blocks
- * 
+ *
  * @author Good Sign
  */
 public interface Blocks<V, E extends Enum<E>> extends Points<V, E>, Palettes {

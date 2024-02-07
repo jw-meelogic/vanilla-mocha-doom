@@ -74,15 +74,15 @@ public abstract class PlaneDrawer<T, V> implements IPlaneDrawer {
 
     /**
      * R_MapPlane
-     * 
+     *
      * Called only by R_MakeSpans.
-     * 
+     *
      * This is where the actual span drawing function is called.
-     * 
+     *
      * Uses global vars: planeheight ds_source -> flat data has already been
      * set. basexscale -> actual drawing angle and position is computed from
      * these baseyscale viewx viewy
-     * 
+     *
      * BASIC PRIMITIVE
      */
     public void MapPlane(int y, int x1, int x2) {
@@ -141,13 +141,13 @@ public abstract class PlaneDrawer<T, V> implements IPlaneDrawer {
 
     /**
      * R_MakeSpans
-     * 
+     *
      * Called only by DrawPlanes. If you wondered where the actual
      * boundaries for the visplane flood-fill are laid out, this is it.
-     * 
+     *
      * The system of coords seems to be defining a sort of cone.
-     * 
-     * 
+     *
+     *
      * @param x
      *            Horizontal position
      * @param t1
@@ -158,7 +158,7 @@ public abstract class PlaneDrawer<T, V> implements IPlaneDrawer {
      *            Top-right y coord ?
      * @param b2
      *            Bottom-right y coord ?
-     * 
+     *
      */
     protected void MakeSpans(int x, int t1, int b1, int t2, int b2) {
 

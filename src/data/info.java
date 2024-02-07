@@ -52,7 +52,7 @@ public class info {
 
     public static final state_t[] states = {
         // MAES: ATTENTION! The "null" state looks just like an imp. If you see it, then something's
-        // wrong. When you check for "null" state, you should actually check whether something 
+        // wrong. When you check for "null" state, you should actually check whether something
         // is set to S_NULL!
         new state_t(spritenum_t.SPR_TROO, 0, -1, null, statenum_t.S_NULL, 0, 0), // S_NULL
         // _D_: replaced "null" by "A_Light0" (see linuxdoom source)

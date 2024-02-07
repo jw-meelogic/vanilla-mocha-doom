@@ -1,7 +1,7 @@
 package defines;
 
 /** Mission packs - might be useful for TC stuff?
- * 
+ *
  */
 public enum GameMission_t {
     doom, // DOOM 1

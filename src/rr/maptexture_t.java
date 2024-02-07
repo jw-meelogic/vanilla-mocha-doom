@@ -11,7 +11,7 @@ import w.DoomBuffer;
  *  A DOOM wall texture is a list of patches which are to be combined in a predefined order.
  *  This is the ON-DISK structure, to be read from the TEXTURES1 and TEXTURES2 lumps.
  *  In memory, this becomes texture_t.
- *    
+ *
  *  @author MAES
  *
  */
@@ -20,7 +20,7 @@ public class maptexture_t implements CacheableDoomObject {
     public String name;
     public boolean masked;
     public short width; // was signed byte
-    public short height; // was 
+    public short height; // was
     //void**t        columndirectory;  // OBSOLETE (yeah, but we must read a dummy integer here)
     public short patchcount;
     public mappatch_t[] patches;

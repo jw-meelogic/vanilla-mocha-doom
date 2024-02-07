@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 1993-1996 Id Software, Inc.
  * from am_map.c
- * 
+ *
  * Copyright (C) 2017 Good Sign
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,10 +23,10 @@ public interface Lines {
 
     /**
      * Bresenham's line algorithm modified to use custom Plotter
-     * 
+     *
      * @param plotter
      * @param x2
-     * @param y2 
+     * @param y2
      */
     default void drawLine(Plotter<?> plotter, int x1, int x2) {
         drawLine(plotter, x1, x2, 1, 1);

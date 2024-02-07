@@ -19,7 +19,7 @@ package data;
 // DESCRIPTION:
 //	Simple basic typedefs, isolated here to make it easier
 //	 separating modules.
-//    
+//
 //-----------------------------------------------------------------------------
 
 public class doomtype {

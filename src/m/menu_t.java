@@ -3,7 +3,7 @@ package m;
 /** General form for a classic, Doom-style menu with a bunch of
  *  items and a drawing routine (menu_t's don't have action callbacks
  *  proper, though).
- * 
+ *
  * @author Maes
  *
  */

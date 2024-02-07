@@ -7,7 +7,7 @@ public abstract class GenericIntMap<K> {
     protected static final int DEFAULT_CAPACITY = 16;
 
     /** Concrete implementations must allocate patches
-     *  
+     *
      */
     GenericIntMap() {
 

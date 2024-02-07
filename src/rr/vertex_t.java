@@ -9,7 +9,7 @@ import w.CacheableDoomObject;
 
 /** This is the vertex structure used IN MEMORY with fixed-point arithmetic.
  *  It's DIFFERENT than the one used on disk, which has 16-bit signed shorts.
- *  However, it must be parsed. 
+ *  However, it must be parsed.
  *
  */
 public class vertex_t implements CacheableDoomObject, Resettable {

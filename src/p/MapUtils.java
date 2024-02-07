@@ -32,7 +32,7 @@ public class MapUtils {
      * along the first divline.
      * This is only called by the addthings
      * and addlines traversers.
-     * 
+     *
      * @return int to be treated as fixed_t
      */
     public static int
@@ -76,12 +76,12 @@ public class MapUtils {
    v2y = (float)v2.y/FRACUNIT;
    v2dx = (float)v2.dx/FRACUNIT;
    v2dy = (float)v2.dy/FRACUNIT;
-   
+
    den = v1dy*v2dx - v1dx*v2dy;
 
    if (den == 0)
    return 0;   // parallel
-   
+
    num = (v1x - v2x)*v1dy + (v2y - v1y)*v1dx;
    frac = num / den;
 
@@ -101,7 +101,7 @@ public class MapUtils {
     }
 
     /** Used by CrossSubSector
-     * 
+     *
      * @param v2
      * @param v1
      * @return
@@ -124,7 +124,7 @@ public class MapUtils {
      * P_InterceptVector2 Returns the fractional intercept point along the
      * first divline. This is only called by the addthings and addlines
      * traversers.
-     * 
+     *
      * @param v2
      * @param v1
      * @returnP_InterceptVector2

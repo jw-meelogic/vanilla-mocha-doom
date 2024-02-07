@@ -83,10 +83,10 @@ public abstract class MenuMisc {
         return true;
     }
 
-    /** M_ReadFile 
+    /** M_ReadFile
      *  This version returns a variable-size ByteBuffer, so
      *  we don't need to know a-priori how much stuff to read.
-     * 
+     *
      */
     public static ByteBuffer ReadFile(String name) {
         BufferedInputStream handle;
@@ -281,7 +281,7 @@ public abstract class MenuMisc {
 // -verbosity
 //
 // Revision 1.22  2011/05/31 09:57:45  velktron
-// Fixed broken parsing of unspaced strings. 
+// Fixed broken parsing of unspaced strings.
 // It's never fun having to come up with your own function for string manipulation!
 //
 // Revision 1.21  2011/05/30 15:46:50  velktron

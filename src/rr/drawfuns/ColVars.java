@@ -2,9 +2,9 @@ package rr.drawfuns;
 
 /** This is all the information needed to draw a particular column. Really.
  *  So if we store all of this crap somewhere instead of drawing, we can do the
- *  drawing when it's more convenient, and since they are non-overlapping we can 
+ *  drawing when it's more convenient, and since they are non-overlapping we can
  *  parallelize them. Any questions?
- *  
+ *
  */
 public class ColVars<T, V> {
 
@@ -15,9 +15,9 @@ public class ColVars<T, V> {
     public T dc_translation;
     public int viewheight;
 
-    /** Used by functions that accept transparency or other special 
+    /** Used by functions that accept transparency or other special
      *  remapping tables.
-     * 
+     *
      */
     public T tranmap;
 
@@ -34,9 +34,9 @@ public class ColVars<T, V> {
 
     /**
      * MAES: this was a typedef for unsigned bytes, called "lighttable_t". It
-     * makes more sense to make it generic and parametrize it to an array of 
-     * primitives since it's performance-critical in the renderer. 
-     * Now, whether this should be made bytes or shorts or chars or even ints 
+     * makes more sense to make it generic and parametrize it to an array of
+     * primitives since it's performance-critical in the renderer.
+     * Now, whether this should be made bytes or shorts or chars or even ints
      * is debatable.
      */
     public V dc_colormap;

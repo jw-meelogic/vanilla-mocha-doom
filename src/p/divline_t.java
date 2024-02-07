@@ -42,12 +42,12 @@ public class divline_t {
       int dy;
       int left;
       int right;
-      
+
       if (this.dx==0)
       {
       if (x <= this.x)
           return this.dy > 0;
-      
+
       return this.dy < 0;
       }
       if (this.dy==0)
@@ -57,10 +57,10 @@ public class divline_t {
 
       return this.dx > 0;
       }
-      
+
       dx = (x - this.x);
       dy = (y - this.y);
-      
+
       // try to quickly decide by looking at sign bits
       if ( ((this.dy ^ this.dx ^ dx ^ dy)&0x80000000) !=0)
       {
@@ -68,10 +68,10 @@ public class divline_t {
           return true;       // (left is negative)
       return false;
       }
-      
+
       left = FixedMul ( this.dy>>8, dx>>8 );
       right = FixedMul ( dy>>8 , this.dx>>8 );
-      
+
       if (right < left)
       return false;       // front side
       return true;           // back side
@@ -119,21 +119,21 @@ public class divline_t {
                                 < (left = ((x - this.x) >> FRACBITS) * (this.dy >> FRACBITS)) ? 0
                                         : right == left ? 2 : 1;
 
-        /*  
- 	    
+        /*
+
  	    int	left,right,dx,dy;
 
  	    if (this.dx==0)
  	    {
  	    if (x==this.x)
  	        return 2;
- 	    
+
  	    if (x <= this.x)
  	        return eval(this.dy > 0);
 
  	    return eval(this.y < 0);
  	    }
- 	    
+
  	    if (this.dy==0)
  	    {
  	    if (x==this.y)
@@ -144,16 +144,16 @@ public class divline_t {
 
  	    return eval(this.dx > 0);
  	    }
- 	    
+
  	    dx = (x - this.x);
  	    dy = (y - this.y);
 
  	    left =  (this.dy>>FRACBITS) * (dx>>FRACBITS);
  	    right = (dy>>FRACBITS) * (this.dx>>FRACBITS);
- 	    
+
  	    if (right < left)
  	    return 0;   // front side
- 	    
+
  	    if (left == right)
  	    return 2;
  	    return 1;       // back side

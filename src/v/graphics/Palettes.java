@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 package v.graphics;
 
@@ -25,7 +25,7 @@ import static v.tables.GammaTables.LUT;
  * - Good Sign 2017/04/14
  *
  * Palettes & colormaps library
- * 
+ *
  * @author Good Sign
  * @author Maes
  */
@@ -45,7 +45,7 @@ public interface Palettes extends Lights {
     /**
      * Maximum number of palettes
      * PLAYPAL length / (PAL_NUM_COLORS * PAL_NUM_STRIDES)
-     * 
+     *
      * TODO: think some way of support for future Hexen, Heretic, Strife palettes
      */
     static int NUM_PALETTES = 14;
@@ -53,41 +53,41 @@ public interface Palettes extends Lights {
     /**
      * Methods to be used by implementor
      */
-    /** 
+    /**
      * Perform any action necessary so that palettes get modified according to specified gamma.
      * Consider this a TIME CONSUMING operation, so don't call it unless really necessary.
-     * 
+     *
      * @param gammalevel
      */
     void setUsegamma(int gammalevel);
 
     /**
      * Getter for gamma level
-     * 
-     * @return 
+     *
+     * @return
      */
     int getUsegamma();
 
-    /** 
+    /**
      * Perform any action necessary so that the screen output uses the specified palette
      * Consider this a TIME CONSUMING operation, so don't call it unless really necessary.
-     * 
+     *
      * @param palette
      */
     void setPalette(int palette);
 
     /**
      * Getter for palette
-     * 
-     * @return 
+     *
+     * @return
      */
     int getPalette();
 
-    /** 
+    /**
      * Get the value corresponding to a base color (0-255).
      * Depending on the implementation this might be indexed,
      * RGB etc. Use whenever you need "absolute" colors.
-     * 
+     *
      * @return int
      */
     int getBaseColor(byte color);

@@ -6,7 +6,7 @@ import p.Resettable;
 
 /**
  * The LineSeg. Must be built from on-disk mapsegs_t, which are much simpler.
- * 
+ *
  * @author Maes
  */
 public class seg_t
@@ -53,7 +53,7 @@ public class seg_t
 
     /**
      * R_PointOnSegSide
-     * 
+     *
      * @param x
      * @param y
      * @param line
@@ -115,7 +115,7 @@ public class seg_t
 
     /**
      * R_PointOnSegSide
-     * 
+     *
      * @param x
      * @param y
      * @param line

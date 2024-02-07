@@ -4,7 +4,7 @@ import java.io.OutputStream;
 
 public class dcolors {
 	public static final String VERSION= "1.1";
-	
+
 	public final static int playpal[] = {
 		0x00,0x00,0x00,0x1F,0x17,0x0B,0x17,0x0F,0x07,0x4B,0x4B,0x4B,0xFF,0xFF,0xFF,0x1B,
 		0x1B,0x1B,0x13,0x13,0x13,0x0B,0x0B,0x0B,0x07,0x07,0x07,0x2F,0x37,0x1F,0x23,0x2B,
@@ -194,7 +194,7 @@ public class dcolors {
 				color15 = getRGB555(red,green,blue);
 
 				System.out.printf("Color15 for %2x %2x %2x: %4x %4x\n",red,green,blue,color12,color15);
-				
+
 				lightpalette[l][c] = BestColor(red,green,blue,palette,0,255);
 
 				color12s[l][c] = color12;
@@ -213,7 +213,7 @@ public class dcolors {
 
 	public static final short getRGB555(int red,int green,int blue){
 		int ri,gi,bi;
-		
+
 		ri = (((red+4)>255?255:red+4))>>3;
 		ri = ri > 31 ? 31 : ri;
 		gi = (((green+4)>255?255:green+4))>>3;
@@ -224,10 +224,10 @@ public class dcolors {
 		// RGB555 for HiColor
 		return (short) ((ri<<10) + (gi<<5) + bi);
 	}
-	
+
 	public static final short getRGBA4444(int red,int green,int blue){
 		int ri,gi,bi;
-		
+
 		ri = (((red+8)>255?255:red+8))>>4;
 		ri = ri > 15 ? 15 : ri;
 		gi = (((green+8)>255?255:green+8))>>4;
@@ -236,7 +236,7 @@ public class dcolors {
 		bi = bi > 15 ? 15 : bi;
 
 		// RGBA 4-4-4-4 packed for NeXT
-		
+
 		return (short) ((ri<<12)+ (gi<<8) +(bi<<4)+15);
 		//return (short)(0xDEAD);
 	}
@@ -264,12 +264,12 @@ public class dcolors {
 			green = (float) ((0xFF&palette[palsrc++]) / 256.0);
 			blue = (float) ((0xFF&palette[palsrc++]) / 256.0);
 
-			gray = (int) (255*(1.0-(red*0.299 + green*0.587 + blue*0.144)));			
-			
+			gray = (int) (255*(1.0-(red*0.299 + green*0.587 + blue*0.144)));
+
 			color12s[GRAYCOLORMAP][c] = getRGBA4444(gray,gray,gray);
 			System.out.printf("%4x for %x\n",color12s[GRAYCOLORMAP][c],gray);
 			color15s[GRAYCOLORMAP][c] = getRGB555(gray,gray,gray);
-			
+
 			lightpalette[GRAYCOLORMAP][c] = BestColor(gray,gray,gray,palette,0,255);
 		}
 
@@ -301,7 +301,7 @@ public class dcolors {
 
 		System.out.printf ("\nDCOLORS %s by John Carmack, copyright (c) 1992 Id Software\n",VERSION);
 /*
-		if (argv.length != 2) {	
+		if (argv.length != 2) {
 			CmdLib.Error("dcolors picture.lbm");
 
 		}	*/
@@ -320,14 +320,14 @@ public class dcolors {
 		palhandle=CmdLib.SafeOpenRead("PLAYPAL.lmp");
 		CmdLib.SafeRead(palhandle,palette);
 		palhandle.close();
-		
+
 		for (i=0;i<palette.length;i+=3){
 			palette[i]=(byte) (0xFF&(playpal[i]));
 			palette[i+1]=(byte) (0xFF&(playpal[i+1]));
 			palette[i+2]=(byte) (0xFF&(playpal[i+2]));
 			System.out.printf("Palette %d: %x %x %x\n",(i/3),palette[i],palette[i+1],palette[i+2]);
 		}
-		
+
 		handle = CmdLib.SafeOpenWrite ("playpal1.lmp");
 
 		// Standard palette.

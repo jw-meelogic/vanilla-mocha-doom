@@ -24,7 +24,7 @@ import v.tables.BlurryTable;
  * fuzzMix was preserved, but moved to its own interface.
  * Implemented by BlurryTable if cfg option fuzz_mix is set
  *  - Good Sign 2017/04/16
- * 
+ *
  * Low detail version. Jesus.
  */
 public abstract class R_DrawFuzzColumnLow<T, V> extends DoomColumnFunction<T, V> {

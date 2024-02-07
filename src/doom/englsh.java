@@ -495,7 +495,7 @@ public class englsh {
             + "SUPER SECRET LEVEL!  YOU'D BETTER\n"
             + "BLAZE THROUGH THIS ONE!\n");
 
-// after map 06 
+// after map 06
     public final static String P1TEXT = ("You gloat over the steaming carcass of the\n"
             + "Guardian.  With its death, you've wrested\n"
             + "the Accelerator from the stinking claws\n"

@@ -8,7 +8,7 @@ import rr.parallel.IGetSmpColumn;
 /** All texture, flat and sprite management operations should be handled
  *  by an implementing class. As of now, the renderer does both, though it's
  *  not really the most ideal.
- *  
+ *
  * @author Velktron
  *
  */
@@ -23,7 +23,7 @@ public interface TextureManager<T> extends IGetColumn<T>, IGetCachedColumn<T>, I
 
     /**The "num" expected here is the internal flat number,
      * not the absolute lump number. So impement accordingly.
-     * 
+     *
      * @param flatname
      * @return
      */
@@ -88,7 +88,7 @@ public interface TextureManager<T> extends IGetColumn<T>, IGetCachedColumn<T>, I
 
     /** Return a "sanitized" patch. If data is insufficient, return
      *  a default patch or attempt a partial draw.
-     * 
+     *
      * @param patchnum
      * @return
      */

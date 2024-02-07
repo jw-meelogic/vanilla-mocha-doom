@@ -24,7 +24,7 @@ import v.tables.BlurryTable;
  * fuzzMix was preserved, but moved to its own interface.
  * Implemented by BlurryTable if cfg option fuzz_mix is set
  *  - Good Sign 2017/04/16
- * 
+ *
  * Framebuffer postprocessing. Creates a fuzzy image by copying pixels from
  * adjacent ones to left and right. Used with an all black colormap, this
  * could create the SHADOW effect, i.e. spectres and invisible players.

@@ -7,7 +7,7 @@ public class fline_t {
         a=new fpoint_t();
         b=new fpoint_t();
     }
-    
+
     public fline_t(fpoint_t a, fpoint_t b){
         this.a=a;
         this.b=b;
@@ -33,6 +33,6 @@ public class fline_t {
         this.a.y=0;
         this.b.x=0;
         this.b.y=0;
-        
+
     }*/
 }

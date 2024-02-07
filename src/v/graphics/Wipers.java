@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 1993-1996 Id Software, Inc.
  * from f_wipe.c
- * 
+ *
  * Copyright (C) 2017 Good Sign
  *
  * This program is free software: you can redistribute it and/or modify
@@ -35,7 +35,7 @@ public class Wipers implements ColorTransform, Melt {
     /**
      * They are repeated thrice for a reason - they are overloads with different arguments
      * - Good Sign 2017/04/06
-     * 
+     *
      * ASS-WIPING functions
      */
     public enum WipeFunc {

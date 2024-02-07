@@ -19,7 +19,7 @@ package v.graphics;
 /**
  * Relocation represents a move of a fixed length of bytes/shorts/ints
  * from one range in screen buffer to another range of the same size
- * 
+ *
  * @author Good Sign
  */
 public final class Relocation {

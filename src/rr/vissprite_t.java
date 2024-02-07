@@ -34,7 +34,7 @@ public class vissprite_t<V> implements Comparable<vissprite_t<V>> {
 
     /** for color translation and shadow draw,
      * maxbright frames as well.
-     * 
+     *
      * Use paired with pcolormap;
      */
     public V colormap;
@@ -46,7 +46,7 @@ public int pcolormap; */
     /** visspites are sorted by scale */
     @Override
     public final int compareTo(vissprite_t<V> o) {
-        // We only really care if it's drawn before. 
+        // We only really care if it's drawn before.
         if (this.scale > o.scale) {
             return 1;
         }

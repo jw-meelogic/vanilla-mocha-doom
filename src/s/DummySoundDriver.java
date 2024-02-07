@@ -7,7 +7,7 @@ import p.mobj_t;
 /** Does nothing. Just allows me to code without
  *  commenting out ALL sound-related code. Hopefully
  *  it will be superseded by a real sound driver one day.
- * 
+ *
  * @author Velktron
  *
  */

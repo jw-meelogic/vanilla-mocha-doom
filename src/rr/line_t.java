@@ -107,7 +107,7 @@ public class line_t
 
     /**
      * P_PointOnLineSide
-     * 
+     *
      * @param x
      *        fixed_t
      * @param y
@@ -150,7 +150,7 @@ public class line_t
      * P_BoxOnLineSide Considers the line to be infinite Returns side 0 or 1, -1
      * if box crosses the line. Doubles as a convenient check for whether a
      * bounding box crosses a line at all
-     * 
+     *
      * @param tmbox
      *        fixed_t[]
      */
@@ -204,7 +204,7 @@ public class line_t
      * Variant of P_BoxOnLineSide. Uses inclusive checks, so that even lines on
      * the border of a box will be considered crossing. This is more useful for
      * building blockmaps.
-     * 
+     *
      * @param tmbox
      *        fixed_t[]
      */

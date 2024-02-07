@@ -26,7 +26,7 @@ import v.renderers.BppMode;
  *   Combined colormap and light LUTs.
  *   Used for z-depth cuing per column/row,
  *   and other lighting effects (sector ambient, flash).
- *   
+ *
  * @author velktron
  *
  * @param <V> The data type of the SCREEN
@@ -37,7 +37,7 @@ public class LightsAndColors<V> {
 
     /** For HiColor, these are, effectively, a bunch of 555 RGB palettes,
      *  for TrueColor they are a bunch of 32-bit ARGB palettes etc.
-     *  Only for indexed they represent index remappings.  
+     *  Only for indexed they represent index remappings.
      */
     /** "peg" this to the one from RendererData */
     public V[] colormaps;
@@ -106,7 +106,7 @@ public class LightsAndColors<V> {
      * player_t.fixedcolormap have a range of 0..31 in vanilla.
      * We must respect it. However, we can have more lightlevels then vanilla.
      * So we must scale player_t.fixedcolormap by the difference with vanilla lightBits
-     * 
+     *
      * @param player
      * @return index in rich bit liteColorMaps
      */
@@ -130,7 +130,7 @@ public class LightsAndColors<V> {
          * These two are tied by an inverse relationship. E.g. 256 levels, 0 shift
          * 128 levels, 1 shift ...etc... 16 levels, 4 shift (default). Or even less,
          * if you want.
-         * 
+         *
          * By setting it to the max however you get smoother light and get rid of
          * lightsegshift globally, too. Of course, by increasing the number of light
          * levels, you also put more memory pressure, and due to their being only
@@ -140,7 +140,7 @@ public class LightsAndColors<V> {
         final int LIGHTSEGSHIFT;
 
         /** Number of diminishing brightness levels.
-           There a 0-31, i.e. 32 LUT in the COLORMAP lump. 
+           There a 0-31, i.e. 32 LUT in the COLORMAP lump.
            TODO: how can those be distinct from the light levels???
          */
         final int NUMCOLORMAPS;
@@ -148,7 +148,7 @@ public class LightsAndColors<V> {
         // These are a bit more tricky to figure out though.
         /** Maximum index used for light levels of sprites. In practice,
          *  it's capped by the number of light levels???
-         *  
+         *
          *  Normally set to 48 (32 +16???)
          */
         final int MAXLIGHTSCALE;
@@ -156,7 +156,7 @@ public class LightsAndColors<V> {
         /** Used to scale brightness of walls and sprites. Their "scale" is shifted by
          *  this amount, and this results in an index, which is capped by MAXLIGHTSCALE.
          *  Normally it's 12 for 32 levels, so 11 for 64, 10 for 128, ans 9 for 256.
-         *  
+         *
          */
         final int LIGHTSCALESHIFT;
 
@@ -167,7 +167,7 @@ public class LightsAndColors<V> {
 
         /** Normally 20 for 32 colormaps, applied to distance.
          * Formula: 25-LBITS
-         *  
+         *
          */
         final int LIGHTZSHIFT;
 

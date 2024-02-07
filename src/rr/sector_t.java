@@ -27,7 +27,7 @@ import w.IReadableDoomObject;
 /**
  * The SECTORS record, at runtime. Stores things/mobjs. Can be
  * archived/unarchived during savegames.
- * 
+ *
  * @author Maes
  */
 public class sector_t implements IReadableDoomObject, IPackableDoomObject, Resettable {
@@ -136,7 +136,7 @@ public class sector_t implements IReadableDoomObject, IPackableDoomObject, Reset
      * "semi-Boom" maps not to work, since it won't be able to lower stuff below
      * -500 units. The correct fix here would be to allow for -compatlevel style
      * options. Maybe later.
-     * 
+     *
      * @param sec
      */
     public int FindHighestFloorSurrounding() {
@@ -166,7 +166,7 @@ public class sector_t implements IReadableDoomObject, IPackableDoomObject, Reset
     /**
      * P_FindNextHighestFloor FIND NEXT HIGHEST FLOOR IN SURROUNDING SECTORS
      * Note: this should be doable w/o a fixed array.
-     * 
+     *
      * @param sec
      * @param currentheight
      * @return fixed

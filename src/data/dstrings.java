@@ -46,7 +46,7 @@ package data;
 //
 // DESCRIPTION:
 //	Globally defined strings.
-// 
+//
 //-----------------------------------------------------------------------------
 
 import static doom.englsh.QUITMSG;
@@ -58,9 +58,9 @@ public class dstrings {
     public static final String SAVEGAMENAME = "doomsav";
 
     /** File locations,  relative to current position.
-     * Path names are OS-sensitive. 
+     * Path names are OS-sensitive.
      * Only really used with the -shdev command line parameter.
-     * 
+     *
      * MAES: shouldn't those need path separator characters? :-S
      */
     public static final String DEVMAPS = "devmaps", DEVDATA = "devdata";

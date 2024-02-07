@@ -13,12 +13,12 @@ import static utils.C2JUtils.memset;
 import static utils.GenericCopy.malloc;
 import w.lumpinfo_t;
 
-/** An stand-alone sprite loader. Surprisingly, it is quite a 
- *  separate concern from the renderer, and only needs to communicate 
+/** An stand-alone sprite loader. Surprisingly, it is quite a
+ *  separate concern from the renderer, and only needs to communicate
  *  occasionally through its getters with the rest of the stuff.
- *  
+ *
  *  Helped lighten up the rendering code a lot, too.
- * 
+ *
  * @author Maes
  *
  */
@@ -248,9 +248,9 @@ public class SpriteManager<T, V> implements ISpriteManager {
 
     /**
      * R_InstallSpriteLump Local function for R_InitSprites.
-     * 
+     *
      * Boom function, more suited to resource coalescing.
-     * 
+     *
      */
     public final void InstallSpriteLump(int lump, int frame,
             int rotation, boolean flipped) {
@@ -287,7 +287,7 @@ public class SpriteManager<T, V> implements ISpriteManager {
 
     /**
      * R_InitSprites Called at program start.
-     * 
+     *
      */
     @Override
     public void InitSprites(String[] namelist) {
@@ -352,7 +352,7 @@ public class SpriteManager<T, V> implements ISpriteManager {
     // Some unused shit
     /*
          * R_InstallSpriteLump Local function for R_InitSprites.
-         * 
+         *
          * Older function, closer to linuxdoom. Using Boom-derived one instead.
      */
  /*
@@ -378,7 +378,7 @@ public class SpriteManager<T, V> implements ISpriteManager {
             // ?!
 
             if (rotation == 0) {
-                
+
                  // MAES: notice how comparisons are done with strict literals
                  // (true and false) which are actually defined to be 0 and 1,
                  // rather than assuming that true is "any nonzero value". This
@@ -387,21 +387,21 @@ public class SpriteManager<T, V> implements ISpriteManager {
                  // "tri-state", and the comparison 0==false and
                  // "anything else"==true was not good enough in this case. A
                  // value of -1 doesn't yield either true or false here.
-                
+
                 // the lump should be used for all rotations
                 if (sprtemp[frame].rotate == 0) {
-                    
+
                      // MAES: Explanation: we stumbled upon this lump before, and
                      // decided that this frame should have no more rotations,
                      // hence we found an error and we bomb everything.
-                    
+
                     I.Error("R_InitSprites: Sprite %s frame %c has multiple rot=0 lump",
                             spritename, 'A' + frame);
                 }
 
                 // This should NEVER happen!
                 if (sprtemp[frame].rotate == 1) {
-                    
+
                      // MAES: This can only happen if we decided that a sprite's
                      // frame was already decided to have rotations, but now we
                      // stumble upon another occurence of "rotation 0". Or if you
@@ -448,12 +448,12 @@ public class SpriteManager<T, V> implements ISpriteManager {
      */
  /*
          * OLDER, UNUSED VERSION
-         * 
+         *
          * R_InitSpriteDefs Pass a null terminated list of sprite names (4 chars
          * exactly) to be used. Builds the sprite rotation matrixes to account
          * for horizontally flipped sprites. Will report an error if the lumps
          * are inconsistent. Only called at startup.
-         * 
+         *
          * Sprite lump names are 4 characters for the actor, a letter for the
          * frame, and a number for the rotation. A sprite that is flippable will
          * have an additional letter/number appended. The rotation character can
@@ -490,8 +490,8 @@ public class SpriteManager<T, V> implements ISpriteManager {
                 spritename = namelist[i];
 
                 // The original code actually set everything to "-1"
-                // here, including the "boolean" rotate value. The idea was 
-                // to create a "tristate" of sorts, where -1 means a 
+                // here, including the "boolean" rotate value. The idea was
+                // to create a "tristate" of sorts, where -1 means a
                 // sprite of uncertain status. Goto InstallSpriteLumps
                 // for more.
                 for (int j = 0; j < sprtemp.length; j++) {

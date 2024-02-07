@@ -30,7 +30,7 @@ import data.Defines;
 // Most functionality of C-based ports is preserved, EXCEPT that there's
 // no typedef of ints into fixed_t, and that there's no actual object fixed_t
 // type that is actually instantiated in the current codebase, for performance reasons.
-// There are still remnants of a full OO implementation that still do work, 
+// There are still remnants of a full OO implementation that still do work,
 // and the usual FixedMul/FixedDiv etc. methods are still used throughout the codebase,
 // but operate on int operants (signed, 32-bit integers).
 public class fixed_t implements Comparable<fixed_t> {
@@ -75,7 +75,7 @@ public class fixed_t implements Comparable<fixed_t> {
     public static final String rcsid = "$Id: fixed_t.java,v 1.14 2011/10/25 19:52:13 velktron Exp $";
 
     /** Creates a new fixed_t object for the result a*b
-     * 
+     *
      * @param a
      * @param b
      * @return
@@ -96,7 +96,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** Returns result straight as an int..
-     * 
+     *
      * @param a
      * @param b
      * @return
@@ -107,7 +107,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** In-place c=a*b
-     * 
+     *
      * @param a
      * @param b
      * @param c
@@ -119,7 +119,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** In-place this=this*a
-     * 
+     *
      * @param a
      * @param b
      * @param c
@@ -157,7 +157,7 @@ public class fixed_t implements Comparable<fixed_t> {
 
   if (c >= 2147483648.0 || c < -2147483648.0)
       throw new ArithmeticException("FixedDiv: divide by zero");
- 
+
  return (int)c;*/
     }
 
@@ -204,7 +204,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** a+b
-     * 
+     *
      * @param a
      * @param b
      * @return
@@ -214,7 +214,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** a-b
-     * 
+     *
      * @param a
      * @param b
      * @return
@@ -224,7 +224,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** c=a+b
-     * 
+     *
      * @param c
      * @param a
      * @param b
@@ -234,7 +234,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** c=a-b
-     * 
+     *
      * @param c
      * @param a
      * @param b
@@ -244,7 +244,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** Equals Zero
-     * 
+     *
      * @return
      */
     public boolean isEZ() {
@@ -252,7 +252,7 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** Greater than Zero
-     * 
+     *
      * @return
      */
     public boolean isGZ() {
@@ -260,14 +260,14 @@ public class fixed_t implements Comparable<fixed_t> {
     }
 
     /** Less than Zero
-     * 
+     *
      * @return
      */
     public boolean isLZ() {
         return (this.val < 0);
     }
 
-// These are here to make easier handling all those methods in R 
+// These are here to make easier handling all those methods in R
 // that return "1" or "0" based on one result.
     public int oneEZ() {
         return (this.val == 0) ? 1 : 0;

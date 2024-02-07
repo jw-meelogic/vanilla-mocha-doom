@@ -30,27 +30,27 @@ import v.renderers.DoomScreen;
 import v.scale.VideoScale;
 import v.tables.BlurryTable;
 
-/** 
+/**
  * Refactored a lot of it; most notable changes:
- * 
+ *
  *  - 2d rendering methods are unified, standartized, generized, typehinted and incapsulated,
  *    they are moved into separate interfaces and those interfaces to separate package
- * 
+ *
  *  - Fixed buggy 2d alrorithms, such as scaling, rewritten and parallelized column drawing logic,
  *    unified and simplified calculation of areas on column-major surface
- * 
+ *
  *  - Renderer drivers are separated from drawing API and refactored a lot: fixed all issues with
  *    improper gammas, lights and tinting, fixed delay before it applied on non-indexed render,
  *    parallelized HiColor and TrueColor renderers. Only standard indexed 8-bit renderer is still
  *    single-threaded, and he is very performant and is cool too!
- * 
+ *
  *   -- Good Sign 2017/04/12
- * 
+ *
  *    Notes about method hiding:
  *  - (A comment on the notes below) It would be only wonderful, if it also will make reflection-access
  *    (that what happens when some lame Java developer cannot access something and he just use reflection to
  *    set method public) harder on these methods. I hate lame Java developers.
- * 
+ *
  *    Never trust clients. Never show them too much. So for those of you, who don't know something like that,
  *    I introduce a good method of hiding interface methods. It is called Hiding By Complexity of Implementation.
  *    Why I call it that? Because we strike a zombie sergeant using a shotgun.
@@ -60,7 +60,7 @@ import v.tables.BlurryTable;
  *    That is why they are internal. A here it is the main contract: if you want to use internal methods,
  *    you create all their environment properly by sub-contracts of concrete interfaces.
  *    So we hide complexity of usage by complexity of implementation the usable case. And the sergeant falls.
- * 
+ *
  *    A lot of interfaces with a lot of default methods. This is intended feature hiding mechanism.
  *    Yes, it seems that a lot of PUBLIC default methods (default method is always public)
  *    gains much access and power to one who use it... But actually, these interfaces restrict
@@ -68,18 +68,18 @@ import v.tables.BlurryTable;
  *    to access any of these methods, and implementing these interfaces means implementing
  *    a whole part of DoomGraphicsSystem. And I've thought out the interfaces contracts in the way
  *    that if someone *implement* them on purpose, their methods will be safe and useful for him.
- * 
+ *
  *   -- Good Sign 2017/04/14
- * 
+ *
  *  DoomVideoSystem is now an interface, that all "video drivers" (whether do screen, disk, etc.)
- *  must implement. 
- *  
+ *  must implement.
+ *
  *  23/10/2011: Made into a generic type, which affects the underlying raw screen data
  *  type. This should make -in theory- true color or super-indexed (>8 bits) video modes
  *  possible. The catch is that everything directly meddling with the renderer must also
  *  be aware of the underlying implementation. E.g. the various screen arrays will not be
  *  necessarily byte[].
- * 
+ *
  * @author Maes
  */
 public interface DoomGraphicSystem<T, V> {
@@ -94,10 +94,10 @@ public interface DoomGraphicSystem<T, V> {
     final int V_SCALESTART = 0x00020000;   // scale x,y, start coords
     final int V_SCALEPATCH = 0x00040000;   // scale patch
     final int V_NOSCALEPATCH = 0x00080000;   // don't scale patch
-    final int V_WHITEMAP = 0x00100000;   // draw white (for v_drawstring)    
+    final int V_WHITEMAP = 0x00100000;   // draw white (for v_drawstring)
     final int V_FLIPPEDPATCH = 0x00200000;   // flipped in y
-    final int V_TRANSLUCENTPATCH = 0x00400000;   // draw patch translucent    
-    final int V_PREDIVIDE = 0x00800000;   // pre-divide by best x/y scale.    
+    final int V_TRANSLUCENTPATCH = 0x00400000;   // draw patch translucent
+    final int V_PREDIVIDE = 0x00800000;   // pre-divide by best x/y scale.
     final int V_SCALEOFFSET = 0x01000000;   // Scale the patch offset
     final int V_NOSCALEOFFSET = 0x02000000;   // dont's cale patch offset
     final int V_SAFESCALE = 0x04000000;   // scale only by minimal scale of x/y instead of both
@@ -105,7 +105,7 @@ public interface DoomGraphicSystem<T, V> {
     /**
      * Public API
      * See documentation in r2d package
-     * 
+     *
      * These are only methods DoomGraphicSystem wants to share from the whole insanely big package r2d
      * Because using only these methods, it is minimal risk of breaking something. Actually,
      * the only problematic cases should be passing null instead of argument or invalid coordinates.
@@ -181,7 +181,7 @@ public interface DoomGraphicSystem<T, V> {
 
     void DrawBlock(DoomScreen dstScreen, V block, Rectangle sourceArea, int destinationPoint);
 
-    /** 
+    /**
      * No matter how complex/weird/arcane palette manipulations you do internally, the AWT module
      * must always be able to "tap" into what's the current, "correct" screen after all manipulation and
      * color juju was applied. Call after a palette/gamma change.
@@ -222,7 +222,7 @@ public interface DoomGraphicSystem<T, V> {
     BlurryTable getBlurryTable();
 
     /**
-     * Indexed renderer needs to reset its image 
+     * Indexed renderer needs to reset its image
      */
     default void forcePalette() {
     }

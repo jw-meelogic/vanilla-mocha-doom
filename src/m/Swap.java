@@ -27,7 +27,7 @@ public final class Swap {
 
 // Swap 16bit, that is, MSB and LSB byte.
     public final static short SHORT(short x) {
-        // No masking with 0xFF should be necessary. 
+        // No masking with 0xFF should be necessary.
         // MAES: necessary with java due to sign trailing.
 
         return (short) ((short) ((x >>> 8) & 0xFF) | (x << 8));
@@ -35,7 +35,7 @@ public final class Swap {
 
 //Swap 16bit, that is, MSB and LSB byte.
     public final static short SHORT(char x) {
-        // No masking with 0xFF should be necessary. 
+        // No masking with 0xFF should be necessary.
         // MAES: necessary with java due to sign trailing.
 
         return (short) ((short) ((x >>> 8) & 0xFF) | (x << 8));
@@ -43,7 +43,7 @@ public final class Swap {
 
 //Swap 16bit, that is, MSB and LSB byte.
     public final static char USHORT(char x) {
-        // No masking with 0xFF should be necessary. 
+        // No masking with 0xFF should be necessary.
         // MAES: necessary with java due to sign trailing.
 
         return (char) ((char) ((x >>> 8) & 0xFF) | (x << 8));

@@ -101,7 +101,7 @@ public interface ActionsUseEvents extends ActionTrait {
             }
         }
 
-        // do something  
+        // do something
         switch (line.special) {
             // MANUALS
             case 1:      // Vertical Door

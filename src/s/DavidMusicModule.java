@@ -18,7 +18,7 @@ import mochadoom.Loggers;
 /** Concern separated from David Martel's MIDI & MUS player
  *  for Mocha Doom. Greatly improved upon by finnw, perfecting volume changes
  *  and MIDI device detection.
- *  
+ *
  * @author David Martel
  * @author velktron
  * @author finnw
@@ -56,9 +56,9 @@ public class DavidMusicModule implements IMusic {
             }
 
             //System.out.printf("x %d y %d \n",x,y);
-            //--This sets the Sequencer and Synthesizer  
-            //--The indices x and y correspond to the correct entries for the  
-            //--default Sequencer and Synthesizer, as determined above  	       
+            //--This sets the Sequencer and Synthesizer
+            //--The indices x and y correspond to the correct entries for the
+            //--default Sequencer and Synthesizer, as determined above
             if (x != -1) {
                 sequencer = (Sequencer) MidiSystem.getMidiDevice(info[x]);
             } else {

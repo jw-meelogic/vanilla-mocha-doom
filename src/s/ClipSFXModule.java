@@ -17,20 +17,20 @@ import mochadoom.Loggers;
 
 /** Experimental Clip based driver. It does work, but it has no
  *  tangible advantages over the Audioline or Classic one. If the
- *  Audioline can be used, there's no reason to fall back to this 
+ *  Audioline can be used, there's no reason to fall back to this
  *  one.
- * 
+ *
  * KNOWN ISSUES:
- * 
- * a) Same general restrictions as audiolines (in fact, Clips ARE Audioline 
+ *
+ * a) Same general restrictions as audiolines (in fact, Clips ARE Audioline
  *    in disguise)
  * b) Multiple instances of the same sound require multiple clips, so
  *    even caching them is a half-baked solution, and if you have e.g. 40 imps
- *    sound in a room.... 
- *    
- *    
+ *    sound in a room....
+ *
+ *
  *  Currently unused.
- * 
+ *
  * @author Velktron
  *
  */
@@ -90,7 +90,7 @@ public class ClipSFXModule extends AbstractSoundDriver {
     /** Modified getsfx. The individual length of each sfx is not of interest.
      * However, they must be transformed into 16-bit, signed, stereo samples
      * beforehand, before being "fed" to the audio clips.
-     * 
+     *
      * @param sfxname
      * @param index
      * @return
@@ -245,7 +245,7 @@ public class ClipSFXModule extends AbstractSoundDriver {
         channels[c] = clip;
 
         // Control[] cs=clip.getControls();
-        // 
+        //
         // for (Control cc:cs){
         // 	System.out.println("Control "+cc.getType().toString());
         // 		}
@@ -311,7 +311,7 @@ public class ClipSFXModule extends AbstractSoundDriver {
         // Okay, in the less recent channel,
         //  we will handle the new SFX.
         // We need to decide whether we can reuse an existing clip
-        // or create a new one. In any case, when this method return 
+        // or create a new one. In any case, when this method return
         // we should have a valid clip assigned to channel "slot".
         getClipForChannel(slot, sfxid);
 
@@ -362,7 +362,7 @@ public class ClipSFXModule extends AbstractSoundDriver {
     }
 
     /** Accepts volume in "Doom" format (0-127).
-     * 
+     *
      * @param volume
      */
     public void setVolume(int chan, int volume) {
@@ -424,8 +424,8 @@ public class ClipSFXModule extends AbstractSoundDriver {
 
     }
 
-    /** Internal use. 
-     * 
+    /** Internal use.
+     *
      * @param handle
      * @return the channel that has the handle, or -2 if none has it.
      */

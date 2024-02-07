@@ -20,12 +20,12 @@ import p.mobj_t;
 
 /** Some stuff that is not implementation dependant
  *  This includes channel management, sound priorities,
- *  positioning, distance attenuation etc. It's up to 
+ *  positioning, distance attenuation etc. It's up to
  *  lower-level "drivers" to actually implements those.
  *  This particular class needs not be a dummy itself, but
- *  the drivers it "talks" to might be. 
- *  
- * 
+ *  the drivers it "talks" to might be.
+ *
+ *
  * */
 public class AbstractDoomAudio implements IDoomSound {
 
@@ -40,7 +40,7 @@ public class AbstractDoomAudio implements IDoomSound {
     protected final static boolean D = false;
 
     /** the set of channels available. These are "soft" descriptor
-	   channels,  not to be confused with actual hardware audio 
+	   channels,  not to be confused with actual hardware audio
 	   lines, which are an entirely different concern.
 
      */
@@ -166,7 +166,7 @@ public class AbstractDoomAudio implements IDoomSound {
         }
 
         // HACK FOR COMMERCIAL
-        //  if (commercial && mnum > mus_e3m9)	
+        //  if (commercial && mnum > mus_e3m9)
         //      mnum -= mus_e3m9;
         ChangeMusic(mnum, true);
 
@@ -311,9 +311,9 @@ public class AbstractDoomAudio implements IDoomSound {
         // Assigns the handle to one of the channels in the
         //  mix/output buffer. This is when things actually
         // become hard (pun intended).
-        // TODO: which channel? How do we know how the actual hardware 
+        // TODO: which channel? How do we know how the actual hardware
         // ones map with the "soft" ones?
-        // Essentially we're begging to get an actual channel.		
+        // Essentially we're begging to get an actual channel.
         channels[cnum].handle = ISND.StartSound(sfx_id,
                 /*sfx->data,*/
                 volume,
@@ -446,7 +446,7 @@ public class AbstractDoomAudio implements IDoomSound {
 
         // Clean up unused data.
         // This is currently not done for 16bit (sounds cached static).
-        // DOS 8bit remains. 
+        // DOS 8bit remains.
         /*if (gametic.nextcleanup)
 		    {
 			for (i=1 ; i<NUMSFX ; i++)
@@ -609,9 +609,9 @@ public class AbstractDoomAudio implements IDoomSound {
 
     /** This is S_StopChannel. There's another StopChannel
      *  with a similar contract in ISound. Don't confuse the two.
-     *  
-     * 
-     *  
+     *
+     *
+     *
      * @param cnum
      */
     protected void StopChannel(int cnum) {
@@ -710,7 +710,7 @@ public class AbstractDoomAudio implements IDoomSound {
                     / S_ATTENUATOR;
             // Let's do some maths here: S_CLIPPING_DIST-approx_dist
             // can be at most 0x04100000. shifting left means 0x0410,
-            // or 1040 in decimal. 
+            // or 1040 in decimal.
             // The unmultiplied max volume is 15, attenuator is 1040.
             // So snd_SfxVolume should be 0-127.
 
@@ -719,31 +719,31 @@ public class AbstractDoomAudio implements IDoomSound {
         // MAES: pitch calculation for doppler effects. Nothing to write
         // home about.
         /*
-		
+
 		// calculate the relative speed between source and sound origin.
 		//  and clip it if necessary
 		adx = Math.abs(listener.momx - source.momx);
 		ady = Math.abs(listener.momy - source.momy);
-			
+
 		// From _GG1_ p.428. Appox. eucledian distance fast.
 		// Here used for "approximate speed"
 		approx_dist = adx + ady - ((adx < ady ? adx : ady)>>1);
-		
+
 		// The idea is that for low speeds, no doppler effect occurs.
 		// For higher ones however, a shift occurs. We don't want this
 		// to be annoying, so we'll only apply it for large speed differences
 		// Then again, Doomguy can sprint like Carl Lewis...
-			
+
 		if (approx_dist>0x100000){
-		
+
 		// Quickly decide sign of pitch based on speed vectors
-			
+
 			// angle of source (speed) to listener (speed)
 			angle = rr.RendererState.PointToAngle(listener.momx,
 					listener.momy,
 					source.momx,
 					source.momy);
-			
+
 			if ((0<=angle && angle<=Tables.ANG90)||
 				(180<=angle && angle<=Tables.ANG270))
 		vps.pitch+=(approx_dist>>16);
@@ -810,7 +810,7 @@ public class AbstractDoomAudio implements IDoomSound {
      * and we can give it a handle proportional to the future tics
      * it should play until. Ofc, this means the minimum timeframe
      * for cutting a sound off is just 1 tic.
-     * 
+     *
      * @param handle
      * @return
      */

@@ -47,7 +47,7 @@ public class VanillaDoomDemo implements IDoomDemo, CacheableDoomObject {
         // Just the Header info for vanilla should be 13 bytes.
         // 1 byte at the end is the end-demo marker
         // So valid vanilla demos should have sizes that
-        // fit the formula 14+4n, since each vanilla 
+        // fit the formula 14+4n, since each vanilla
         // demo ticcmd_t is 4 bytes.
         int lens = (b.limit() - 13) / 4;
         boolean vanilla = (b.limit() == (14 + 4 * lens));

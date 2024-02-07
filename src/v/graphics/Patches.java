@@ -39,15 +39,15 @@ import v.scale.VideoScale;
  *  - there is a Default Behavior chose when flag is not present
  *  - if the flag is present Default Behavior is changed
  *  - if both the flag and the opposite flag are present, then the flag that restores Default Behavior takes precedence
- * 
+ *
  * I tried my best to preserve all of the features done by prior contributors. - Good Sign 2017/04/02
- * 
+ *
  * @author Good Sign
  *
  * About all DrawPatch functions:
  * It uses FLAGS (see above) (now as a separate - Good Sign 2017/04/04) parameter, to be
  * parsed afterwards. Shamelessly ripped from Doom Legacy (for menus, etc) by _D_ ;-)
- * 
+ *
  * added:05-02-98: default params : scale patch and scale start
  *
  * Iniially implemented for Mocha Doom by _D_ (shamelessly ripped from Eternity Engine ;-), adapted to scale based
@@ -61,7 +61,7 @@ public interface Patches<V, E extends Enum<E>> extends Columns<V, E> {
 
     /**
      * V_DrawPatch
-     * 
+     *
      * Draws a patch to the screen without centering or scaling
      */
     default void DrawPatch(E screen, patch_t patch, int x, int y, int... flags) {
@@ -70,7 +70,7 @@ public interface Patches<V, E extends Enum<E>> extends Columns<V, E> {
 
     /**
      * V_DrawPatch
-     * 
+     *
      * Draws a patch to the screen without centering or scaling
      */
     default void DrawPatchCentered(E screen, patch_t patch, int y, int... flags) {
@@ -82,7 +82,7 @@ public interface Patches<V, E extends Enum<E>> extends Columns<V, E> {
      * Centers the x coordinate on a screen based on patch width and offset
      * I have completely reworked column drawing code, so it resides in another class, and supports parallelism
      *  - Good Sign 2017/04/04
-     * 
+     *
      * It uses FLAGS (see above) (now as a separate - Good Sign 2017/04/04) parameter, to be
      * parsed afterwards. Shamelessly ripped from Doom Legacy (for menus, etc) by _D_ ;-)
      */
@@ -144,7 +144,7 @@ public interface Patches<V, E extends Enum<E>> extends Columns<V, E> {
 
     /**
      * V_DrawPatch
-     * 
+     *
      * V_DrawScaledPatch like V_DrawPatch, but scaled with IVideoScale object scaling
      * I have completely reworked column drawing code, so it resides in another class, and supports parallelism
      *  - Good Sign 2017/04/04

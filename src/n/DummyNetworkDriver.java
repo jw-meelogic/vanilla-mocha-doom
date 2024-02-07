@@ -9,7 +9,7 @@ import mochadoom.Engine;
 /** Does nothing.
  *  Allows running single-player games without an actual network.
  *  Hopefully, it will be replaced by a real UDP-based driver one day.
- *  
+ *
  * @author Velktron
  *
  */

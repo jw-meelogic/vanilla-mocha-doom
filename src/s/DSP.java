@@ -4,7 +4,7 @@ public class DSP {
 
     /**
      * QDSS Windowed Sinc ReSampling subroutine in Basic
-     * 
+     *
      * @param x
      *        new sample point location (relative to old indexes) (e.g. every
      *        other integer for 0.5x decimation)
@@ -60,7 +60,7 @@ public class DSP {
      * of the "results" is left as an exercise for the student. (consider this
      * code Open Source under a BSD style license) Some example filter
      * parameters:
-     * 
+     *
      * @param fsr
      *        = 44100 : rem set fsr = sample rate
      * @param fc

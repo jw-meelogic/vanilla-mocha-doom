@@ -14,7 +14,7 @@ import utils.C2JUtils;
 import v.scale.VideoScale;
 
 /** Actual visplane data and methods are isolate here.
- *  This allows more encapsulation and some neat hacks like sharing 
+ *  This allows more encapsulation and some neat hacks like sharing
  *  visplane data among parallel renderers, without duplicating them.
  */
 public class Visplanes {
@@ -111,14 +111,14 @@ public class Visplanes {
 
     /**
      * R_FindPlane
-     * 
+     *
      * Checks whether a visplane with the specified height, picnum and light
      * level exists among those already created. This looks like a half-assed
      * attempt at reusing already existing visplanes, rather than creating new
      * ones. The tricky part is understanding what happens if one DOESN'T exist.
      * Called only from within R_Subsector (so while we're still trasversing
      * stuff).
-     * 
+     *
      * @param height
      *            (fixed_t)
      * @param picnum
@@ -169,7 +169,7 @@ public class Visplanes {
 
     /**
      * R_ClearPlanes At begining of frame.
-     * 
+     *
      */
     public void ClearPlanes() {
         int angle;
@@ -204,11 +204,11 @@ public class Visplanes {
 
     /**
      * R_CheckPlane
-     * 
+     *
      * Called from within StoreWallRange
-     * 
+     *
      * Presumably decides if a visplane should be split or not?
-     * 
+     *
      */
     public int CheckPlane(int index, int start, int stop) {
 
@@ -318,7 +318,7 @@ public class Visplanes {
     }
 
     /*
-     
+
        /**
      * A hashtable used to retrieve planes with particular attributes faster
      * -hopefully-. The planes are still stored in the visplane array for

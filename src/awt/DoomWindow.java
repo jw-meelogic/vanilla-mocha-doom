@@ -15,14 +15,14 @@ import java.util.function.Supplier;
 import javax.swing.JPanel;
 import mochadoom.Engine;
 
-/** 
- *  Methods specific to Doom-System video interfacing. 
+/**
+ *  Methods specific to Doom-System video interfacing.
  *  In essence, whatever you are using as a final system-specific way to display
  *  the screens, should be able to respond to these commands. In particular,
  *  screen update requests must be honored, and palette/gamma request changes
  *  must be intercepted before they are forwarded to the renderers (in case they
  *  are system-specific, rather than renderer-specific).
- *  
+ *
  *  The idea is that the final screen rendering module sees/handles as less as
  *  possible, and only gets a screen to render, no matter what depth it is.
  */
@@ -78,10 +78,10 @@ public interface DoomWindow<E extends Component & DoomWindow<E>> {
         String d;
         int n;
         int pnum;
-        
+
         boolean oktodraw;
         long attribmask;
-        
+
         // Try setting the locale the US, otherwise there will be problems
         // with non-US keyboards.
         if (this.getInputContext() == null || !this.getInputContext().selectInputMethod(java.util.Locale.US)) {
@@ -89,10 +89,10 @@ public interface DoomWindow<E extends Component & DoomWindow<E>> {
         } else {
             System.err.println("Input context successfully set to US.");
         }
-        
+
         // check for command-line display name
         displayname = Game.getCVM().get(CommandVariable.DISP, String.class, 0).orElse(null);
-        
+
         // check for command-line geometry*/
         if (Engine.getCVM().present(CommandVariable.GEOM)) {
             try {

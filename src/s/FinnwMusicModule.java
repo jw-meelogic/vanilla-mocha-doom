@@ -44,7 +44,7 @@ import mochadoom.Loggers;
  *  This does not work well with a {@link Sequence} because changes to events
  *  (e.g. channel volume change events) do not take effect while the sequencer
  *  is running.
- *  
+ *
  *  Disadvantages of this driver:
  *  <ul><li>Supports MUS lumps only (no MID, OGG etc.)</li>
  *      <li>Creates its own thread</li>

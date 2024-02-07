@@ -6,7 +6,7 @@ import static data.Limits.MININT;
 /** A fucked-up bounding box class.
  *  Fucked-up  because it's supposed to wrap fixed_t's.... no fucking way I'm doing
  *  this with fixed_t objects.
- *  
+ *
  * @author admin
  *
  */
@@ -69,7 +69,7 @@ public class BBox {
     /**
      * MAES: Keeping with C's type (in)consistency, we also allow to input ints
      * -_-
-     * 
+     *
      * @param x
      * @param y
      */
@@ -90,7 +90,7 @@ public class BBox {
 
     /**
      * R_AddPointToBox Expand a given bbox so that it encloses a given point.
-     * 
+     *
      * @param x
      * @param y
      * @param box
@@ -112,7 +112,7 @@ public class BBox {
 
     /**
      * R_AddPointToBox Expand this bbox so that it encloses a given point.
-     * 
+     *
      * @param x
      * @param y
      * @param box

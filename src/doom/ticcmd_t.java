@@ -29,7 +29,7 @@ public class ticcmd_t implements IDatagramSerializable, IReadableDoomObject, Cac
     /** checks for net game */
     public short consistancy;
 
-    /** MAES: these are unsigned bytes :-( 
+    /** MAES: these are unsigned bytes :-(
      *  However over networks, if we wish for vanilla compatibility,
      *  these must be reduced to 8-bit "chars"
      * */
@@ -168,7 +168,7 @@ public class ticcmd_t implements IDatagramSerializable, IReadableDoomObject, Cac
     }
 
     /** Ditto, we only pack some of the fields.
-     * 
+     *
      * @param f
      * @throws IOException
      */

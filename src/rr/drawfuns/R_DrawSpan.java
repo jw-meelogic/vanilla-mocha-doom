@@ -4,9 +4,9 @@ import i.IDoomSystem;
 
 /**
  * Draws the actual span.
- * 
+ *
  * ds_frac, ds_yfrac, ds_x2, ds_x1, ds_xstep and ds_ystep must be set.
- * 
+ *
  */
 public abstract class R_DrawSpan<T, V> extends DoomSpanFunction<T, V> {
 

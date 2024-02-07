@@ -6,9 +6,9 @@ import java.util.logging.Logger;
 import mochadoom.Loggers;
 
 /** A variation of the Classic Sound Driver, decoding the DP-lumps
- *  instead of the DS. A better way would be to build-in an 
+ *  instead of the DS. A better way would be to build-in an
  *  automatic "WAV to SPEAKER" conversion, but that can wait...
- * 
+ *
  * @author Maes
  *
  */
@@ -61,7 +61,7 @@ public class SpeakerDoomSoundDriver extends ClassicDoomSoundDriver {
         size = sfx.length;
 
         // MAES: A-ha! So that's how they do it.
-        // SOund effects are padded to the highest multiple integer of 
+        // SOund effects are padded to the highest multiple integer of
         // the mixing buffer's size (with silence)
         paddedsize = ((size - 8 + (SAMPLECOUNT - 1)) / SAMPLECOUNT) * SAMPLECOUNT;
 

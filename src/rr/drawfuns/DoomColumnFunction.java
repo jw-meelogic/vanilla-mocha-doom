@@ -3,8 +3,8 @@ package rr.drawfuns;
 import i.IDoomSystem;
 import v.tables.BlurryTable;
 
-/** Prototype for 
- * 
+/** Prototype for
+ *
  * @author velktron
  *
  * @param <T>
@@ -53,10 +53,10 @@ public abstract class DoomColumnFunction<T, V> implements ColumnFunction<T, V> {
     }
 
     /**
-     * 
+     *
      * Use ylookup LUT to avoid multiply with ScreenWidth.
      * Use columnofs LUT for subwindows?
-     * 
+     *
      * @return Framebuffer destination address.
      */
     protected final int computeScreenDest() {

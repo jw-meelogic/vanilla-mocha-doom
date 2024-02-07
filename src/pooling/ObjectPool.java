@@ -10,7 +10,7 @@ import p.mobj_t;
 /** A convenient object pooling class. Currently used for AudioChunks, but
  *  could be reused for UI events and other such things. Perhaps reusing it
  *  for mobj_t's is possible, but risky.
- * 
+ *
  */
 public abstract class ObjectPool<K> {
 

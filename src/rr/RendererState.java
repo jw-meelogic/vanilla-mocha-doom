@@ -1630,7 +1630,7 @@ public abstract class RendererState<T, V> implements SceneRenderer<T, V>, ILimit
 
         @Override
         public void CompleteRendering() {
-            // Nothing to do for serial. 
+            // Nothing to do for serial.
         }
 
         protected column_t col;
@@ -2377,13 +2377,13 @@ public abstract class RendererState<T, V> implements SceneRenderer<T, V>, ILimit
         /**
          * TODO: cache it?
          * This part actually draws the border itself, without bevels
-         * 
+         *
          * MAES:
          * improved drawing routine for extended bit-depth compatibility.
          *
          * Now supports configurable vanilla-like scaling of tiles
          * - Good Sign 2017/04/09
-         * 
+         *
          * @SourceCode.Compatible
          */
         Tiling:

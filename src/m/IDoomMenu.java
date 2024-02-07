@@ -27,10 +27,10 @@ import doom.event_t;
 //
 // DESCRIPTION:
 // Menu widget stuff, episode selection and such.
-//    
+//
 // -----------------------------------------------------------------------------
 /**
- * 
+ *
  */
 public interface IDoomMenu {
 

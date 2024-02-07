@@ -3,15 +3,15 @@ package w;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-/** A container allowing for caching of arrays of CacheableDoomObjects 
- *  
- *  It's a massive improvement over the older system, allowing for proper 
- *  caching and auto-unpacking of arrays of CacheableDoomObjects and much 
+/** A container allowing for caching of arrays of CacheableDoomObjects
+ *
+ *  It's a massive improvement over the older system, allowing for proper
+ *  caching and auto-unpacking of arrays of CacheableDoomObjects and much
  *  cleaner code throughout.
- *  
+ *
  *  The container itself is a CacheableDoomObject....can you feel the
  *  abuse? ;-)
- * 
+ *
  */
 public class CacheableDoomObjectContainer<T extends CacheableDoomObject> implements CacheableDoomObject {
 
@@ -33,7 +33,7 @@ public class CacheableDoomObjectContainer<T extends CacheableDoomObject> impleme
     }
 
     /** Statically usable method
-     * 
+     *
      * @param buf
      * @param stuff
      * @throws IOException

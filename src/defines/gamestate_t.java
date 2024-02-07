@@ -1,7 +1,7 @@
 package defines;
 
 /** The current state of the game: whether we are
-    playing, gazing at the intermission screen,    
+    playing, gazing at the intermission screen,
     the game final animation, or a demo. */
 public enum gamestate_t {
     GS_LEVEL,

@@ -20,22 +20,22 @@ import pooling.AudioChunkPool;
 /**
  * A spiffy new sound system, based on the Classic sound driver.
  * It is entirely asynchronous (runs in its own thread) and even has its own timer.
- * This allows it to continue mixing even when the main loop is not responding 
+ * This allows it to continue mixing even when the main loop is not responding
  * (something which, arguably, could be achieved just with a timer calling
  * UpdateSound and SubmitSound). Uses message passing to deliver channel status
  * info, and mixed audio directly without using an intermediate buffer,
  * saving memory bandwidth.
- * 
+ *
  * PROS:
  * a) All those of ClassicSoundDriver plus:
  * b) Continues normal playback even under heavy CPU load, works smoother
  *    even on lower powered CPUs.
  * c) More efficient due to less copying of audio blocks.
  * c) Fewer audio glitches compared to ClassicSoundDriver.
- * 
+ *
  * CONS:
  * a) All those of ClassicSoundDriver plus regarding timing accuracy.
- * 
+ *
  * @author Maes
  */
 public class SuperDoomSoundDriver extends AbstractSoundDriver {
@@ -76,7 +76,7 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
         MIXTIMER.schedule(new SoundTimer(), 0, SOUND_PERIOD);
     }
 
-    /** These are still defined here to decouple them from the mixer's 
+    /** These are still defined here to decouple them from the mixer's
      *  ones, however they serve  more as placeholders/status indicators;
      */
     protected volatile boolean[] channels;
@@ -163,7 +163,7 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
         SOUNDTHREAD = new Thread(SOUNDSRV);
         SOUNDTHREAD.setDaemon(true);
         SOUNDTHREAD.start();
-        // Vroom!        
+        // Vroom!
         MIXTHREAD = new Thread(MIXSRV);
         MIXTHREAD.setDaemon(true);
         MIXTHREAD.start();
@@ -431,7 +431,7 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
 
     /** A single channel does carry a lot of crap, figuratively speaking.
      *  Instead of making updates to ALL channel parameters, it makes more
-     *  sense having a "mixing queue" with instructions that tell the 
+     *  sense having a "mixing queue" with instructions that tell the
      *  mixer routine to do so-and-so with a certain channel. The mixer
      *  will then "empty" the queue when it has completed a complete servicing
      *  of all messages and mapped them to its internal status.
@@ -442,8 +442,8 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
         /** If this is set, the mixer considers that channel "muted" */
         public boolean stop;
 
-        /** This signals an update of a currently active channel. 
-         * Therefore pointer, remainder and data should remain untouched. 
+        /** This signals an update of a currently active channel.
+         * Therefore pointer, remainder and data should remain untouched.
          * However volume and step of a particular channel can change.
          */
         public boolean update;
@@ -463,7 +463,7 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
 
     /** Mixing thread. Mixing and submission must still go on even if
      *  the engine lags behind due to excessive CPU load.
-     * 
+     *
      * @author Maes
      *
      */
@@ -547,7 +547,7 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
             // Thus, it must be flushed (p_mixbuffer=0) before reusing it.
             final int leftend = SAMPLECOUNT * step;
 
-            // Mix the next chunk, regardless of what the rest of the game is doing. 
+            // Mix the next chunk, regardless of what the rest of the game is doing.
             while (!terminate) {
 
                 // POINTERS to Left and right channel
@@ -610,7 +610,7 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
                                 sample = 0x00FF & channels[chan][channel_pointer];
 
                                 // Add left and right part for this channel (sound)
-                                // to the current data. Adjust volume accordingly.                        
+                                // to the current data. Adjust volume accordingly.
                                 // Q: could this be optimized by converting samples to 16-bit
                                 // at load time, while also allowing for stereo samples?
                                 // A: Only for the stereo part. You would still look a lookup
@@ -736,11 +736,11 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
             }
         }
 
-        /** Drains message queue and applies to individual channels. 
+        /** Drains message queue and applies to individual channels.
          *  More recently enqueued messages will trump older ones. This method
-         *  only changes the STATUS of channels, and actual message submissions 
-         *  can occur at most every sound frame. 
-         *  
+         *  only changes the STATUS of channels, and actual message submissions
+         *  can occur at most every sound frame.
+         *
          * @param messages
          */
         private void drainAndApply(int messages) {
@@ -811,7 +811,7 @@ public class SuperDoomSoundDriver extends AbstractSoundDriver {
 
     /**
      * Internal use.
-     * 
+     *
      * @param handle
      * @return the channel that has the handle, or -2 if none has it.
      */

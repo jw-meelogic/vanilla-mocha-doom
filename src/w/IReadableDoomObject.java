@@ -7,7 +7,7 @@ import java.io.IOException;
  *  Every object is supposed to do its own umarshalling. This way,
  *  structured and hierchical reads are possible. Another superior innovation
  *  of Mocha Doom ;-) Err....ok :-p
- *  
+ *
  * @author Velktron
  *
  */

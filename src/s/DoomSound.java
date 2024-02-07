@@ -4,12 +4,12 @@ import data.sfxinfo_t;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioFormat.Encoding;
 
-/** A class representing a sample in memory 
+/** A class representing a sample in memory
  *  Convenient for wrapping/mirroring it regardless of what it represents.
  * */
 class DoomSound extends sfxinfo_t {
 
-    /** This audio format is the one used by internal samples (16 bit, 11KHz, Stereo) 
+    /** This audio format is the one used by internal samples (16 bit, 11KHz, Stereo)
      *  for Clips and AudioLines. Sure, it's not general enough... who cares though?
      */
     public final static AudioFormat DEFAULT_SAMPLES_FORMAT = new AudioFormat(Encoding.PCM_SIGNED, ISoundDriver.SAMPLERATE, 16, 2, 4, ISoundDriver.SAMPLERATE, true);

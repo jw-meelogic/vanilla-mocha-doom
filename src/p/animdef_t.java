@@ -8,8 +8,8 @@ import w.DoomBuffer;
 
 /**
  * Source animation definition. Made readable for compatibility with Boom's
- * SWANTBLS system. 
- * 
+ * SWANTBLS system.
+ *
  * @author velktron
  */
 public class animdef_t
@@ -32,11 +32,11 @@ public class animdef_t
      *  use "flats on walls functionality of course. */
     public boolean istexture;
 
-    /** The END name and START name of a texture, given in this order when reading a lump 
-     *  The animation system is agnostic to the actual names of of the "in-between" 
+    /** The END name and START name of a texture, given in this order when reading a lump
+     *  The animation system is agnostic to the actual names of of the "in-between"
      *  frames, it's purely pointer based, and only the start/end are constant. It only
      *  counts the actual number of existing textures during initialization time.
-     * 
+     *
      */
     public String endname, startname;
 

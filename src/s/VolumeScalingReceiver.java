@@ -21,7 +21,7 @@ import javax.sound.midi.Synthesizer;
 import mochadoom.Loggers;
 
 /** A {@link Receiver} that scales channel volumes.
- * 
+ *
  * Works by recognising channel volume change events and scaling the new volume
  * by the global music volume setting before forwarding the event to the
  * synthesizer.
@@ -148,7 +148,7 @@ public class VolumeScalingReceiver implements Receiver {
     }
 
     /** Forward a message to the synthesizer.
-     * 
+     *
      *  If <code>message</code> is a volume change message, the volume is
      *  first multiplied by the global volume.  Otherwise, the message is
      *  passed unmodified to the synthesizer.

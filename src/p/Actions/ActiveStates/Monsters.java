@@ -28,7 +28,7 @@ import p.Actions.ActiveStates.MonsterStates.Zombies;
 
 /**
  * Include all from Monsters package
- * 
+ *
  * @author Good Sign
  */
 public interface Monsters extends

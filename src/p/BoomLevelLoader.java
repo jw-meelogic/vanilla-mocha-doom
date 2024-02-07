@@ -86,12 +86,12 @@ import w.wadfile_info_t;
  * along with this program; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA. DESCRIPTION: Do all
  * the WAD I/O, get map description, set up initial state and misc. LUTs.
- * 
+ *
  * MAES 30/9/2011: This is a direct translation of prBoom+'s 2.5.0.8 p_setup.c
  * and p_setup.h.
- * 
- * 
- * 
+ *
+ *
+ *
  * -----------------------------------------------------------------------------
  */
 public class BoomLevelLoader extends AbstractLevelLoader {
@@ -176,7 +176,7 @@ public class BoomLevelLoader extends AbstractLevelLoader {
     /**
      * e6y: Smart malloc Used by P_SetupLevel() for smart data loading. Do
      * nothing if level is the same. Passing a null array forces allocation.
-     * 
+     *
      * @param p
      *        generically typed array to consider
      * @param numstuff
@@ -351,7 +351,7 @@ public class BoomLevelLoader extends AbstractLevelLoader {
     /*******************************************
      * Name : P_LoadVertexes2 * modified : 09/18/00, adapted for PrBoom * author
      * : figgi * what : support for gl nodes
-     * 
+     *
      * @throws IOException
      *         *
      *******************************************/
@@ -1100,7 +1100,7 @@ public class BoomLevelLoader extends AbstractLevelLoader {
                     //lines[i].v1 = lines[i].v1 - vertexes + newvertarray;
                     //lines[i].v2 = lines[i].v2 - vertexes + newvertarray;
                     // Find indexes of v1 & v2 inside old vertexes array
-                    // (.v1-vertexes) and use that index to re-point inside newvertarray              
+                    // (.v1-vertexes) and use that index to re-point inside newvertarray
                     lines[i].v1 = newvertarray[C2JUtils.indexOf(vertexes, lines[i].v1)];
                     lines[i].v2 = newvertarray[C2JUtils.indexOf(vertexes, lines[i].v2)];
                 }

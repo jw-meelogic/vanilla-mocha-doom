@@ -20,9 +20,9 @@ import java.awt.Rectangle;
 
 /**
  * Rectangles fill and copy
- * 
+ *
  * TODO: range checks on Fill & Copy
- * 
+ *
  * @author Good Sign
  */
 public interface Rectangles<V, E extends Enum<E>> extends Blocks<V, E>, Points<V, E> {
@@ -31,7 +31,7 @@ public interface Rectangles<V, E extends Enum<E>> extends Blocks<V, E>, Points<V
      * Computes a Horizontal with a row from the Rectangle at heightIndex
      * @param rect
      * @param heightIndex
-     * @return 
+     * @return
      */
     default Horizontal GetRectRow(Rectangle rect, int heightIndex) {
         if (heightIndex < 0 || heightIndex > rect.height) {

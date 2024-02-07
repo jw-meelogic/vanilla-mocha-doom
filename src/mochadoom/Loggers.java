@@ -43,7 +43,7 @@ import v.graphics.Patches;
 /**
  * Facility to manage Logger Levels for different classes
  * All of that should be used instead of System.err.println for debug
- * 
+ *
  * @author Good Sign
  */
 public class Loggers {

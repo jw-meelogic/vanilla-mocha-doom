@@ -6,8 +6,8 @@ package rr;
  *  rendering subsystem, but discarded because of simplifications.
  *  In theory it could be brought back one day if parallel sprite
  *  drawing comes back.. just a thought ;-)
- * 
- * 
+ *
+ *
  * @author Maes
  *
  */

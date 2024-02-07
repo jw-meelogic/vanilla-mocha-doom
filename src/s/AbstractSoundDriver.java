@@ -11,7 +11,7 @@ import mochadoom.Loggers;
 /**
  * Functionality and fields that are common among the various "sound drivers"
  * should go here.
- * 
+ *
  * @author Maes
  */
 public abstract class AbstractSoundDriver implements ISoundDriver {
@@ -27,9 +27,9 @@ public abstract class AbstractSoundDriver implements ISoundDriver {
      * channels are modifed and added, and stored in the buffer that is
      * submitted to the audio device. This is a 16-bit stereo signed PCM
      * mixbuffer. Memory order is LSB (?) and channel order is L-R-L-R...
-     * 
+     *
      * Not all i
-     * 
+     *
      */
     protected byte[] mixbuffer;// = new byte[MIXBUFFERSIZE];
 
@@ -93,7 +93,7 @@ public abstract class AbstractSoundDriver implements ISoundDriver {
      * to 256K roughly, with the middle of the table being 64K, and presumably
      * representing unitary pitch. So the pitch variation can be quite extreme,
      * allowing -/+ 400% stepping :-S
-     * 
+     *
      * @param steptablemid
      * @return
      */
@@ -107,7 +107,7 @@ public abstract class AbstractSoundDriver implements ISoundDriver {
 
     /** Read a Doom-format sound effect from disk, leaving it in 8-bit mono format but
      *  upsampling it to the target sample rate.
-     *  
+     *
      * @param sfxname
      * @param len
      * @param index
@@ -191,7 +191,7 @@ public abstract class AbstractSoundDriver implements ISoundDriver {
     /**
      * Modified getsfx, which transforms samples into 16-bit, signed, stereo
      * beforehand, before being "fed" to the audio clips.
-     * 
+     *
      * @param sfxname
      * @param index
      * @return
@@ -283,7 +283,7 @@ public abstract class AbstractSoundDriver implements ISoundDriver {
      * This function adds a sound to the list of currently active sounds, which
      * is maintained as a given number (eight, usually) of internal channels.
      * Returns a handle.
-     * 
+     *
      * @param sfxid
      * @param volume
      * @param step
@@ -318,8 +318,8 @@ public abstract class AbstractSoundDriver implements ISoundDriver {
     }
 
     /**
-     * Initialize 
-     * 
+     * Initialize
+     *
      * @return
      */
     protected final void initMixBuffer() {
@@ -363,9 +363,9 @@ public abstract class AbstractSoundDriver implements ISoundDriver {
     /**
      * This is only the common part of InitSound that caches sound data in
      * 16-bit, stereo format (used by Audiolines). INTO sfxenum_t.
-     * 
+     *
      * Only used by the Clip and David "drivers".
-     * 
+     *
      */
     protected final void initSound16() {
         int i;

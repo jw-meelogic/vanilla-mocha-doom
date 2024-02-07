@@ -189,7 +189,7 @@ public class VanillaDSG<T, V> implements IDoomSaveGame {
         adaptSectors();
         fo.write(buffer.array(), 0, buffer.position());
 
-        // do lines 
+        // do lines
         // Allocate for the worst-case scenario (6+20 per line)
         buffer = ByteBuffer.allocate(DOOM.levelLoader.numlines * (6 + 20));
         buffer.order(ByteOrder.LITTLE_ENDIAN);
@@ -617,7 +617,7 @@ public class VanillaDSG<T, V> implements IDoomSaveGame {
                 if (i < MAXCEILINGS) {
                     fo.writeByte(specials_e.tc_ceiling.ordinal());
                     PADSAVEP(fo);
-                    // Set id for saving        
+                    // Set id for saving
                     ceiling = (ceiling_t) th;
                     ceiling.sectorid = ceiling.sector.id;
                     ceiling.pack(buffer);
@@ -838,7 +838,7 @@ public class VanillaDSG<T, V> implements IDoomSaveGame {
     protected final long PADSAVEP(DataInputStream f, int maxsize) throws IOException {
         long save_p = maxsize - f.available();
         int padding = (4 - ((int) save_p & 3)) & 3;
-        // System.out.printf("Current position %d Padding by %d bytes %d\n",save_p,padding,maxsize);        
+        // System.out.printf("Current position %d Padding by %d bytes %d\n",save_p,padding,maxsize);
         f.skip(padding);
         return padding;
     }

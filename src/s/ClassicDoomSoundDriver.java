@@ -17,16 +17,16 @@ import pooling.AudioChunkPool;
 
 /**
  * A close recreation of the classic linux doom sound mixer.
- * 
+ *
  * PROS:
  * a) Very faithful to pitch and stereo effects, and original
  *    volume ramping.
  * b) Uses only one audioline and one playback thread
- * 
+ *
  * CONS:
  * a) May sound a bit off if production/consumption rates don't match
  * b) Sounds awful when mixing too many sounds together, just like the original.
- * 
+ *
  * @author Maes
  */
 public class ClassicDoomSoundDriver extends AbstractSoundDriver {
@@ -166,7 +166,7 @@ public class ClassicDoomSoundDriver extends AbstractSoundDriver {
                     sample = 0x00FF & channels[chan][channel_pointer];
 
                     // Add left and right part for this channel (sound)
-                    // to the current data. Adjust volume accordingly.                        
+                    // to the current data. Adjust volume accordingly.
                     // Q: could this be optimized by converting samples to 16-bit
                     // at load time, while also allowing for stereo samples?
                     // A: Only for the stereo part. You would still look a lookup
@@ -583,7 +583,7 @@ public class ClassicDoomSoundDriver extends AbstractSoundDriver {
 
     /**
      * Internal use.
-     * 
+     *
      * @param handle
      * @return the channel that has the handle, or -2 if none has it.
      */

@@ -22,7 +22,7 @@ public class thinker_t implements CacheableDoomObject, IReadableDoomObject, IPac
      * so commented it out and will not probably restore, but may invent
      * something new in future
      * - Good Sign 2017/05/1
-     * 
+     *
      * killough 8/29/98: we maintain thinkers in several equivalence classes,
      * according to various criteria, so as to allow quicker searches.
      */

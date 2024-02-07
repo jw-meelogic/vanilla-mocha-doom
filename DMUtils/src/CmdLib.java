@@ -128,7 +128,7 @@ public class CmdLib {
 		} catch (Exception e){
 			Error ("Error opening %s: %s",filename,e.getCause().getMessage());
 		}
-		
+
 		return handle;
 	}
 
@@ -138,9 +138,9 @@ public class CmdLib {
 		int        iocount;
 		int read=0;
 		int count=buffer.length;
-		
+
 		BufferedInputStream bis=new BufferedInputStream(handle,0x8000);
-		
+
 		while (count!=0)
 		{
 			iocount=bis.read(buffer,read,count-read);
@@ -158,7 +158,7 @@ public class CmdLib {
 	public static void SafeWrite (OutputStream handle, short[] buffer) throws IOException
 	{
 		DataOutputStream dos=new DataOutputStream(handle);
-		
+
 		for (int i=0;i<buffer.length;i++){
 			dos.writeShort(LittleShort(buffer[i]));
 			System.out.printf("%x %x\n",buffer[i],LittleShort(buffer[i]));
@@ -206,7 +206,7 @@ public class CmdLib {
 		SafeWrite (handle, buffer, buffer.length);
 		handle.close();
 	}
-	
+
 	public static void    SaveFile (String filename, byte[][] buffer) throws IOException
 	{
 		OutputStream             handle;
@@ -239,7 +239,7 @@ public class CmdLib {
 		src=path.length() - 1;
 
 		char PATHSEPERATOR=System.getProperty("path.separator").charAt(0);
-		
+
 		while (path.charAt(src)!= PATHSEPERATOR && src>=0)
 		{
 			if (path.charAt(src) == '.')
@@ -259,11 +259,11 @@ public class CmdLib {
 
 	/** Return the filename without extension, and stripped
      * of the path.
-     * 
+     *
      * @param s
      * @return
      */
-    
+
     public static final String StripExtension(String s) {
 
         String separator = System.getProperty("file.separator");
@@ -292,7 +292,7 @@ public class CmdLib {
      * indicators. There's normally no need to enforce this behavior, as there's
      * nothing preventing the engine from INTERNALLY using lump names with >8
      * chars. However, just to be sure...
-     * 
+     *
      * @param path
      * @param limit  Set to any value >0 to enforce a length limit
      * @param whole keep extension if set to true
@@ -300,9 +300,9 @@ public class CmdLib {
      */
 
     public static final String ExtractFileBase(String path, int limit, boolean whole) {
-    	
+
     	if (path==null) return path;
-    	
+
         int src = path.length() - 1;
 
         String separator = System.getProperty("file.separator");
@@ -313,11 +313,11 @@ public class CmdLib {
 
         int len = path.lastIndexOf('.');
         if (whole || len<0 ) len=path.length()-src; // No extension.
-        else  len-= src;        
+        else  len-= src;
 
-        // copy UP to the specific number of characters, or all        
+        // copy UP to the specific number of characters, or all
         if (limit > 0) len = Math.min(limit, len);
-        
+
         return path.substring(src, src + len);
     }
 

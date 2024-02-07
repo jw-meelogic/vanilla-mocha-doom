@@ -82,7 +82,7 @@ public class BasicNetworkInterface implements DoomSystemNetworking {
         sendPacket = new DatagramPacket(sendData.cached(), sendData.cached().length);
     }
 
-    // Bind it to the ones inside DN and DM;  
+    // Bind it to the ones inside DN and DM;
     //doomdata_t netbuffer;
     doomcom_t doomcom;
 
@@ -170,7 +170,7 @@ public class BasicNetworkInterface implements DoomSystemNetworking {
               sendData.cmds[c].buttons = netbuffer.cmds[c].buttons;
           }
              */
-            //printf ("sending %i\n",gametic);      
+            //printf ("sending %i\n",gametic);
             sendData.copyFrom(netbuffer);
             // MAES: This will force the buffer to be refreshed.
             byte[] bytes = sendData.pack();

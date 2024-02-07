@@ -30,7 +30,7 @@ import rr.drawfuns.R_DrawTranslatedColumnLow;
  * "Render Wall Instructions", and then rendered once they are all in place and
  * the can be parallelized between rendering threads. Rendering of sprites is
  * NOT parallelized yet (and probably not worth it, at this point).
- * 
+ *
  * @author admin
  */
 public abstract class ParallelRenderer<T, V> extends AbstractParallelRenderer<T, V> {
@@ -53,7 +53,7 @@ public abstract class ParallelRenderer<T, V> extends AbstractParallelRenderer<T,
 
     /**
      * Default constructor, 1 seg, 1 span and two masked threads.
-     * 
+     *
      * @param DM
      */
     public ParallelRenderer(DoomMain<T, V> DM) {
@@ -65,7 +65,7 @@ public abstract class ParallelRenderer<T, V> extends AbstractParallelRenderer<T,
      * particular player object. In practice, it could render the view of any
      * mobj too, provided you adapt the SetupFrame method (where the viewing
      * variables are set).
-     * 
+     *
      * @throws IOException
      */
     public void RenderPlayerView(player_t player) {
@@ -149,7 +149,7 @@ public abstract class ParallelRenderer<T, V> extends AbstractParallelRenderer<T,
 
             // MAES: blurry effect is hardcoded to this colormap.
             BLURRY_MAP = DOOM.graphicSystem.getBlurryTable();
-            // colormaps = (byte *)( ((int)colormaps + 255)&~0xff);     
+            // colormaps = (byte *)( ((int)colormaps + 255)&~0xff);
         }
 
         protected void R_InitDrawingFunctions() {

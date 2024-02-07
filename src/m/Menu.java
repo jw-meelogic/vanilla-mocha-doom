@@ -298,7 +298,7 @@ public class Menu<T, V> extends AbstractDoomMenu<T, V> {
 
         OptionsDef = new menu_t(opt_end, this.MainDef, OptionsMenu, DrawOptions, 60, 37, 0);
 
-        // Read This! MENU 1 
+        // Read This! MENU 1
         ReadMenu1 = new menuitem_t[]{new menuitem_t(1, "", ReadThis2, SC_0)};
 
         ReadDef1 = new menu_t(read1_end, MainDef, ReadMenu1, DrawReadThis1, 280, 185, 0);
@@ -399,7 +399,7 @@ public class Menu<T, V> extends AbstractDoomMenu<T, V> {
 
     /** Draws slider rail of a specified width (each notch is 8 base units wide)
      *  and with a slider selector at position thermDot.
-     * 
+     *
      * @param x
      * @param y
      * @param thermWidth
@@ -448,7 +448,7 @@ public class Menu<T, V> extends AbstractDoomMenu<T, V> {
 
     /**
      * M_Responder calls this when user is finished
-     * 
+     *
      * @param slot
      */
     public void DoSave(int slot) {
@@ -810,7 +810,7 @@ public class Menu<T, V> extends AbstractDoomMenu<T, V> {
 
     /**
      * Find string height from hu_font chars.
-     * 
+     *
      * Actually it just counts occurences of 'n' and adds height to height.
      */
     private int StringHeight(char[] string) {
@@ -970,7 +970,7 @@ public class Menu<T, V> extends AbstractDoomMenu<T, V> {
                 return r;
             });
         } else if (DOOM.use_mouse && ev.isType(evtype_t.ev_mouse) && mousewait < DOOM.ticker.GetTime()) {
-            // Mouse input 
+            // Mouse input
             if ((sc = ev.mapByMouse(mouseEvent -> {
                 ScanCode r = SC_NULL;
                 mousey += mouseEvent.y;
@@ -1451,7 +1451,7 @@ public class Menu<T, V> extends AbstractDoomMenu<T, V> {
     /**
      * M_DrawText Returns the final X coordinate HU_Init must have been called
      * to init the font. Unused?
-     * 
+     *
      * @param x
      * @param y
      * @param direct

@@ -20,9 +20,9 @@ public interface IMusic {
 
     void ResumeSong(int handle);
 
-    /** Registers a song handle to song data. 
+    /** Registers a song handle to song data.
      *  This should handle any conversions from MUS/MIDI/OPL/etc.
-     * 
+     *
      * */
     int RegisterSong(byte[] data);
 

@@ -33,15 +33,15 @@ public class mline_t {
         this.a = new mpoint_t(ax,ay);
         this.b = new mpoint_t(bx,by);
     }
-        
+
     public mline_t(double ax,double ay,double bx,double by) {
         this.a = new mpoint_t(ax,ay);
         this.b = new mpoint_t(bx,by);
     }
-    
+
     public mpoint_t a, b;
     public int ax;
-    
+
     public String toString(){
         return a.toString()+" - "+ b.toString();
     }

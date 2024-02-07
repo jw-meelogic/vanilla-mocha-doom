@@ -233,7 +233,7 @@ public class Map<T, V> implements IAutoMap<T, V> {
     /**
      * Configurable colors - now an enum
      *  - Good Sign 2017/04/05
-     * 
+     *
      * Use colormap-specific colors to support extended modes.
      * Moved hardcoding in here. Potentially configurable.
      */
@@ -611,7 +611,7 @@ public class Map<T, V> implements IAutoMap<T, V> {
      * Calculates the slope and slope according to the x-axis of a line segment
      * in map coordinates (with the upright y-axis n' all) so that it can be
      * used with the brain-dead drawing stuff.
-     * 
+     *
      * @param ml
      * @param is
      */
@@ -1000,7 +1000,7 @@ public class Map<T, V> implements IAutoMap<T, V> {
                 cheating = (cheating + 1) % 3;
             }
 
-            /** 
+            /**
              * MAES: brought back strobe effect
              * Good Sign: setting can be saved/loaded from config
              */
@@ -1250,7 +1250,7 @@ public class Map<T, V> implements IAutoMap<T, V> {
     /**
      * MAES: the result was supposed to be passed in an "oc" parameter by
      * reference. Not convenient, so I made some changes...
-     * 
+     *
      * @param mx
      * @param my
      */
@@ -1405,7 +1405,7 @@ public class Map<T, V> implements IAutoMap<T, V> {
 
     /**
      * Rotation in 2D. Used to rotate player arrow line character.
-     * 
+     *
      * @param x
      *        fixed_t
      * @param y

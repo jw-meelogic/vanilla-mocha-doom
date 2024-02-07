@@ -243,7 +243,7 @@ public interface ActionsThinkers extends ActionsSectors, ThinkerList {
 
         // only respawn items in deathmatch (deathmatch!=2)
         if (!DOOM().altdeath) {
-            return; // 
+            return; //
         }
         // nothing left to respawn?
         if (resp.iquehead == resp.iquetail) {

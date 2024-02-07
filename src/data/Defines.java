@@ -60,7 +60,7 @@ public final class Defines {
 // The integrated sound support is experimental,
 //  and unfinished. Default is synchronous.
 // Experimental asynchronous timer based is
-//  handled by SNDINTR. 
+//  handled by SNDINTR.
 //#define SNDSERV  1
 //#define SNDINTR  1
 // Defines suck. C sucks.
@@ -141,11 +141,11 @@ public final class Defines {
     public static final int NUMMAPS = 9;
 
 //in tics
-//U #define PAUSELEN        (TICRATE*2) 
+//U #define PAUSELEN        (TICRATE*2)
 //U #define SCORESTEP       100
 //U #define ANIMPERIOD      32
 //pixel distance from "(YOU)" to "PLAYER N"
-//U #define STARDIST        10 
+//U #define STARDIST        10
 //U #define WK 1
 // MAES 23/5/2011: moved SP_... stuff to EndLevel
     public static final int BACKUPTICS = 12;
@@ -219,7 +219,7 @@ public final class Defines {
     public static final int BTS_SAVEGAME = 2;
 
     // Savegame slot numbers
-    //  occupy the second byte of buttons.    
+    //  occupy the second byte of buttons.
     public static final int BTS_SAVEMASK = (4 + 8 + 16);
     public static final int BTS_SAVESHIFT = 2;
 
@@ -267,7 +267,7 @@ public final class Defines {
     public static final int NF_SUBSECTOR_CLASSIC = 0x8000;
 
     /** Player states. */
-    public static final int PST_LIVE = 0, // Playing or camping.    
+    public static final int PST_LIVE = 0, // Playing or camping.
             PST_DEAD = 1, // Dead on the ground, view follows killer.
 
             PST_REBORN = 2;            // Ready to restart/respawn???

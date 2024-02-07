@@ -139,7 +139,7 @@ public interface PainsSouls extends ActionTrait {
     //
     // A_PainAttack
     // Spawn a lost soul and launch it at the target
-    // 
+    //
     default void A_PainAttack(mobj_t actor) {
         if (actor.target == null) {
             return;

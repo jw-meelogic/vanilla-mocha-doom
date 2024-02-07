@@ -8,8 +8,8 @@ import java.util.List;
 /**
  * Utilities to synthesize patch_t format images from multiple patches
  * (with transparency).
- * 
- * 
+ *
+ *
  * @author velktron
  *
  */
@@ -78,7 +78,7 @@ public class MultiPatchSynthesizer {
 
         List<PixelRange> ranges = new ArrayList<>();
 
-        // Scan column for continuous pixel ranges                
+        // Scan column for continuous pixel ranges
         for (int i = 0; i < height; i++) {
 
             // Encountered solid start.
@@ -120,12 +120,12 @@ public class MultiPatchSynthesizer {
 
         for (int i = 0; i < n; i++) {
             PixelRange pr = ranges.get(i);
-            topdelta = pr.start; // cumulative top delta  
+            topdelta = pr.start; // cumulative top delta
 
             // Precomputed column data
             postofs[i] = (short) file.size() + 3; // Last written post +3, pointing at first pixel of data.
             topdeltas[i] = (short) topdelta;
-            postlens[i] = (short) (pr.getLength()); // Post lengths are at net of padding  
+            postlens[i] = (short) (pr.getLength()); // Post lengths are at net of padding
 
             file.write(topdeltas[i]);
             file.write(postlens[i]);
@@ -150,11 +150,11 @@ public class MultiPatchSynthesizer {
     public static patch_t synthesize(byte[][] pixels, boolean[][] solid, int width, int height, int picture_top, int picture_left){
         // Ideal for this use, since we don't know how big the patch is going to be a-priori
         ByteArrayOutputStream file=new ByteArrayOutputStream();
-        
+
         int offset;
-        
+
         int[] columnofs=new int[width];
-        
+
         // Patch header
         file.write(width);
         file.write(height);
@@ -174,21 +174,21 @@ public class MultiPatchSynthesizer {
 
             boolean operator = true;
             int pixel_count = 0;
-            
+
             while (y < height){
                 byte val=pixels[x][y];
                 boolean transparent=!solid[x][y];
-                
-                
+
+
                 // Pixel is transparent
                 if (transparent && !operator ) {
-                    dummy_value = 0;                    
+                    dummy_value = 0;
                     file.write(dummy_value);
                     operator = true;
                     }
                 else //Pixel not transparent, and operator condition set.
                     if (!transparent && operator){
-                    int row_start = y;                    
+                    int row_start = y;
                     pixel_count = 0;
                     dummy_value = 0;
                     // write above post data to memory buffer
@@ -196,7 +196,7 @@ public class MultiPatchSynthesizer {
                     offset = file.size(); //current post position in memory buffer
 
                     operator = false;
-                    } else 
+                    } else
                    if (!transparent && !operator){
                        pixel_count++; // increment current post pixel_count
                    }
@@ -210,7 +210,7 @@ public class MultiPatchSynthesizer {
 
                         seek back to previous_offset
                     end block
-                    
+
                     write pixel to memory buffer
                 end block
 
@@ -224,7 +224,7 @@ public class MultiPatchSynthesizer {
                 write Pixel to memory buffer
 
                 rowstart = 255
-                
+
                 write rowstart to memory buffer
             end block
 

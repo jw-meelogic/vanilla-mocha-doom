@@ -2,22 +2,22 @@ package m;
 
 import utils.C2JUtils;
 
-/** A "Doom setting". Based on current experience, it could 
+/** A "Doom setting". Based on current experience, it could
  *  represent an integer value, a string, or a boolean value.
- * 
- *  Therefore, every setting can be interpreted as any of the above, 
- *  based on some rules. Strings that can be interpreted as parseable 
+ *
+ *  Therefore, every setting can be interpreted as any of the above,
+ *  based on some rules. Strings that can be interpreted as parseable
  *  numbers are obvious, and numbers can also be interpreted as strings.
  *  Strings that can't be interpreted as numbers will return "0" as a default
  *  value.
- *  
+ *
  *  A numerical value of 1 means "true", any other value is "false".
- *  A string representing the (case insensitive) value "true" will 
+ *  A string representing the (case insensitive) value "true" will
  *  be interpreted as a true boolean, false otherwise.
- * 
+ *
  * @author velktron
  *
- * 
+ *
  */
 public class DoomSetting implements Comparable<DoomSetting> {
 
@@ -86,7 +86,7 @@ public class DoomSetting implements Comparable<DoomSetting> {
     }
 
     /** All the gory disambiguation work should go here.
-     * 
+     *
      * @param value
      */
     public void updateValue(String value) {
@@ -104,7 +104,7 @@ public class DoomSetting implements Comparable<DoomSetting> {
         // String value always available
         this.string_val = value;
 
-        // If quoted and sensibly ranged, it gets priority as a "character"        
+        // If quoted and sensibly ranged, it gets priority as a "character"
         if (quoted && value.length() == 1 && value.charAt(0) >= 0 && value.charAt(0) < 255) {
             char_val = Character.toLowerCase(value.charAt(0));
             int_val = char_val;
@@ -149,7 +149,7 @@ public class DoomSetting implements Comparable<DoomSetting> {
         char_val = (char) int_val;
 
         // Boolean has a few more options;
-        // Only mark something explicitly as boolean if the string reads 
+        // Only mark something explicitly as boolean if the string reads
         // actually "true" or "false". Numbers such as 0 and 1 might still get
         // interpreted as booleans, but that shouldn't trump the entire number,
         // otherwise everything and the cat is boolean
@@ -162,10 +162,10 @@ public class DoomSetting implements Comparable<DoomSetting> {
         }
     }
 
-    /** Answer definitively if a setting cannot ABSOLUTELY be 
-     *  parsed into a number using simple Integer rules. 
+    /** Answer definitively if a setting cannot ABSOLUTELY be
+     *  parsed into a number using simple Integer rules.
      *  This excludes some special names like "+Inf" and "NaN".
-     * 
+     *
      * @return
      */
     public boolean isIntegerNumeric() {
@@ -188,8 +188,8 @@ public class DoomSetting implements Comparable<DoomSetting> {
     }
 
     /** Settings are "comparable" to each other by name, so we can save
-     *  nicely sorted setting files ;-) 
-     *  
+     *  nicely sorted setting files ;-)
+     *
      * @param o
      * @return
      */

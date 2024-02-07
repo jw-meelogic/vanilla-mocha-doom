@@ -68,7 +68,7 @@ public interface ActionsLights extends ActionsMoveEvents, ActionsUseEvents {
 
         @Override
         public void read(DataInputStream f) throws IOException {
-            super.read(f); // Call thinker reader first            
+            super.read(f); // Call thinker reader first
             super.sectorid = DoomIO.readLEInt(f); // Sector index
             count = DoomIO.readLEInt(f);
             maxlight = DoomIO.readLEInt(f);
@@ -79,7 +79,7 @@ public interface ActionsLights extends ActionsMoveEvents, ActionsUseEvents {
 
         @Override
         public void pack(ByteBuffer b) throws IOException {
-            super.pack(b); //12            
+            super.pack(b); //12
             b.putInt(super.sectorid); // 16
             b.putInt(count); //20
             b.putInt(maxlight);//24
@@ -98,7 +98,7 @@ public interface ActionsLights extends ActionsMoveEvents, ActionsUseEvents {
         @Override
         public void read(DataInputStream f) throws IOException {
 
-            super.read(f); // Call thinker reader first            
+            super.read(f); // Call thinker reader first
             super.sectorid = DoomIO.readLEInt(f); // Sector index
             minlight = DoomIO.readLEInt(f);
             maxlight = DoomIO.readLEInt(f);
@@ -107,7 +107,7 @@ public interface ActionsLights extends ActionsMoveEvents, ActionsUseEvents {
 
         @Override
         public void pack(ByteBuffer b) throws IOException {
-            super.pack(b); //12            
+            super.pack(b); //12
             b.putInt(super.sectorid); // 16
             b.putInt(minlight);//20
             b.putInt(maxlight);//24

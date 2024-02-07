@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 1993-1996 Id Software, Inc.
  * from f_wipe.c
- * 
+ *
  * Copyright (C) 2017 Good Sign
  *
  * This program is free software: you can redistribute it and/or modify

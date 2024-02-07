@@ -13,7 +13,7 @@ import w.IWritableDoomObject;
  *  loading and recording easier, this class contains only the
  *  necessary stuff to read/write from/to disk during VANILLA
  *  demos. It can be converted from/to ticcmd_t, if needed.
- * 
+ *
  * @author admin
  *
  */
@@ -33,8 +33,8 @@ public class VanillaTiccmd implements CacheableDoomObject, IDemoTicCmd, IWritabl
      *  in reading ticcmd_t's from a lump is when playing back demos.
      *  Therefore, we use this specialized reading method which does NOT,
      *  I repeat, DOES NOT set all fields and some are read differently.
-     *  NOT 1:1 intercangeable with the Datagram methods!  
-     * 
+     *  NOT 1:1 intercangeable with the Datagram methods!
+     *
      */
     @Override
     public void unpack(ByteBuffer f)
@@ -42,10 +42,10 @@ public class VanillaTiccmd implements CacheableDoomObject, IDemoTicCmd, IWritabl
 
         // MAES: the original ID code for reference.
         // demo_p++ is a pointer inside a raw byte buffer.
-        //cmd->forwardmove = ((signed char)*demo_p++); 
-        //cmd->sidemove = ((signed char)*demo_p++); 
-        //cmd->angleturn = ((unsigned char)*demo_p++)<<8; 
-        //cmd->buttons = (unsigned char)*demo_p++; 
+        //cmd->forwardmove = ((signed char)*demo_p++);
+        //cmd->sidemove = ((signed char)*demo_p++);
+        //cmd->angleturn = ((unsigned char)*demo_p++)<<8;
+        //cmd->buttons = (unsigned char)*demo_p++;
         forwardmove = f.get();
         sidemove = f.get();
         // Even if they use the "unsigned char" syntax, angleturn is signed.
@@ -55,7 +55,7 @@ public class VanillaTiccmd implements CacheableDoomObject, IDemoTicCmd, IWritabl
     }
 
     /** Ditto, we only pack some of the fields.
-     * 
+     *
      * @param f
      * @throws IOException
      */

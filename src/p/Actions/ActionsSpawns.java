@@ -64,7 +64,7 @@ public interface ActionsSpawns extends ActionsSectors {
      * P_NightmareRespawn
      */
     default void NightmareRespawn(mobj_t mobj) {
-        int x, y, z; // fixed 
+        int x, y, z; // fixed
         subsector_t ss;
         mobj_t mo;
         mapthing_t mthing;
@@ -297,7 +297,7 @@ public interface ActionsSpawns extends ActionsSectors {
 
         if (mthing.type <= 0) {
             // Ripped from Chocolate Doom :-p
-            // Thing type 0 is actually "player -1 start".  
+            // Thing type 0 is actually "player -1 start".
             // For some reason, Vanilla Doom accepts/ignores this.
             // MAES: no kidding.
 

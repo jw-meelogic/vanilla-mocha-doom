@@ -40,11 +40,11 @@ public class DisplayModePicker {
         return picks.get(0);
     }
 
-    /** 
-     *  Return offsets to center rasters too oddly shaped to fit entirely into 
+    /**
+     *  Return offsets to center rasters too oddly shaped to fit entirely into
      *  a standard display mode (unfortunately, this means most stuff > 640 x 400),
      *  with doom's standard 8:5 ratio.
-     * 
+     *
      * @param width
      * @param height
      * @param dm

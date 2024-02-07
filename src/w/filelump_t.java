@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /** filelumps are on-disk structures. lumpinfos are almost the same, but are memory only.
- * 
+ *
  * @author Maes
  *
  */

@@ -361,7 +361,7 @@ public interface ActionsPathTraverse extends ActionsSectors {
             }
 
             if (dist > maxfrac) {
-                return true;    // checked everything in range      
+                return true;    // checked everything in range
             }
             /*  // UNUSED
             {

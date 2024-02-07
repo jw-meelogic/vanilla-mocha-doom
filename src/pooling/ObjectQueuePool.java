@@ -7,10 +7,10 @@ import mochadoom.Loggers;
 import p.mobj_t;
 
 /** A convenient object pooling class, derived from the stock ObjectPool.
- *  
+ *
  *  It's about 50% faster than calling new, and MUCH faster than ObjectPool
  *  because it doesn't do that bullshit object cleanup every so often.
- * 
+ *
  */
 public abstract class ObjectQueuePool<K> {
 

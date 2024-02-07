@@ -178,10 +178,10 @@ public interface Attacks extends Monsters {
             If e.g. angle = 359 degrees (which will be mapped to a small negative number),
             and player.mo.angle = 160 degrees (a large, positive value), the result will be a
             large negative value, which will still be "greater" than ANG180.
-            
+
             It seems that *differences* between angles will always compare correctly, but
             not direct inequalities.
-            
+
          */
 
         // Yet another screwy place where unsigned BAM angles are used as SIGNED comparisons.

@@ -3,11 +3,11 @@ package rr;
 import p.Resettable;
 
 /**
- * 
+ *
  * A SubSector. References a Sector. Basically, this is a list of LineSegs,
  * indicating the visible walls that define (all or some) sides of a convex BSP
  * leaf.
- * 
+ *
  * @author admin
  */
 public class subsector_t implements Resettable {

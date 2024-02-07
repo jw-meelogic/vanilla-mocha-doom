@@ -27,7 +27,7 @@ import static utils.GenericCopy.malloc;
  * column-based. It does function, but is broken and has unsolved data dependencies.
  * It's therefore not used in official releases, and I chose to deprecate it.
  * If you still want to develop it, be my guest.
- * 
+ *
  * @author velktron
  *
  */
@@ -76,11 +76,11 @@ public abstract class ParallelRenderer2<T, V> extends AbstractParallelRenderer<T
     ///////////////////////// The actual rendering calls ///////////////////////
     /**
      * R_RenderView
-     * 
+     *
      * As you can guess, this renders the player view of a particular player object.
      * In practice, it could render the view of any mobj too, provided you adapt the
      * SetupFrame method (where the viewing variables are set).
-     * 
+     *
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -99,7 +99,7 @@ public abstract class ParallelRenderer2<T, V> extends AbstractParallelRenderer<T
 
 	  }
   	}*/
-        // Clear buffers. 
+        // Clear buffers.
         MyBSP.ClearClipSegs();
         seg_vars.ClearDrawSegs();
         vp_vars.ClearPlanes();
@@ -232,7 +232,7 @@ public abstract class ParallelRenderer2<T, V> extends AbstractParallelRenderer<T
             colormaps.colormaps = DOOM.graphicSystem.getColorMap();
             // MAES: blurry effect is hardcoded to this colormap.
             BLURRY_MAP = DOOM.graphicSystem.getBlurryTable();
-            // colormaps = (byte *)( ((int)colormaps + 255)&~0xff);     
+            // colormaps = (byte *)( ((int)colormaps + 255)&~0xff);
         }
 
         @Override

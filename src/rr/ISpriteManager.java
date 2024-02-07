@@ -2,7 +2,7 @@ package rr;
 
 /** Interface for sprite managers. Handles loading sprites, fixing
  *  rotations etc. and helping retrieving spritedefs when required.
- * 
+ *
  * @author velktron.
  *
  */

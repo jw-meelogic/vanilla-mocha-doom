@@ -36,7 +36,7 @@ public interface Mancubi extends ActionTrait {
     // Mancubus attack,
     // firing three missiles (bruisers)
     // in three different directions?
-    // Doesn't look like it. 
+    // Doesn't look like it.
     //
     default void A_FatRaise(mobj_t actor) {
         A_FaceTarget(actor);

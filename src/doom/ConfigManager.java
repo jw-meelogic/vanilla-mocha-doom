@@ -36,7 +36,7 @@ import utils.ResourceIO;
 
 /**
  * Loads and saves game cfg files
- * 
+ *
  * @author Good Sign
  */
 public class ConfigManager {
@@ -235,7 +235,7 @@ public class ConfigManager {
 
             /**
              * Each file successfully read marked as not changed, and as changed - those who don't exist
-             * 
+             *
              */
             file.changed = !(maybeRIO.isPresent() && readFoundConfig(file, maybeRIO.get()));
         });

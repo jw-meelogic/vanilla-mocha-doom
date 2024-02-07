@@ -424,7 +424,7 @@ public abstract class UnifiedGameMap implements ThinkerList {
             }
 
             // At this point, it may mean that THE button of that particular
-            // line was not active, or simply that there were not enough 
+            // line was not active, or simply that there were not enough
             // buttons in buttonlist to support an additional entry.
             // Search for a free button slot.
             for (button_t buttonlist1 : buttonlist) {
@@ -549,7 +549,7 @@ public abstract class UnifiedGameMap implements ThinkerList {
      * so commented it out and will not probably restore, but may invent
      * something new in future
      * - Good Sign 2017/05/1
-     * 
+     *
      * P_InitThinkers
      */
     @Override
@@ -584,7 +584,7 @@ public abstract class UnifiedGameMap implements ThinkerList {
      * so commented it out and will not probably restore, but may invent
      * something new in future
      * - Good Sign 2017/05/1
-     * 
+     *
      * cph 2002/01/13 - iterator for thinker list
      * WARNING: Do not modify thinkers between calls to this functin
      */
@@ -601,7 +601,7 @@ public abstract class UnifiedGameMap implements ThinkerList {
      * so commented it out and will not probably restore, but may invent
      * something new in future
      * - Good Sign 2017/05/1
-     * 
+     *
      * P_AddThinker
      * Adds a new thinker at the end of the list.
      */
@@ -660,7 +660,7 @@ public abstract class UnifiedGameMap implements ThinkerList {
      */
     protected thinker_t currentthinker;
 
-    //protected final P_RemoveThinkerDelayed RemoveThinkerDelayed; 
+    //protected final P_RemoveThinkerDelayed RemoveThinkerDelayed;
     //public class P_RemoveThinkerDelayed implements p.ActionFunctions.TypedAction <thinker_t>{
     //@Override
     //public void accept(thinker_t thinker) {
@@ -671,7 +671,7 @@ public abstract class UnifiedGameMap implements ThinkerList {
             ((mobj_t)thinker).type,((mobj_t)thinker).thingnum,
             ((mobj_t)thinker.next).type,((mobj_t)thinker.next).thingnum);
         } catch (ClassCastException e){
-            
+
         } */
     // Unlike Boom, if we reach here it gets zapped anyway
     //if (!thinker->references)

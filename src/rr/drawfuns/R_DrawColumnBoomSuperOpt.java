@@ -7,9 +7,9 @@ import static m.fixed_t.FRACBITS;
  * Adapted from Killough's Boom code. Specially super-optimized version assuming
  * that dc_source_ofs is always 0, AND that frac>>FRACBITS can be eliminated by
  * doing fracstep>>FRACBITS a-priori. Experimental/untested.
- * 
+ *
  * @author admin
- * 
+ *
  */
 public final class R_DrawColumnBoomSuperOpt extends DoomColumnFunction<byte[], short[]> {
 

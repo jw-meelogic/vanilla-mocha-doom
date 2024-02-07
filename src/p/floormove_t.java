@@ -29,7 +29,7 @@ public class floormove_t extends SectorAction implements IReadableDoomObject {
     @Override
     public void read(DataInputStream f) throws IOException {
 
-        super.read(f); // Call thinker reader first            
+        super.read(f); // Call thinker reader first
         type = floor_e.values()[DoomIO.readLEInt(f)];
         crush = DoomIO.readIntBoolean(f);
         super.sectorid = DoomIO.readLEInt(f); // Sector index (or pointer?)
@@ -42,7 +42,7 @@ public class floormove_t extends SectorAction implements IReadableDoomObject {
 
     @Override
     public void pack(ByteBuffer b) throws IOException {
-        super.pack(b); //12            
+        super.pack(b); //12
         b.putInt(type.ordinal()); // 16
         b.putInt(crush ? 1 : 0); //20
         b.putInt(super.sectorid); // 24

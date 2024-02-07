@@ -26,7 +26,7 @@ public class vldoor_t extends SectorAction implements IReadableDoomObject {
     @Override
     public void read(DataInputStream f) throws IOException {
 
-        super.read(f); // Call thinker reader first            
+        super.read(f); // Call thinker reader first
         type = vldoor_e.values()[DoomIO.readLEInt(f)];
         super.sectorid = DoomIO.readLEInt(f); // Sector index (or pointer?)
         topheight = DoomIO.readLEInt(f);
@@ -38,7 +38,7 @@ public class vldoor_t extends SectorAction implements IReadableDoomObject {
 
     @Override
     public void pack(ByteBuffer b) throws IOException {
-        super.pack(b); //12            
+        super.pack(b); //12
         b.putInt(type.ordinal()); // 16
         b.putInt(super.sectorid); // 20
         b.putInt(topheight); // 24

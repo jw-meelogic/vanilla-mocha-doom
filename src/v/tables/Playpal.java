@@ -104,7 +104,7 @@ public class Playpal {
     /**
      * Why not restore idea of grayscale palette?
      *  - Good Sign 2017/04/12
-     * 
+     *
      *  for (int i = 0; i < 256; i++) {
      *      greypal[3 * i + 2] = greypal[3 * i + 1] = greypal[3 * i] = (playpal[3 * i] + playpal[3 * i + 1] + playpal[3 * i + 2])/3;
      *  }

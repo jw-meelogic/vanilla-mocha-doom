@@ -19,7 +19,7 @@ import utils.C2JUtils;
  * we can try and skip directly by using the file channel, otherwise we can try
  * (eww) closing the stream, reopening it (ASSUMING WE KNOW THE SOURCE'S URI AND
  * TYPE), and then skipping.
- * 
+ *
  * @author Maes
  */
 public class InputStreamSugar {
@@ -32,13 +32,13 @@ public class InputStreamSugar {
 
     public static final int ZIP_FILE = 0x4; // Zipped file
 
-    public static final int BAD_URI = -1; // Bad or unparseable 
+    public static final int BAD_URI = -1; // Bad or unparseable
 
     /**
      * Creates an inputstream from a local file, network resource, or zipped
      * file (also over a network). If an entry name is specifid AND the type is
      * specified to be zip, then a zipentry with that name will be sought.
-     * 
+     *
      * @param resource
      * @param contained
      * @param type
@@ -55,7 +55,7 @@ public class InputStreamSugar {
             is = getDirectInputStream(resource);
         } else {
             // Entry specified AND type specified to be zip
-            // We might want to open even a zip file without looking 
+            // We might want to open even a zip file without looking
             // for any particular entry.
             if (entry != null && C2JUtils.flags(type, ZIP_FILE)) {
 
@@ -67,7 +67,7 @@ public class InputStreamSugar {
                 } catch (Exception e) {
                     // Local zip file?
                     try {
-                        // Open resource as local file-backed zip input stream, 
+                        // Open resource as local file-backed zip input stream,
                         // and search proper entry.
                         zis = new ZipInputStream(new FileInputStream(resource));
                     } catch (Exception e1) {
@@ -91,11 +91,11 @@ public class InputStreamSugar {
         return getDirectInputStream(resource);
     }
 
-    /** Match zip entries in a ZipInputStream based only on their name. 
+    /** Match zip entries in a ZipInputStream based only on their name.
      * Luckily (?) ZipEntries do not keep references to their originating
      * streams, so opening/closing ZipInputStreams all the time won't result
      * in a garbage hell...I hope.
-     * 
+     *
      * @param zis
      * @param entryname
      * @return
@@ -150,7 +150,7 @@ public class InputStreamSugar {
      * position. With some types of stream, this is possible if you poke deep
      * enough. With others, it's not, and you can only close & reopen them
      * (provided you know how to do that) and then skip to a particular position
-     * 
+     *
      * @param is
      * @param pos
      *        The desired position
@@ -191,7 +191,7 @@ public class InputStreamSugar {
                 if (guesspos > 0 && guesspos <= pos) {
                     long skipped = 0;
                     long mustskip = pos - guesspos;
-                    // Repeat skipping until proper amount reached 
+                    // Repeat skipping until proper amount reached
                     while (skipped < mustskip) {
                         skipped += is.skip(mustskip - skipped);
                     }
@@ -256,9 +256,9 @@ public class InputStreamSugar {
         return zes;
     }
 
-    /** Attempts to return a stream size estimate. Only guaranteed to work 100% 
+    /** Attempts to return a stream size estimate. Only guaranteed to work 100%
      * for streams representing local files, and zips (if you have the entry).
-     * 
+     *
      * @param is
      * @param z
      * @return

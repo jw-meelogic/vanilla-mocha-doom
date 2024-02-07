@@ -17,7 +17,7 @@ import defines.statenum_t;
 //
 public class weaponinfo_t {
 
-    /*    
+    /*
     public weaponinfo_t(ammotype_t ammo, int upstate, int downstate,
             int readystate, int atkstate, int flashstate) {
         super();

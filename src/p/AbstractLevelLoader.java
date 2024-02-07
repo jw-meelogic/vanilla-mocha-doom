@@ -40,7 +40,7 @@ import static utils.C2JUtils.flags;
  * blockmap/reject table etc. then you should ask for this class. If you only
  * need access to some methods like e.g. SetupLevel, you can simply use the
  * ILevelLoader interface.
- * 
+ *
  * @author velktron
  */
 public abstract class AbstractLevelLoader implements ILevelLoader {
@@ -249,7 +249,7 @@ public abstract class AbstractLevelLoader implements ILevelLoader {
     /**
      * Subroutine to add a line number to a block list It simply returns if the
      * line is already in the block
-     * 
+     *
      * @param lists
      * @param count
      * @param done
@@ -637,7 +637,7 @@ public abstract class AbstractLevelLoader implements ILevelLoader {
 
     /**
      * Compute density of reject table. Aids choosing LUT optimizations.
-     * 
+     *
      * @return
      */
     protected float rejectDensity() {
@@ -677,7 +677,7 @@ public abstract class AbstractLevelLoader implements ILevelLoader {
      * called, visibility between sectors x and y will be set to "false" for the
      * rest of the level, aka they will be rejected based on subsequent sight
      * checks.
-     * 
+     *
      * @param x
      * @param y
      */
@@ -754,7 +754,7 @@ public abstract class AbstractLevelLoader implements ILevelLoader {
     /**
      * Returns an int[] array with orgx, orgy, and number of blocks. Order is:
      * orgx,orgy,bckx,bcky
-     * 
+     *
      * @return
      */
     protected final int[] getMapBoundingBox(boolean playable) {
@@ -853,10 +853,10 @@ public abstract class AbstractLevelLoader implements ILevelLoader {
 
     /**
      * Added config switch to turn on/off support
-     * 
+     *
      * Gets the proper blockmap block for a given X 16.16 Coordinate, sanitized
-     * for 512-wide blockmaps. 
-     * 
+     * for 512-wide blockmaps.
+     *
      * @param blockx
      * @return
      */
@@ -873,8 +873,8 @@ public abstract class AbstractLevelLoader implements ILevelLoader {
     }
 
     /** Gets the proper blockmap block for a given Y 16.16 Coordinate, sanitized
-     *  for 512-wide blockmaps. 
-     * 
+     *  for 512-wide blockmaps.
+     *
      * @param blocky
      * @return     */
     @SourceCode.Compatible("blocky >> MAPBLOCKSHIFT")

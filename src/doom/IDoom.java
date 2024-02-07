@@ -3,7 +3,7 @@ package doom;
 import java.io.IOException;
 
 /** Stuff that the "main" is supposed to do. DoomMain implements those.
- * 
+ *
  * @author Maes
  *
  */

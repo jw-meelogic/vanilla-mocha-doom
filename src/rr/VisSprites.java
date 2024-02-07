@@ -21,7 +21,7 @@ import v.graphics.Palettes;
 
 /** Visualized sprite manager. Depends on: SpriteManager, DoomSystem,
  *  Colormaps, Current View.
- *  
+ *
  * @author velktron
  *
  * @param <V>
@@ -95,7 +95,7 @@ public final class VisSprites<V>
 
     /**
      * R_ProjectSprite Generates a vissprite for a thing if it might be visible.
-     * 
+     *
      * @param thing
      */
     protected final void ProjectSprite(mobj_t thing) {
@@ -251,7 +251,7 @@ public final class VisSprites<V>
      * rendered but we have to copy data over it anyway. Would make more sense
      * to check for it specifically and avoiding copying data, which should be
      * more time consuming. Fixed by making this fully limit-removing.
-     * 
+     *
      * @return
      */
     protected final vissprite_t<V> NewVisSprite() {

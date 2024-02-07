@@ -18,7 +18,7 @@ import m.Swap;
 
 /**
  * A MUS lump reader that loads directly to a Sequence.
- * 
+ *
  * Unlike QMusToMid, does not keep the MIDI version in a temporary file.
  *
  * @author finnw

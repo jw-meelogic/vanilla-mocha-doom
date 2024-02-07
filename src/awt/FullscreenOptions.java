@@ -30,7 +30,7 @@ import mochadoom.Engine;
 
 /**
  * Full-screen switch and scale governor
- * 
+ *
  * @author Good Sign
  */
 public interface FullscreenOptions {

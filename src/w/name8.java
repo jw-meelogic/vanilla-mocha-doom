@@ -24,7 +24,7 @@ public class name8 {
      *  8-bit representation of a fixed-length 8 char string.
      *  It's for all effects and purposes a unique 64-bit hash, and can be used to
      *  speed up comparisons.
-     *  
+     *
      * @param name
      * @return
      */
@@ -60,7 +60,7 @@ public class name8 {
     }
 
     /** Probably has horrible performance...
-     * 
+     *
      * @param src
      * @param ofs
      * @return

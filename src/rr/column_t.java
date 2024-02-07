@@ -9,11 +9,11 @@ import w.CacheableDoomObject;
  * typedef post_t  column_t;
  * For the sake of efficiency, "column_t" will store raw data, however I added
  * some stuff to make my life easier.
- * 
+ *
  */
 public class column_t implements CacheableDoomObject {
 
-    /** Static buffers used during I/O. 
+    /** Static buffers used during I/O.
      *  There's ABSO-FUCKING-LUTELY no reason to manipulate them externally!!!
      *  I'M NOT KIDDING!!!11!!
      */
@@ -54,10 +54,10 @@ public class column_t implements CacheableDoomObject {
         while ((topdelta = C2JUtils.toUnsignedByte(buf.get())) != 0xFF) {
 
             // From the wiki:
-            // A column's topdelta is compared to the previous column's topdelta 
-            // (or to -1 if there is no previous column in this row). If the new 
+            // A column's topdelta is compared to the previous column's topdelta
+            // (or to -1 if there is no previous column in this row). If the new
             //  topdelta is lesser than the previous, it is interpreted as a tall
-            // patch and the two values are added together, the sum serving as the 
+            // patch and the two values are added together, the sum serving as the
             // current column's actual offset.
             int tmp = topdelta;
 
@@ -98,7 +98,7 @@ public class column_t implements CacheableDoomObject {
 
     /** This -almost- completes reading, by filling in the header information
      *  before the raw column data is read in.
-     *  
+     *
      * @param skipped
      * @param colheight
      * @param postno

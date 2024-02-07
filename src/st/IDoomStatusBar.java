@@ -52,7 +52,7 @@ public interface IDoomStatusBar {
     /** Called by startup code. */
     public void Init();
 
-    /** Used externally to determine window scaling. 
+    /** Used externally to determine window scaling.
      *  This means that drawing transparent status bars is possible, but
      *  it will look fugly because of the solid windowing (and possibly
      *  HOMS).

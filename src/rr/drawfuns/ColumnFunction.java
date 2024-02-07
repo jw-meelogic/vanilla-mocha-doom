@@ -1,7 +1,7 @@
 package rr.drawfuns;
 
 /** Either draws a column or a span
- * 
+ *
  * @author velktron
  *
  */

@@ -50,11 +50,11 @@ import v.tables.Playpal;
 /**
  * A package-protected hub, concentrating together public graphics APIs
  * and support default methods from their interfaces
- * 
+ *
  * Problems: we cannot change resolution on-fly because it will require re-creating buffers, rasters, etc
  * TODO: decide what needs to be reset and implement resolution change methods (flushing buffers, expanding arrays, etc)
  * (dont forget to run gc!)
- * 
+ *
  * @author Good Sign
  */
 abstract class SoftwareGraphicsSystem<T, V>
@@ -314,14 +314,14 @@ abstract class SoftwareGraphicsSystem<T, V>
 
     /**
      * I_SetPalette
-     * 
+     *
      * Any bit-depth specific palette manipulation is performed by the VideoRenderer. It can range from simple
      * (paintjob) to complex (multiple BufferedImages with locked data bits...) ugh!
-     * 
+     *
      * In order to change palette properly, we must invalidate
      * the colormap cache if any, otherwise older colormaps will persist.
      * The screen must be fully updated then
-     * 
+     *
      * @param palette index (normally between 0-14).
      */
     @Override

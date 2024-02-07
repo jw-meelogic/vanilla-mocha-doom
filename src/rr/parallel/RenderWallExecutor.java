@@ -14,7 +14,7 @@ import rr.drawfuns.R_DrawColumnBoomOptLow;
 /**
  * This is what actual executes the RenderWallInstruction. Essentially it's a
  * self-contained column rendering function.
- * 
+ *
  * @author admin
  */
 public class RenderWallExecutor<T, V>

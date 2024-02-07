@@ -390,7 +390,7 @@ public class LevelLoader extends AbstractLevelLoader {
             ld.sidenum[0] = mld.sidenum[0];
             ld.sidenum[1] = mld.sidenum[1];
 
-            // Sanity check for two-sided without two valid sides.      
+            // Sanity check for two-sided without two valid sides.
             if (flags(ld.flags, ML_TWOSIDED)) {
                 if ((ld.sidenum[0] == line_t.NO_INDEX) || (ld.sidenum[1] == line_t.NO_INDEX)) {
                     // Well, dat ain't so tu-sided now, ey esse?
@@ -586,7 +586,7 @@ public class LevelLoader extends AbstractLevelLoader {
 
         }
 
-        // build line tables for each sector    
+        // build line tables for each sector
         // MAES: we don't really need this in Java.
         // linebuffer = new line_t[total];
         // int linebuffercount=0;
@@ -684,7 +684,7 @@ public class LevelLoader extends AbstractLevelLoader {
             // Make sure all sounds are stopped before Z_FreeTags.
             DOOM.doomSound.Start();
 
-            /*    
+            /*
   #if 0 // UNUSED
       if (debugfile)
       {
@@ -800,10 +800,10 @@ public class LevelLoader extends AbstractLevelLoader {
 //Proper support for extended nodes, made reject loading into a separate method.
 //
 //Revision 1.40  2011/09/30 15:20:24  velktron
-//Very modified, useless SanitizeBlockmap method ditched. 
-//Common utility methods moved to superclass. Shares blockmap checking and generation 
-//with Boom-derived code. Now capable of running Europe.wad. 
-//TODO: Blockmap generation can be really slow on large levels. 
+//Very modified, useless SanitizeBlockmap method ditched.
+//Common utility methods moved to superclass. Shares blockmap checking and generation
+//with Boom-derived code. Now capable of running Europe.wad.
+//TODO: Blockmap generation can be really slow on large levels.
 //Optimize better for Java, or parallelize.
 //
 //Revision 1.39  2011/09/29 17:22:08  velktron

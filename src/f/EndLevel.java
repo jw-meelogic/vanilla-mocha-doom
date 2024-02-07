@@ -361,7 +361,7 @@ public class EndLevel<T, V> extends AbstractEndLevel {
     protected void drawLF() {
         int y = WI_TITLEY;
 
-        // draw <LevelName> 
+        // draw <LevelName>
         DOOM.graphicSystem.DrawPatchScaled(FG, lnames[wbs.last], DOOM.vs, (320 - lnames[wbs.last].width) / 2, y);
 
         // draw "Finished!"
@@ -382,7 +382,7 @@ public class EndLevel<T, V> extends AbstractEndLevel {
         // HACK: if lnames[wbs.next] DOES have a defined nonzero topoffset, use it.
         // implicitly in DrawScaledPatch, and trump the normal behavior.
         // FIXME: this is only useful in a handful of prBoom+ maps, which use
-        // a modified endlevel screen. The reason it works there is the behavior of the 
+        // a modified endlevel screen. The reason it works there is the behavior of the
         // unified patch drawing function, which is approximated with this hack.
         if (lnames[wbs.next].topoffset == 0) {
             y += (5 * lnames[wbs.next].height) / 4;
@@ -1593,7 +1593,7 @@ public class EndLevel<T, V> extends AbstractEndLevel {
         // "secret"
         sp_secret = DOOM.wadLoader.CacheLumpName("WISCRT2", PU_STATIC, patch_t.class);
 
-        // Yuck. 
+        // Yuck.
         if (DOOM.language == Language_t.french) {
             // "items"
             if (DOOM.netgame && !DOOM.deathmatch) {
@@ -1660,7 +1660,7 @@ public void WI_unloadData()
 
     for (i=0 ; i<10 ; i++)
 	W.UnlockLumpNum(num[i], PU_CACHE);
-    
+
     if (gamemode == commercial)
     {
   	for (i=0 ; i<NUMCMAPS ; i++)
@@ -1675,7 +1675,7 @@ public void WI_unloadData()
 
 	for (i=0 ; i<NUMMAPS ; i++)
 	    W.UnlockLumpNum(lnames[i], PU_CACHE);
-	
+
 	if (wbs.epsd < 3)
 	{
 	    for (j=0;j<NUMANIMS[wbs.epsd];j++)
@@ -1686,7 +1686,7 @@ public void WI_unloadData()
 	    }
 	}
     }
-    
+
     Z_Free(lnames);
 
     W.UnlockLumpNum(percent, PU_CACHE);
@@ -1707,7 +1707,7 @@ public void WI_unloadData()
     W.UnlockLumpNum(total, PU_CACHE);
     //  W.UnlockLumpNum(star, PU_CACHE);
     //  W.UnlockLumpNum(bstar, PU_CACHE);
-    
+
     for (i=0 ; i<MAXPLAYERS ; i++)
 	W.UnlockLumpNum(p[i], PU_CACHE);
 

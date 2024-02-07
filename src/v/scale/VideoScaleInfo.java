@@ -28,8 +28,8 @@ class VideoScaleInfo implements VideoScale {
     /** Scale is intended as a multiple of the base resolution, 320 x 200.
      *  If changing the ratio is also desired, then keep in mind that
      *  the base width is always considered fixed, while the base height
-     *  is not. 
-     * 
+     *  is not.
+     *
      * @param scale
      */
     public VideoScaleInfo(float scale) {
@@ -45,9 +45,9 @@ class VideoScaleInfo implements VideoScale {
      *  that there are maximum width and height limits to take into account,
      *  and that scaling of graphics etc. will be rather problematic. Default
      *  ratio is 0.625, 0.75 will give a nice 4:3 ratio.
-     *  
+     *
      *  TODO: pretty lame...
-     *  
+     *
      * @param scale
      * @param ratio
      */

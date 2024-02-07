@@ -200,7 +200,7 @@ public interface ActionsSectors extends ActionsLights, ActionsFloors, ActionsDoo
             mo.momy = (P_Random() - P_Random()) << 12;
         }
 
-        // keep checking (crush other things)   
+        // keep checking (crush other things)
         return true;
     }
 

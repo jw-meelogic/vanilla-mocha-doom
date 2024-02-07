@@ -2,16 +2,16 @@ package m;
 
 /** Some utilities for switching between floating and signed 16.16 fixed-point at will.
  *  They use direct bit manipulation with little -if any- looping.
- *  
+ *
  *  The methods can probably be generalized but not a priority for now.
  *  They do not handle Infinities, NaNs and unnormalized numbers.
- *  
+ *
  * @author Maes
  *
  */
 public class FixedFloat {
 
-    // Various bit masks for IEEE-754 floating point 
+    // Various bit masks for IEEE-754 floating point
     public static final int MANTISSA_32 = 0x007FFFFF;
     public static final int EXP_32 = 0x7F800000;
     public static final int IMPLICIT_32 = 0x00800000;
@@ -81,7 +81,7 @@ public class FixedFloat {
         // Remember sign.
         int sign = flbits & SIGN_32;
         // Join together: the implcit 1 and the mantissa bits.
-        // We now have the "denormalized" value. 
+        // We now have the "denormalized" value.
         int denorm = IMPLICIT_32 | (flbits & MANTISSA_32);
         // Get exponent...acceptable values are (-15 ~ 15), else wrap around (use only sign and lowest 4 bits).
         int exp = (((flbits & EXP_32) >> 23) - 127) & 0x8000000F;
@@ -89,9 +89,9 @@ public class FixedFloat {
          * So for an exponent of 0, we must shift to position 16.
          * For positive exponents in general, we must shift -7 + exp.
          * and for one of 15, to position 30, plus the sign.
-         * While there is space for all bits, we can't keep them all, 
+         * While there is space for all bits, we can't keep them all,
          * as some (well, many)numbers can't be represented in fixed point.
-         * 
+         *
          */
         int result;
         if ((exp - 7) >= 0) {
@@ -109,7 +109,7 @@ public class FixedFloat {
         // Remember sign.
         int sign = (int) ((flbits & SIGN_64) >> 32);
         // Join together: the implcit 1 and the mantissa bits.
-        // We now have the "denormalized" value. 
+        // We now have the "denormalized" value.
         long denorm = IMPLICIT_64 | (flbits & MANTISSA_64);
         //System.out.println("Denorm"+Integer.toBinaryString(denorm));
         // Get exponent...acceptable values are (-15 ~ 15), else wrap around (use only sign and lowest 4 bits).
@@ -118,9 +118,9 @@ public class FixedFloat {
          * So for an exponent of 0, we must shift to position 16.
          * For positive exponents in general, we must shift -37 + exp.
          * and for one of 15, to position 30, plus the sign.
-         * While there is space for all bits, we can't keep them all, 
+         * While there is space for all bits, we can't keep them all,
          * as some (well, many)numbers can't be represented in fixed point.
-         * 
+         *
          */
         int result;
         if ((exp - 36) >= 0) {

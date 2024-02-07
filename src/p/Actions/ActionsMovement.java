@@ -513,7 +513,7 @@ public interface ActionsMovement extends ActionsPathTraverse {
     }
 
     //
-    // P_XYMovement  
+    // P_XYMovement
     //
     default void XYMovement(mobj_t mo) {
         final Movement mv = contextRequire(KEY_MOVEMENT);
@@ -635,7 +635,7 @@ public interface ActionsMovement extends ActionsPathTraverse {
     // fixed
     //
     // PTR_SlideTraverse
-    //   
+    //
     @SourceCode.P_Map.C(PTR_SlideTraverse)
     default boolean SlideTraverse(intercept_t in) {
         final SlideMove slideMove = contextRequire(KEY_SLIDEMOVE);

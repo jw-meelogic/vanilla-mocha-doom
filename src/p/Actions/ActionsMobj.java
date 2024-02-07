@@ -173,7 +173,7 @@ public interface ActionsMobj extends ActionsThings, ActionsMovement, ActionsTele
             }
         }
 
-        // do the damage    
+        // do the damage
         target.health -= damage;
         if (target.health <= 0) {
             this.KillMobj(source, target);
@@ -187,7 +187,7 @@ public interface ActionsMobj extends ActionsThings, ActionsMovement, ActionsTele
             target.SetMobjState(target.info.painstate);
         }
 
-        target.reactiontime = 0;       // we're awake now...   
+        target.reactiontime = 0;       // we're awake now...
 
         if (((target.threshold == 0) || (target.type == mobjtype_t.MT_VILE))
                 && (source != null) && (source != target)
@@ -234,7 +234,7 @@ public interface ActionsMobj extends ActionsThings, ActionsMovement, ActionsTele
             {
                 source.player.frags[target.player.identify()]++;
             }
-            // It's probably intended to increment the frags of source player vs target player. Lookup? 
+            // It's probably intended to increment the frags of source player vs target player. Lookup?
         } else if (!IsNetGame() && ((target.flags & MF_COUNTKILL) != 0)) {
             // count all monster deaths,
             // even those caused by other monsters
@@ -243,7 +243,7 @@ public interface ActionsMobj extends ActionsThings, ActionsMovement, ActionsTele
 
         if (target.player != null) {
             // count environment kills against you
-            if (source == null) // TODO: some way to indentify which one of the 
+            if (source == null) // TODO: some way to indentify which one of the
             // four possiblelayers is the current player
             {
                 target.player.frags[target.player.identify()]++;

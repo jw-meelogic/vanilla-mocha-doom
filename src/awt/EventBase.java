@@ -33,11 +33,11 @@ import java.util.function.IntSupplier;
 /**
  * The base for construction of Event handling dictionaries
  * EventHandler is a reference implementation of this base
- * 
+ *
  * Note the type safety with generics.It could be a complex task, but you can avoid
  unchecked casts and warnings suppression. Whoa... Make my head swirl around!
   - Good Sign 2017/04/24
- * 
+ *
  * @author Good Sign
  * @param <Handler> the type of handler
  */

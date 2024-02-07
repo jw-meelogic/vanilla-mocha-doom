@@ -27,9 +27,9 @@ public enum GameMode {
     pack_plut("cdata", PLUTONIA_WAD, CommandVariable.COMDEV), // Plutonia pack
     pack_xbla("cdata", XBLA_WAD, CommandVariable.COMDEV), // XBLA Doom. How you got hold of it, I don't care :-p
     freedm("cdata", FREEDM_WAD, CommandVariable.FRDMDEV), // FreeDM
-    freedoom1("data_se", FREEDOOM1_WAD, CommandVariable.FR1DEV), // Freedoom phase 1 
+    freedoom1("data_se", FREEDOOM1_WAD, CommandVariable.FR1DEV), // Freedoom phase 1
     freedoom2("cdata", FREEDOOM2_WAD, CommandVariable.FR2DEV), // Freedoom phase 2
-    indetermined("data_se", null, null);  // Well, no IWAD found.  
+    indetermined("data_se", null, null);  // Well, no IWAD found.
 
     public final String devDir;
     public final DoomVersion version;

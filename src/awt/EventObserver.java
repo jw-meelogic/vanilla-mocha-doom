@@ -50,11 +50,11 @@ import mochadoom.Loggers;
  of EventHandler Enum. This class uses rules in Handler extends Enum<Handler> & EventBase<Handler>
  * to react on AWTEvent events given to him by some listener (or by fake, don't matter) and feeds them
  * to someone who needs them (DOOM's internal event handling system)
- * 
+ *
  * Also, you may use any Enum & EventBase dictionary, not just EventHandler.
  * It may be useful if you design a game with several modes or with several systems, or something,
  * and you need one part to react in one way, another part in another.
- * 
+ *
  * @author Good Sign
  * @param <Handler> the type of the handler
  */

@@ -48,8 +48,8 @@ public class ceiling_t extends SectorAction implements CacheableDoomObject, IRea
     @Override
     public void pack(ByteBuffer b) throws IOException {
         b.order(ByteOrder.LITTLE_ENDIAN);
-        super.pack(b); //12            
-        b.putInt(type.ordinal()); // 16            
+        super.pack(b); //12
+        b.putInt(type.ordinal()); // 16
         b.putInt(super.sectorid); // 20
         b.putInt(bottomheight);
         b.putInt(topheight); // 28

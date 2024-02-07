@@ -31,64 +31,64 @@ import mochadoom.Loggers;
 /**
  * Purpose of this pattern-interface: store Trait-specific class-wise context objects
  * and be able to get them in constant time.
- * 
+ *
  * Simple usage:
  *    You may read the theory below to understand, why and for what reason I wrote
  *    TraitFactory. However, the simplest use is: create an interface extending Trait,
  *    put there static final KeyChain object field, and declare some static ContextKey<>
  *    fields in descending classes and/or interfaces for your objects using KeyChain.newKey.
- *    
+ *
  *    Then to initialize everything, just call TraitFactory.build() and the result
  *    will be SharedContext to return on overriden method of Trait.
- * 
+ *
  *    TraitFactory.build utilizes (at the instantiation time, not in runtime) some
  *    black reflection magic to free you from need to look for every Trait in line,
  *    and call some registering function to add Objects to Keys in InsertConveyor.
- * 
+ *
  * General contract of Trait:
- * 
+ *
  * 0. In the constructor of object implementing the subset of Traits based
  *    on this Trait, you must call TraitFactory.build(this, idCapacity);
  *    Implementing this Trait otherwise means nothing.
- * 
+ *
  *    The result of TraitFactory.build(this, idCapacity); must be stored
  *    and the overriden method getContext() must return it.
- * 
+ *
  *    You can use some static non-final int[] field of deepest Trait dependency
  *    that is incremented by static initialization of all who depend on it,
  *    to determine idCapacity, or just guess big enough on your own. Also you can
  *    use helper object, KeyChain.
- * 
+ *
  * 1. In a Trait of your subset, where you want to have some object in context, you
  *    must create static final ContextKey fild. During the static final ContextKey
  *    initialization, you can also hack into incrementing some static non-final
  *    somewhere, to be sure all who do the same produce unique fast ContextKeys.
- * 
+ *
  *    You can create several ContextKeys per Trait and store several contexts,
  *    and, if your preferedIds are unique, they will be still instant-fast.
- * 
+ *
  * 2. You may want to be sure that all of your interfaces have created their context
  *    objects and put them into the InsertConveyor. To do that, you should have a
  *    method on the class using traits, that will descend into the top level traits,
  *    then lower and lower until the last of the traits.
- * 
+ *
  *    ContextKey does not override hashCode and is a final class. So the hashCode()
  *    method will be something like memory pointer, and uniqye per ContextKey.
  *    Default context storage (FactoryContext.class) does not check it until
  *    any new stored ContextKey have preferedId already taken, and reports different
  *    context Object Class<?>. If such happen, all associated contexts are moved
  *    into HashMap and context acquisition will be since significantly slower.
- * 
+ *
  *    If your ContextKey does not overlap with another one, access to context Object
  *    would be the most instant of all possible.
- * 
+ *
  * 3. In use, call contextGet(ContextKey) or some helper methods to get
  *    the Object from context. Alternatively, you can acquire the SharedContext.
  *    The helper methods are better in case you fear nulls.
- * 
+ *
  *    As the SharedContext is Shared, you can use it and objects from it in any
  *    descendants of the trait where you put this object into the context by key.
- *    
+ *
  *    If you made sure you never put two Objects of different type with two ContextKeys
  *    with matching preferedIds and Class<?>'es, the cost of get(ContextKey) will be
  *    as negligible as one level of indirection + array access by int.

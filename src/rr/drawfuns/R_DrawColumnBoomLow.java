@@ -6,7 +6,7 @@ import static m.fixed_t.FRACBITS;
 /**
  * Adapted from Killough's Boom code. Low-detail variation, no DC_SOURCE
  * optimization.
- * 
+ *
  * @author admin
  */
 public abstract class R_DrawColumnBoomLow<T, V>

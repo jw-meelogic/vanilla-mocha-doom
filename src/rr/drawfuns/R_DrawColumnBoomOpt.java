@@ -6,7 +6,7 @@ import static m.fixed_t.FRACBITS;
 /**
  * Adapted from Killough's Boom code. Specially optimized version assuming that
  * dc_source_ofs is always 0. This eliminates it from expressions.
- * 
+ *
  * @author admin
  */
 public abstract class R_DrawColumnBoomOpt<T, V>

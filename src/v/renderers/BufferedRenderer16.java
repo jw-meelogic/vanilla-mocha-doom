@@ -36,7 +36,7 @@ import static v.tables.ColorTint.NORMAL_TINTS;
  * It ulitizes now the same parallelization as 32-bit TrueColor renderer,
  * becasue it allows palettes and gammas to be applied properly on post-process.
  * The separate LUT's are generated for this renderer
- * 
+ *
  * Most likely, this renderer will be the least performant.
  * - Good Sign 2017/04/12
  */
@@ -95,7 +95,7 @@ class BufferedRenderer16 extends SoftwareParallelVideoRenderer<byte[], short[]> 
      * As we use VolatileImage that can lose its contents, it must have special care.
      * doWriteScreen is called in the moment, when the VolatileImage is ready and
      * we can copy to it and post-process
-     * 
+     *
      * If we use incompatible display, just draw our existing BufferedImage - it would be faster
      */
     @Override

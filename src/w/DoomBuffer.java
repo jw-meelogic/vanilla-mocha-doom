@@ -5,14 +5,14 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 /** Very similar to the concept of ReadableDoomObjects
- *  but made to work with byte buffers instead. 
- *  
- *  This is normally NOT used to pass data around: I am 
+ *  but made to work with byte buffers instead.
+ *
+ *  This is normally NOT used to pass data around: I am
  *  using it as a workaround to store raw byte buffers
  *  into a "CacheableDoomObject" array, as Java
  *  doesn't seem to like storing both ByteBuffers and
  *  CacheableDoomObjects in the same array. WTF...
- * 
+ *
  * @author admin
  *
  */
@@ -156,7 +156,7 @@ public class DoomBuffer implements CacheableDoomObject {
 
     /** MAES: Reads a specified number of bytes from a buffer into a new String.
      *  With many lengths being implicit, we need to actually take the loader by the hand.
-     * 
+     *
      * @param buf
      * @param len
      * @return
@@ -181,7 +181,7 @@ public class DoomBuffer implements CacheableDoomObject {
 
     /** MAES: Reads a maximum specified number of bytes from a buffer into a new String,
      * considering the bytes as representing a null-terminated, C-style string.
-     * 
+     *
      * @param buf
      * @param len
      * @return
@@ -213,7 +213,7 @@ public class DoomBuffer implements CacheableDoomObject {
 
     /** MAES: Reads a specified number of bytes from a buffer into a new String.
      *  With many lengths being implicit, we need to actually take the loader by the hand.
-     * 
+     *
      * @param buf
      * @param len
      * @return

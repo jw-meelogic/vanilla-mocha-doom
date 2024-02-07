@@ -47,7 +47,7 @@ public enum DoomVersion {
 
     /**
      * Try all versions in given doomwaddir
-     * 
+     *
      * @return full path to the wad of success
      */
     public static String tryAllWads(final DoomMain<?, ?> DOOM, final String doomwaddir) {
@@ -70,8 +70,8 @@ public enum DoomVersion {
     }
 
     /**
-     * Try only one IWAD. 
-     * 
+     * Try only one IWAD.
+     *
      * @param iwad
      * @param doomwaddir
      * @return game mode

@@ -16,11 +16,11 @@ import javax.sound.sampled.SourceDataLine;
 import mochadoom.Loggers;
 
 /** David Martel's sound driver for Mocha Doom. Excellent work!
- * 
+ *
  *  However, it's based on Java Audiolines, and as such has a number
  *  of drawbacks:
- *  
- * a) Sounds are forcibly blown to be stereo, 16-bit otherwise it's 
+ *
+ * a) Sounds are forcibly blown to be stereo, 16-bit otherwise it's
  *    impossible to get panning controls.
  * b) Volume, master gain, panning, pitch etc. controls are NOT guaranteed
  *    to be granted across different OSes , and your mileage may vary. It's
@@ -29,7 +29,7 @@ import mochadoom.Loggers;
  * c) Spawns as many threads as channels. Even if semaphore waiting it used,
  *    that can be taxing for slower systems.
 
- * 
+ *
  * @author David
  * @author Velktron
  *
@@ -152,7 +152,7 @@ public class DavidSFXModule extends AbstractSoundDriver {
 
     /** This one will only create datalines for common clip/audioline samples
      *  directly.
-     * 
+     *
      * @param c
      * @param sfxid
      */
@@ -219,7 +219,7 @@ public class DavidSFXModule extends AbstractSoundDriver {
 
     /* UNUSED version, designed to work on any type of sample (in theory).
 	   Requires a DoomSound container for separate format information.
-	  
+
 	 private final void  createDataLineForChannel(int c, DoomSound sound){
 		if (channels[c].auline == null) {
         	AudioFormat format = sound.ais.getFormat();
@@ -240,10 +240,10 @@ public class DavidSFXModule extends AbstractSoundDriver {
         			if (channels[c].auline.isControlSupported(Type.VOLUME))
             				channels[c].vc=(FloatControl) channels[c].auline
             				.getControl(Type.VOLUME);
-        			else 
+        			else
         				System.err.printf("VOLUME for channel %d NOT supported!\n",c);
-        			} 
-        			
+        			}
+
 
         			// Add individual pitch control.
         			if (channels[c].auline.isControlSupported(Type.SAMPLE_RATE)){
@@ -251,15 +251,15 @@ public class DavidSFXModule extends AbstractSoundDriver {
         				.getControl(Type.SAMPLE_RATE);
         			} else {
         				System.err.printf("SAMPLE_RATE for channel %d NOT supported!\n",c);
-        			} 
-        			
+        			}
+
         			// Add individual pan control (TODO: proper positioning).
         			if (channels[c].auline.isControlSupported(Type.BALANCE)){
         				channels[c].bc=(FloatControl) channels[c].auline
         				.getControl(FloatControl.Type.BALANCE);
         			} else {
         				System.err.printf("BALANCE for channel %d NOT supported!\n",c);
-        				if (channels[c].auline.isControlSupported(Type.PAN)){        					
+        				if (channels[c].auline.isControlSupported(Type.PAN)){
         				channels[c].bc=(FloatControl) channels[c].auline
         				.getControl(FloatControl.Type.PAN);
         			} else {
@@ -414,8 +414,8 @@ public class DavidSFXModule extends AbstractSoundDriver {
 
     }
 
-    /** Internal use. 
-     * 
+    /** Internal use.
+     *
      * @param handle
      * @return the channel that has the handle, or -2 if none has it.
      */
@@ -431,9 +431,9 @@ public class DavidSFXModule extends AbstractSoundDriver {
     }
 
     /** A Thread for playing digital sound effects.
-     * 
+     *
      *  Obviously you need as many as channels?
-     *   
+     *
      *  In order not to end up in a hell of effects,
      *  certain types of sounds must be limited to 1 per object.
      *
@@ -478,7 +478,7 @@ public class DavidSFXModule extends AbstractSoundDriver {
         }
 
         /** Accepts volume in "Doom" format (0-127).
-         * 
+         *
          * @param volume
          */
         public void setVolume(int volume) {
@@ -505,7 +505,7 @@ public class DavidSFXModule extends AbstractSoundDriver {
 
         /** Expects a steptable value between 16K and 256K, with
          *  64K being the middle.
-         * 
+         *
          * @param pitch
          */
         public void setPitch(int pitch) {

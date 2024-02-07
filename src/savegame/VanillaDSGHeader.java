@@ -17,7 +17,7 @@ import w.IReadableDoomObject;
 import w.IWritableDoomObject;
 
 /** The header of a vanilla savegame.
- *  
+ *
  *  It contains a fixed-length, null-terminated string of 24 bytes max, in any case.
  *  Then a 16-byte "version string", which normally reads "version 109".
  *  Then bytes that record:
@@ -26,10 +26,10 @@ import w.IWritableDoomObject;
  *  map +1
  *  players in game +4
  *  gametime +3 (as 24-bit big-endian)
- *  
+ *
  *  So the header has an total size of *drum roll* 50 bytes.
- *  
- * 
+ *
+ *
  * @author admin
  *
  */
@@ -70,9 +70,9 @@ public class VanillaDSGHeader implements IDoomSaveGameHeader, IReadableDoomObjec
             playeringame[i] = buf.get() != 0;
         }
 
-        // load a base level (this doesn't advance the pointer?) 
-        //G_InitNew (gameskill, gameepisode, gamemap); 
-        // get the times 
+        // load a base level (this doesn't advance the pointer?)
+        //G_InitNew (gameskill, gameepisode, gamemap);
+        // get the times
         int a = C2JUtils.toUnsignedByte(buf.get());
         int b = C2JUtils.toUnsignedByte(buf.get());
         int c = C2JUtils.toUnsignedByte(buf.get());
@@ -101,9 +101,9 @@ public class VanillaDSGHeader implements IDoomSaveGameHeader, IReadableDoomObjec
             f.writeBoolean(playeringame[i]);
         }
 
-        // load a base level (this doesn't advance the pointer?) 
-        //G_InitNew (gameskill, gameepisode, gamemap); 
-        // get the times 
+        // load a base level (this doesn't advance the pointer?)
+        //G_InitNew (gameskill, gameepisode, gamemap);
+        // get the times
         byte a = (byte) (0x0000FF & (leveltime >> 16));
         byte b = (byte) (0x00FF & (leveltime >> 8));
         byte c = (byte) (0x00FF & (leveltime));
@@ -128,7 +128,7 @@ public class VanillaDSGHeader implements IDoomSaveGameHeader, IReadableDoomObjec
             playeringame[i] = f.readBoolean();
         }
 
-        // get the times 
+        // get the times
         int a = f.readUnsignedByte();
         int b = f.readUnsignedByte();
         int c = f.readUnsignedByte();

@@ -11,7 +11,7 @@ import w.IReadableDoomObject;
 
 /**
  * The SideDef.
- * 
+ *
  * @author admin
  */
 public class side_t

@@ -11,7 +11,7 @@ import w.CacheableDoomObject;
  * with patches being lumps stored in the WAD.
  * The lumps are referenced by number, and patched
  * into the rectangular texture space using origin
- * and possibly other attributes. 
+ * and possibly other attributes.
  */
 public class mappatch_t implements CacheableDoomObject {
 

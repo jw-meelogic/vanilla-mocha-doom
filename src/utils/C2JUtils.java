@@ -23,7 +23,7 @@ import w.InputStreamSugar;
 /**
  * Some utilities that emulate C stlib methods or provide convenient functions
  * to do repetitive system and memory related stuff.
- * 
+ *
  * @author Maes
  */
 public final class C2JUtils {
@@ -58,7 +58,7 @@ public final class C2JUtils {
 
     /** Return a byte[] array from the string's chars,
      *  ANDed to the lowest 8 bits.
-     * 
+     *
      * @param str
      * @return
      */
@@ -80,7 +80,7 @@ public final class C2JUtils {
      * cache the result whenever possible. Consider adding an index or ID type
      * of field to the searched type if you require to use this property too
      * often.
-     * 
+     *
      * @param array
      * @param key
      * @return
@@ -99,7 +99,7 @@ public final class C2JUtils {
      * Emulates C-style "string comparison". "Strings" are considered
      * null-terminated, and comparison is performed only up to the smaller of
      * the two.
-     * 
+     *
      * @param s1
      * @param s2
      * @return
@@ -121,7 +121,7 @@ public final class C2JUtils {
 
     /**
      * C-like string length (null termination).
-     * 
+     *
      * @param s1
      * @return
      */
@@ -142,7 +142,7 @@ public final class C2JUtils {
 
     /**
      * Return a new String based on C-like null termination.
-     * 
+     *
      * @param s
      * @return
      */
@@ -165,7 +165,7 @@ public final class C2JUtils {
      * Automatically "initializes" arrays of objects with their default
      * constuctor. It's better than doing it by hand, IMO. If you have a better
      * way, be my guest.
-     * 
+     *
      * @param os
      * @param c
      * @throws Exception
@@ -186,7 +186,7 @@ public final class C2JUtils {
      * Automatically "initializes" arrays of objects with their default
      * constuctor. It's better than doing it by hand, IMO. If you have a better
      * way, be my guest.
-     * 
+     *
      * @param os
      * @throws Exception
      * @throws
@@ -211,12 +211,12 @@ public final class C2JUtils {
      * causes performance loss. Use instead:
      *  SomeType[] array = new SomeType[length];
      *  Arrays.setAll(array, i -> new SomeType());
-     * 
+     *
      * - Good Sign 2017/05/07
-     * 
+     *
      * Uses reflection to automatically create and initialize an array of
      * objects of the specified class. Does not require casting on "reception".
-     * 
+     *
      * @param <T>
      * @param c
      * @param num
@@ -246,10 +246,10 @@ public final class C2JUtils {
      * objects of the specified class. Does not require casting on "reception".
      * Requires an instance of the desired class. This allows getting around
      * determining the runtime type of parametrized types.
-     * 
-     * 
+     *
+     *
      * @param <T>
-     * @param instance An instance of a particular class. 
+     * @param instance An instance of a particular class.
      * @param num
      * @return
      * @return
@@ -278,7 +278,7 @@ public final class C2JUtils {
      * Automatically "initializes" arrays of objects with their default
      * constuctor. It's better than doing it by hand, IMO. If you have a better
      * way, be my guest.
-     * 
+     *
      * @param os
      * @param startpos inclusive
      * @param endpos non-inclusive
@@ -359,7 +359,7 @@ public final class C2JUtils {
 
     /**
      * Convenient alias for System.arraycopy(src, 0, dest, 0, length);
-     * 
+     *
      * @param dest
      * @param src
      * @param length
@@ -455,7 +455,7 @@ public final class C2JUtils {
     /**
      * Returns true if flags are included in arg. Synonymous with (flags &
      * arg)!=0
-     * 
+     *
      * @param flags
      * @param arg
      * @return
@@ -472,7 +472,7 @@ public final class C2JUtils {
      * Returns 1 for true and 0 for false. Useful, given the amount of
      * "arithmetic" logical functions in legacy code. Synonymous with
      * (expr?1:0);
-     * 
+     *
      * @param flags
      * @param arg
      * @return
@@ -485,7 +485,7 @@ public final class C2JUtils {
      * Returns 1 for non-null and 0 for null objects. Useful, given the amount
      * of "existential" logical functions in legacy code. Synonymous with
      * (expr!=null);
-     * 
+     *
      * @param flags
      * @param arg
      * @return
@@ -496,7 +496,7 @@ public final class C2JUtils {
 
     /**
      * Returns true for expr!=0, false otherwise.
-     * 
+     *
      * @param flags
      * @param arg
      * @return
@@ -507,7 +507,7 @@ public final class C2JUtils {
 
     /**
      * Returns true for expr!=0, false otherwise.
-     * 
+     *
      * @param flags
      * @param arg
      * @return
@@ -525,7 +525,7 @@ public final class C2JUtils {
     /**
      * Useful for unquoting strings, since StringTokenizer won't do it for us.
      * Returns null upon any failure.
-     * 
+     *
      * @param s
      * @param c
      * @return
@@ -570,9 +570,9 @@ public final class C2JUtils {
     }
 
     /**
-     * Return either 0 or a hashcode 
-     * 
-     * @param o 
+     * Return either 0 or a hashcode
+     *
+     * @param o
      */
     public static int pointer(Object o) {
         if (o == null) {
@@ -623,7 +623,7 @@ public final class C2JUtils {
 
     /** Return the filename without extension, and stripped
      * of the path.
-     * 
+     *
      * @param s
      * @return
      */
@@ -655,7 +655,7 @@ public final class C2JUtils {
      * indicators. There's normally no need to enforce this behavior, as there's
      * nothing preventing the engine from INTERNALLY using lump names with >8
      * chars. However, just to be sure...
-     * 
+     *
      * @param path
      * @param limit  Set to any value >0 to enforce a length limit
      * @param whole keep extension if set to true
@@ -684,7 +684,7 @@ public final class C2JUtils {
             len -= src;
         }
 
-        // copy UP to the specific number of characters, or all        
+        // copy UP to the specific number of characters, or all
         if (limit > 0) {
             len = Math.min(limit, len);
         }
@@ -721,7 +721,7 @@ public final class C2JUtils {
 
     /** Generic array resizing method. Calls Arrays.copyOf but then also
      *  uses initArrayOfObject for the "abundant" elements.
-     * 
+     *
      * @param <T>
      * @param instance
      * @param oldarray
@@ -746,7 +746,7 @@ public final class C2JUtils {
 
     /** Resize an array without autoinitialization. Same as Arrays.copyOf(..), just
      * prints a message.
-     *  
+     *
      * @param <T>
      * @param oldarray
      * @param newsize
@@ -797,7 +797,7 @@ public final class C2JUtils {
     /**
      * Try to guess whether a URI represents a local file, a network any of the
      * above but zipped. Returns
-     * 
+     *
      * @param uri
      * @return an int with flags set according to InputStreamSugar
      */

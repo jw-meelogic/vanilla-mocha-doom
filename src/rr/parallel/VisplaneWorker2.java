@@ -24,11 +24,11 @@ import rr.visplane_t;
 import v.graphics.Palettes;
 
 /** Visplane worker which shares work in an equal screen-portions strategy.
- * 
+ *
  * More balanced, but requires careful synchronization to avoid overdrawing and
  * stomping.
- *  
- *  
+ *
+ *
  * @author vepitrop.
  *
  * TODO: fix crashes
@@ -132,7 +132,7 @@ public abstract class VisplaneWorker2<T, V> extends PlaneDrawer<T, V> implements
                 continue;
             }
 
-            // Reject non-visible  
+            // Reject non-visible
             if (pln.minx > pln.maxx) {
                 continue;
             }
@@ -252,20 +252,20 @@ public abstract class VisplaneWorker2<T, V> extends PlaneDrawer<T, V> implements
 
     /**
      * R_MakeSpans
-     * 
+     *
      * Called only by DrawPlanes.
      * If you wondered where the actual boundaries for the visplane
      * flood-fill are laid out, this is it.
-     * 
-     * The system of coords seems to be defining a sort of cone.          
-     *          
-     * 
+     *
+     * The system of coords seems to be defining a sort of cone.
+     *
+     *
      * @param x Horizontal position
      * @param t1 Top-left y coord?
      * @param b1 Bottom-left y coord?
      * @param t2 Top-right y coord ?
      * @param b2 Bottom-right y coord ?
-     * 
+     *
      */
     @Override
     protected final void MakeSpans(int x, int t1, int b1, int t2, int b2) {
@@ -292,9 +292,9 @@ public abstract class VisplaneWorker2<T, V> extends PlaneDrawer<T, V> implements
      * R_MapPlane
      *
      * Called only by R_MakeSpans.
-     * 
+     *
      * This is where the actual span drawing function is called.
-     * 
+     *
      * Uses global vars:
      * planeheight
      *  ds_source -> flat data has already been set.
@@ -318,7 +318,7 @@ public abstract class VisplaneWorker2<T, V> extends PlaneDrawer<T, V> implements
           int distance;
           int length;
           int index;
-          
+
       if (RANGECHECK){
           if (x2 < x1
           || x1<0
@@ -342,7 +342,7 @@ public abstract class VisplaneWorker2<T, V> extends PlaneDrawer<T, V> implements
           vpw_dsvars.ds_xstep = cachedxstep[y];
           vpw_dsvars.ds_ystep = cachedystep[y];
           }
-          
+
           length = FixedMul (distance,distscale[x1]);
           angle = (int)(((view.angle +xtoviewangle[x1])&BITS32)>>>ANGLETOFINESHIFT);
           vpw_dsvars.ds_xfrac = view.x + FixedMul(finecosine[angle], length);
@@ -353,13 +353,13 @@ public abstract class VisplaneWorker2<T, V> extends PlaneDrawer<T, V> implements
           else
           {
           index = distance >>> LIGHTZSHIFT;
-          
+
           if (index >= MAXLIGHTZ )
               index = MAXLIGHTZ-1;
 
           vpw_dsvars.ds_colormap = vpw_planezlight[index];
           }
-          
+
           vpw_dsvars.ds_y = y;
           vpw_dsvars.ds_x1 = x1;
           vpw_dsvars.ds_x2 = x2;
@@ -368,7 +368,7 @@ public abstract class VisplaneWorker2<T, V> extends PlaneDrawer<T, V> implements
           if (view.detailshift==0)
               vpw_spanfunc.invoke();
           else
-              vpw_spanfunclow.invoke();         
+              vpw_spanfunclow.invoke();
       }
      */
     // Private to each thread.

@@ -79,7 +79,7 @@ public abstract class DoomStatus<T, V> {
 
     /////////// Local to doomstat.c ////////////
     // TODO: hide those behind getters
-    /** Game Mode - identify IWAD as shareware, retail etc. 
+    /** Game Mode - identify IWAD as shareware, retail etc.
      *  This is now hidden behind getters so some cases like plutonia
      *  etc. can be handled more cleanly.
      * */
@@ -98,7 +98,7 @@ public abstract class DoomStatus<T, V> {
     }
 
     /** Commercial means Doom 2, Plutonia, TNT, and possibly others like XBLA.
-     * 
+     *
      * @return
      */
     public boolean isCommercial() {
@@ -111,15 +111,15 @@ public abstract class DoomStatus<T, V> {
     }
 
     /** Retail means Ultimate.
-     * 
+     *
      * @return
      */
     public boolean isRetail() {
         return (gamemode == GameMode.retail || gamemode == GameMode.freedoom1);
     }
 
-    /** Registered is a subset of Ultimate 
-     * 
+    /** Registered is a subset of Ultimate
+     *
      * @return
      */
     public boolean isRegistered() {
@@ -261,7 +261,7 @@ public abstract class DoomStatus<T, V> {
 
     public boolean mapstrobe;
 
-    /** 
+    /**
      * Set this to GS_DEMOSCREEN upon init, else it will be null
      * Good Sign at 2017/03/21: I hope it is no longer true info, since I've checked its assignment by NetBeans
      */
@@ -345,7 +345,7 @@ public abstract class DoomStatus<T, V> {
 
     public ticcmd_t[][] netcmds;// [MAXPLAYERS][BACKUPTICS];
 
-    /** MAES: this WAS NOT in the original. 
+    /** MAES: this WAS NOT in the original.
      *  Remember to call it!
      */
     protected final void initNetGameStuff() {
@@ -523,7 +523,7 @@ public abstract class DoomStatus<T, V> {
 
     /** More prBoom+ stuff. Used mostly for code uhm..reuse, rather
      *  than to actually change the way stuff works.
-     *   
+     *
      */
     public static int compatibility_level;
 

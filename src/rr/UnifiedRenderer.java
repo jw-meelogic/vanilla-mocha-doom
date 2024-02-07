@@ -57,7 +57,7 @@ public abstract class UnifiedRenderer<T, V> extends RendererState<T, V> {
         public HiColor(DoomMain<byte[], short[]> DOOM) {
             super(DOOM);
 
-            // Init any video-output dependant stuff            
+            // Init any video-output dependant stuff
             // Init light levels
             final int LIGHTLEVELS = colormaps.lightLevels();
             final int MAXLIGHTSCALE = colormaps.maxLightScale();
@@ -153,7 +153,7 @@ public abstract class UnifiedRenderer<T, V> extends RendererState<T, V> {
             colormaps.colormaps = DOOM.graphicSystem.getColorMap();
             // MAES: blurry effect is hardcoded to this colormap.
             BLURRY_MAP = DOOM.graphicSystem.getBlurryTable();
-            // colormaps = (byte *)( ((int)colormaps + 255)&~0xff);     
+            // colormaps = (byte *)( ((int)colormaps + 255)&~0xff);
         }
 
         /**

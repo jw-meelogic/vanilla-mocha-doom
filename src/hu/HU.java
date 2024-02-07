@@ -387,7 +387,7 @@ public class HU implements IHeadsUp {
     /**
      * Loads a bunch of STCFNx fonts from WAD, and sets some of the remaining
      * constants.
-     * 
+     *
      * @throws Exception
      */
     @Override
@@ -1144,7 +1144,7 @@ public class HU implements IHeadsUp {
         /**
          * MAES: This is much better than cluttering up the syntax everytime a
          * STRING must be added.
-         * 
+         *
          * @param s
          * @return
          */
@@ -1226,7 +1226,7 @@ public class HU implements IHeadsUp {
          * Only erases when NOT in automap and the screen is reduced,
          * and the text must either need updating or refreshing
          * (because of a recent change back from the automap)
-         * 
+         *
          * Rewritten by Good Sign 2017/04/06
          */
         @SuppressWarnings("unchecked")

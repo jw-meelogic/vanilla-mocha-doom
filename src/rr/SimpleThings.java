@@ -5,7 +5,7 @@ import v.scale.VideoScale;
 /**
  * A very "simple" things class which just does serial rendering and uses all
  * the base methods from AbstractThings.
- * 
+ *
  * @author velktron
  * @param <T>
  * @param <V>

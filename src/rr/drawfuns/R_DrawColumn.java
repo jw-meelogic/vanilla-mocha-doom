@@ -6,9 +6,9 @@ import static m.fixed_t.FRACBITS;
 /**
  * Adapted from Killough's Boom code. There are optimized as well as
  * low-detail versions of it.
- * 
+ *
  * @author admin
- * 
+ *
  */
 /**
  * A column is a vertical slice/span from a wall texture that, given the
@@ -68,7 +68,7 @@ public final class R_DrawColumn extends DoomColumnFunction<byte[], short[]> {
         do {
             /*
              * Re-map color indices from wall texture column using a
-             * lighting/special effects LUT. 
+             * lighting/special effects LUT.
              * Q: Where is "*dest"supposed to be pointing?
              * A: it's pointing inside screen[0] (set long before we came here)
              * dc_source is a pointer to a decompressed column's data.
@@ -80,7 +80,7 @@ public final class R_DrawColumn extends DoomColumnFunction<byte[], short[]> {
 
             /*
              * MAES: ok, so we have (from inside out):
-             * 
+             *
              * frac is a fixed-point number representing a pointer inside a
              * column. It gets shifted to an integer, and AND-ed with 128
              * (this causes vertical column tiling).

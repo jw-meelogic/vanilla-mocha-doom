@@ -20,7 +20,7 @@ import v.tables.BlurryTable;
  * Parallel Things drawing class, column based, using RMI pipeline.
  * For N threads, each thread only draws those columns of sprites that
  * are in its own 1/N portion of the screen.
- * 
+ *
  * Overrides only the terminal drawing methods from things, using a
  * mechanism very similar to column-based wall threading. It's not very
  * efficient, since some of the really heavy parts (such as visibility
@@ -35,7 +35,7 @@ import v.tables.BlurryTable;
  * fps "Dummy" things renderer without ANY calculations: 90 fps. This means
  * that even a complete parallelization will likely have a quite limited
  * impact.
- * 
+ *
  * @author velktron
  */
 public abstract class ParallelThings<T, V> extends AbstractThings<T, V> {

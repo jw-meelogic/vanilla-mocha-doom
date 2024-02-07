@@ -32,7 +32,7 @@ public class plat_t extends SectorAction implements IReadableDoomObject {
     @Override
     public void read(DataInputStream f) throws IOException {
 
-        super.read(f); // Call thinker reader first            
+        super.read(f); // Call thinker reader first
         super.sectorid = DoomIO.readLEInt(f); // Sector index
         speed = DoomIO.readLEInt(f);
         low = DoomIO.readLEInt(f);
@@ -50,7 +50,7 @@ public class plat_t extends SectorAction implements IReadableDoomObject {
 
     @Override
     public void pack(ByteBuffer b) throws IOException {
-        super.pack(b); //12            
+        super.pack(b); //12
         b.putInt(super.sectorid); // 16
         b.putInt(speed);//20
         b.putInt(low); // 24
@@ -78,13 +78,13 @@ public class plat_t extends SectorAction implements IReadableDoomObject {
 
         	    // 1 = up, 0 = waiting at top, -1 = down
         	    int             direction;
-        	    
+
         	    // tics to wait at the top
         	    int             topwait;
         	    // (keep in case a door going down is reset)
         	    // when it reaches 0, start going down
         	    int             topcountdown;
-        	    
+
         	} vldoor_t;
          */
 

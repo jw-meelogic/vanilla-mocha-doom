@@ -2,10 +2,10 @@ package savegame;
 
 import defines.skill_t;
 
-/** A Save Game Header should be able to be loaded quickly and return 
+/** A Save Game Header should be able to be loaded quickly and return
  *  some basic info about it (name, version, game time, etc.) in an unified
  *  manner, no matter what actual format you use for saving.
- * 
+ *
  * @author admin
  *
  */

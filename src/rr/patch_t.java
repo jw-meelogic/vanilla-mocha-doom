@@ -21,7 +21,7 @@ public class patch_t implements /*IReadableDoomObject,*/ CacheableDoomObject {
     public short leftoffset;
     /** pixels below the origin */
     public short topoffset;
-    /** This used to be an implicit array pointing to raw posts of data. 
+    /** This used to be an implicit array pointing to raw posts of data.
      * TODO: get rid of it? It's never used
      * only [width] used the [0] is &columnofs[width] */
     public int[] columnofs;
@@ -33,7 +33,7 @@ public class patch_t implements /*IReadableDoomObject,*/ CacheableDoomObject {
 
     /** Synthesizing constructor.
      * You have to provide the columns yourself, a-posteriori.
-     * 
+     *
      * @param name
      * @param width
      * @param height
@@ -64,7 +64,7 @@ public class patch_t implements /*IReadableDoomObject,*/ CacheableDoomObject {
         this.columnofs=new int[this.width];
         this.columns=new column_t[this.width];
         C2JUtils.initArrayOfObjects( this.columns, column_t.class);
-        
+
         // Read the column offsets.
         f.readIntArray(this.columnofs, this.columnofs.length, ByteOrder.LITTLE_ENDIAN);
         for (int i=0;i<this.width;i++){
@@ -72,13 +72,13 @@ public class patch_t implements /*IReadableDoomObject,*/ CacheableDoomObject {
             //f.seek(pos+this.columnofs[i]);
             this.columns[i].read(f);
         }
-        
+
     }*/
     /** In the C code, reading is "aided", aka they know how long the header + all
      *  posts/columns actually are on disk, and only "deserialize" them when using them.
-     *  Here, we strive to keep stuff as elegant and OO as possible, so each column will get 
+     *  Here, we strive to keep stuff as elegant and OO as possible, so each column will get
      *  deserialized one by one. I thought about reading ALL column data as raw data, but
-     *  IMO that's shit in the C code, and would be utter shite here too. Ergo, I cleanly 
+     *  IMO that's shit in the C code, and would be utter shite here too. Ergo, I cleanly
      *  separate columns at the patch level (an advantage is that it's now easy to address
      *  individual columns). However, column data is still read "raw".
      */

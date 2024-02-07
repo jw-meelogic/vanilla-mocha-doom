@@ -32,7 +32,7 @@ import rr.patch_t;
  * Patch columns drawing.
  * The whole class is my custom hand-crafted code
  *  - Good Sign 2017/04/03
- * 
+ *
  * @author Good Sign
  */
 public interface Columns<V, E extends Enum<E>> extends Blocks<V, E> {
@@ -47,7 +47,7 @@ public interface Columns<V, E extends Enum<E>> extends Blocks<V, E> {
         final int fullRowShift = scrWidth * dupy;
         /**
          * For each post, j is the index of post.
-         * 
+         *
          * A delta is a number of transparent rows to skip, if it is 0xFF then the whole column
          * is transparent, so if we have delta 0xFF, then we've done with column drawing.
          */
@@ -73,7 +73,7 @@ public interface Columns<V, E extends Enum<E>> extends Blocks<V, E> {
     }
 
     /**
-     * Accepts patch columns drawing arguments (usually from Patches::DrawPatch method) 
+     * Accepts patch columns drawing arguments (usually from Patches::DrawPatch method)
      * and submits the task to the local ForkJoinPool. The task iterates over patch columns in parallel.
      * We need to only iterate through real patch.width and perform scale in-loop
      */
@@ -89,7 +89,7 @@ public interface Columns<V, E extends Enum<E>> extends Blocks<V, E> {
         /**
          * As vanilla DOOM does not parallel column computation, we should have the option to turn off
          * the parallelism. Just set it to 0 in cfg:parallelism_patch_columns, and it will process columns in serial.
-         * 
+         *
          * It will also prevent a crash on a dumb negative value set to this option. However, a value of 1000 is even
          * more dumb, but will probably not crash - just take hellion of megabytes memory and waste all the CPU time on
          * computing "what to process" instead of "what will be the result"

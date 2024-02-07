@@ -18,11 +18,11 @@ public enum BinarySearch {
          * Binary search supporting search for one type of objects
          * using object of another type, given from any object of one type
          * a function can get an object of another type
-         * 
+         *
          * @param list of one type of objects
          * @param converter from one type of objects to another
          * @param key a value of another object type
-         * @return 
+         * @return
          */
         public static <T, E extends Comparable<? super E>> int find(final List<? extends T> list,
             final Function<? super T, ? extends E> converter,
@@ -34,11 +34,11 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using object of another type, given from any object of one type
      * a function can get an object of another type
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to another
      * @param key a value of another object type
-     * @return 
+     * @return
      */
     public static <T, E extends Comparable<? super E>> int find(final T[] array,
             final Function<? super T, ? extends E> converter,
@@ -50,12 +50,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using object of another type, given from any object of one type
      * a function can get an object of another type
-     * 
+     *
      * @param list of one type of objects
      * @param comparator - a comparator for objects of type E
      * @param converter from one type of objects to another
      * @param key a value of another object type
-     * @return 
+     * @return
      */
     public static <T, E> int find(final List<? extends T> list,
             final Function<? super T, ? extends E> converter,
@@ -68,12 +68,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using object of another type, given from any object of one type
      * a function can get an object of another type
-     * 
+     *
      * @param array of one type of objects
      * @param comparator - a comparator for objects of type E
      * @param converter from one type of objects to another
      * @param key a value of another object type
-     * @return 
+     * @return
      */
     public static <T, E> int find(final T[] array,
             final Function<? super T, ? extends E> converter,
@@ -86,11 +86,11 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final List<? extends T> list,
             final ToIntFunction<? super T> converter,
@@ -102,11 +102,11 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final T[] array,
             final ToIntFunction<? super T> converter,
@@ -118,12 +118,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param comparator - a comparator for primitive integer values
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final List<? extends T> list,
             final ToIntFunction<? super T> converter,
@@ -136,12 +136,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param comparator - a comparator for primitive integer values
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final T[] array,
             final ToIntFunction<? super T> converter,
@@ -154,11 +154,11 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param a primitive long key value
-     * @return 
+     * @return
      */
     public static <T> int findByLong(final List<? extends T> list,
             final ToLongFunction<? super T> converter,
@@ -170,11 +170,11 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param a primitive long key value
-     * @return 
+     * @return
      */
     public static <T> int findByLong(final T[] array,
             final ToLongFunction<? super T> converter,
@@ -186,12 +186,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param comparator - a comparator for primitive long values
      * @param a primitive long key value
-     * @return 
+     * @return
      */
     public static <T> int findByLong(final List<? extends T> list,
             final ToLongFunction<? super T> converter,
@@ -204,12 +204,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param comparator - a comparator for primitive long values
      * @param a primitive long key value
-     * @return 
+     * @return
      */
     public static <T> int findByLong(final T[] array,
             final ToLongFunction<? super T> converter,
@@ -222,11 +222,11 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final List<? extends T> list,
             final ToDoubleFunction<? super T> converter,
@@ -238,11 +238,11 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final T[] array,
             final ToDoubleFunction<? super T> converter,
@@ -254,12 +254,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param comparator - a comparator for primitive double values
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final List<? extends T> list,
             final ToDoubleFunction<? super T> converter,
@@ -272,12 +272,12 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param comparator - a comparator for primitive double values
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final T[] array,
             final ToDoubleFunction<? super T> converter,
@@ -290,13 +290,13 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using object of another type, given from any object of one type
      * a function can get an object of another type
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to another
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param key a value of another object type
-     * @return 
+     * @return
      */
     public static <T, E extends Comparable<? super E>> int find(final List<? extends T> list,
             final Function<? super T, ? extends E> converter,
@@ -309,13 +309,13 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using object of another type, given from any object of one type
      * a function can get an object of another type
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to another
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param key a value of another object type
-     * @return 
+     * @return
      */
     public static <T, E extends Comparable<? super E>> int find(final T[] array,
             final Function<? super T, ? extends E> converter,
@@ -328,7 +328,7 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using object of another type, given from any object of one type
      * a function can get an object of another type
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to another
      * @param comparator - a comparator for objects of type E
@@ -349,7 +349,7 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using object of another type, given from any object of one type
      * a function can get an object of another type
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to another
      * @param comparator - a comparator for objects of type E
@@ -370,13 +370,13 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final List<? extends T> list,
             final ToIntFunction<? super T> converter,
@@ -389,13 +389,13 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final T[] array,
             final ToIntFunction<? super T> converter,
@@ -408,14 +408,14 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param comparator - a comparator for primitive integer values
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final List<? extends T> list,
             final ToIntFunction<? super T> converter,
@@ -429,14 +429,14 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive integer, given from any object
      * of one type a function can get a primitive integer
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive integer
      * @param comparator - a comparator for primitive integer values
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive integer key value
-     * @return 
+     * @return
      */
     public static <T> int findByInt(final T[] array,
             final ToIntFunction<? super T> converter,
@@ -450,7 +450,7 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param from - an index (inclusive) from which to start search
@@ -469,7 +469,7 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param from - an index (inclusive) from which to start search
@@ -488,7 +488,7 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param comparator - a comparator for primitive long values
@@ -509,7 +509,7 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive long, given from any object
      * of one type a function can get a primitive long
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive long
      * @param comparator - a comparator for primitive long values
@@ -530,13 +530,13 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final List<? extends T> list,
             final ToDoubleFunction<? super T> converter,
@@ -549,13 +549,13 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final T[] array,
             final ToDoubleFunction<? super T> converter,
@@ -568,14 +568,14 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param list of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param comparator - a comparator for primitive double values
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final List<? extends T> list,
             final ToDoubleFunction<? super T> converter,
@@ -589,14 +589,14 @@ public enum BinarySearch {
      * Binary search supporting search for one type of objects
      * using primitive double, given from any object
      * of one type a function can get a primitive double
-     * 
+     *
      * @param array of one type of objects
      * @param converter from one type of objects to a primitive double
      * @param comparator - a comparator for primitive double values
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
      * @param a primitive double key value
-     * @return 
+     * @return
      */
     public static <T> int findByDouble(final T[] array,
             final ToDoubleFunction<? super T> converter,
@@ -611,7 +611,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by some key object, using the getter
      * who, given an index in the invisible structure, can produce a key
      * object someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a key object used for sort
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
@@ -627,7 +627,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by some key object, using the getter
      * who, given an index in the invisible structure, can produce a key
      * object someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a key object used for sort
      * @param comparator - a comparator for objects of type E
      * @param from - an index (inclusive) from which to start search
@@ -645,7 +645,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by primitive integer key,
      * using the getter who, given an index in the invisible structure, can produce
      * the primitive integer key someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a primitive integer used for sort
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
@@ -661,7 +661,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by primitive integer key,
      * using the getter who, given an index in the invisible structure, can produce
      * the primitive integer key someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a primitive integer used for sort
      * @param comparator - a comparator for primitive integers
      * @param from - an index (inclusive) from which to start search
@@ -679,7 +679,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by primitive long key,
      * using the getter who, given an index in the invisible structure, can produce
      * the primitive long key someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a primitive long used for sort
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
@@ -695,7 +695,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by primitive long key,
      * using the getter who, given an index in the invisible structure, can produce
      * the primitive long key someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a primitive long used for sort
      * @param comparator - a comparator for primitive long values
      * @param from - an index (inclusive) from which to start search
@@ -713,7 +713,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by primitive double key,
      * using the getter who, given an index in the invisible structure, can produce
      * the primitive double key someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a primitive double used for sort
      * @param from - an index (inclusive) from which to start search
      * @param to - an index (exclusive) from which to start search
@@ -729,7 +729,7 @@ public enum BinarySearch {
      * whose sorting is someway ensured by primitive double key,
      * using the getter who, given an index in the invisible structure, can produce
      * the primitive double key someway used to sort it.
-     * 
+     *
      * @param getter - a function accepting indexes, producing a primitive double used for sort
      * @param comparator - a comparator for primitive double values
      * @param from - an index (inclusive) from which to start search

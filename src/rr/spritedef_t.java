@@ -26,7 +26,7 @@ public class spritedef_t {
         }
     }
 
-    /** Use this constructor, as we usually need less than 30 frames 
+    /** Use this constructor, as we usually need less than 30 frames
      *  It will actually clone the frames.
      */
     public void copy(spriteframe_t[] from, int maxframes) {

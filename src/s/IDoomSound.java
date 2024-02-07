@@ -117,7 +117,7 @@ public interface IDoomSound {
     /**
      * Start sound for thing at <origin> using <sound_id> from sounds.h
      * Convenience method using sfxenum_t instead. Delegated to int version.
-     * 
+     *
      */
     public void StartSound(ISoundOrigin origin, sfxenum_t sound_id);
 
@@ -129,7 +129,7 @@ public interface IDoomSound {
 
     /**
      * Start music using <music_id> from sounds.h, and set whether looping
-     * 
+     *
      * @param musicnum
      * @param looping
      */
@@ -147,7 +147,7 @@ public interface IDoomSound {
 
     /**
      * Updates music & sounds
-     * 
+     *
      * @param listener
      */
     public void UpdateSounds(mobj_t listener);
@@ -159,14 +159,14 @@ public interface IDoomSound {
     /** Start music using <music_id> from sounds.h */
     public void StartMusic(int music_id);
 
-    /** Start music using <music_id> from sounds.h 
+    /** Start music using <music_id> from sounds.h
      *  Convenience method using musicenum_t.
      */
     public void StartMusic(musicenum_t music_id);
 
     //
-    // Internals. 
-    // 
+    // Internals.
+    //
     // MAES: these appear to be only of value for internal implementation,
     // and are never called externally. Thus, they might as well
     // not be part of the interface, even though it's convenient to reuse them.

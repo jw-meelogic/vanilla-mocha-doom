@@ -21,7 +21,7 @@ import utils.C2JUtils;
 
 /**
  * Features and functionality which is common among parallel renderers
- * 
+ *
  * @author velktron
  */
 public abstract class AbstractParallelRenderer<T, V> extends RendererState<T, V> implements RWI.Init<T, V> {
@@ -198,7 +198,7 @@ public abstract class AbstractParallelRenderer<T, V> extends RendererState<T, V>
          * R_DrawPlanes At the end of each frame. This also means that visplanes
          * must have been set BEFORE we called this function. Therefore, look
          * for errors behind.
-         * 
+         *
          * @throws IOException
          */
         public void DrawPlanes() {
@@ -464,7 +464,7 @@ public abstract class AbstractParallelRenderer<T, V> extends RendererState<T, V>
          * R_DrawPlanes At the end of each frame. This also means that visplanes
          * must have been set BEFORE we called this function. Therefore, look
          * for errors behind.
-         * 
+         *
          * @throws IOException
          */
         @Override

@@ -31,7 +31,7 @@ import utils.ResourceIO;
 /**
  * Manages loading different config files from different places
  * (the part about different places is still unfinished)
- * 
+ *
  * @author Good Sign
  */
 public enum ConfigBase {
@@ -126,7 +126,7 @@ public enum ConfigBase {
 
         /**
          * Get file / paths combinations
-         * 
+         *
          * @return a one or more path to the file
          */
         private String[] getPaths() {

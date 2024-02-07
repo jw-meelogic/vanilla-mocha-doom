@@ -24,7 +24,7 @@ import w.IWadLoader;
 /**
  * Renderer choice that depends on selected (or provided through command line) BppMode
  * It also ensures you create it in right order and with right components.
- * 
+ *
  * And see - no package interface shared to public
  * @author Good Sign
  */

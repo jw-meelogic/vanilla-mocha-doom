@@ -2,8 +2,8 @@ package doom;
 
 import defines.skill_t;
 
-/** Groups functions formerly in d_game, 
- * in case you want to provide a different implementation 
+/** Groups functions formerly in d_game,
+ * in case you want to provide a different implementation
  */
 public interface IDoomGame {
 
@@ -26,7 +26,7 @@ public interface IDoomGame {
     public void SaveGame(int slot, String description);
 
     /** Takes a screenshot *NOW*
-     * 
+     *
      */
     public void ScreenShot();
 

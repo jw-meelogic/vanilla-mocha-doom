@@ -57,10 +57,10 @@ import v.tables.GreyscaleFilter;
 /**
  * An enumeration with the most basic default Doom settings their default values, used if nothing else is available.
  * They are applied first thing, and then updated from the .cfg file.
- * 
+ *
  * The file now also contains settings on many features introduced by this new version of Mocha Doom
  *  - Good Sign 2017/04/11
- * 
+ *
  * TODO: find a trick to separate settings groups in the same file vanilla-compatibly
  */
 public enum Settings {
@@ -119,7 +119,7 @@ public enum Settings {
     fullscreen_stretch(FILE_MOCHADOOM, FullscreenOptions.StretchMode.Fit),
     fullscreen_interpolation(FILE_MOCHADOOM, FullscreenOptions.InterpolationMode.Nearest),
     alwaysrun(FILE_MOCHADOOM, false), // Always run is OFF
-    vanilla_key_behavior(FILE_MOCHADOOM, true), // Currently forces LSHIFT on RSHIFT, TODO: layouts, etc 
+    vanilla_key_behavior(FILE_MOCHADOOM, true), // Currently forces LSHIFT on RSHIFT, TODO: layouts, etc
     automap_plotter_style(FILE_MOCHADOOM, Plotter.Style.Thin), // Thin is vanilla, Thick is scaled, Deep slightly rounded scaled
     enable_colormap_lump(FILE_MOCHADOOM, true), // Enables usage of COLORMAP lump read from wad during lights and specials generation
     color_depth(FILE_MOCHADOOM, BppMode.Indexed), // Indexed: 256, HiColor: 32 768, TrueColor: 16 777 216

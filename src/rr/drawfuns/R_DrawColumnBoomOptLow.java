@@ -4,11 +4,11 @@ import i.IDoomSystem;
 import static m.fixed_t.FRACBITS;
 
 /**
- * Adapted from Killough's Boom code. Low-detail variation, with DC SOURCE 
+ * Adapted from Killough's Boom code. Low-detail variation, with DC SOURCE
  * optimization.
- * 
+ *
  * @author admin
- * 
+ *
  */
 public abstract class R_DrawColumnBoomOptLow<T, V> extends DoomColumnFunction<T, V> {
 

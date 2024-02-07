@@ -3,9 +3,9 @@ package rr;
 /** A maptexturedef_t describes a rectangular texture,
  *  which is composed of one or more mappatch_t structures
  *  that arrange graphic patches.
- *  
+ *
  *  This is the in-memory format, which is similar to maptexture_t (which is on-disk).
- *  
+ *
  * @author Maes
  *
  */

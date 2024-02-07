@@ -20,13 +20,13 @@ package v.tables;
  * FuzzMix: Unique feature by Maes for HiColor detailed mode
  * This should be preserved, but I've moved it to appropriate place
  * Option to enable the feature in cfg: fuzz_mix
- * 
+ *
  * Note: the TrueColor alpha half-brite will only work
  * properly with cfg: color_depth AlphaTrueColor also set
- * 
+ *
  * Made it an interface, it is as easy to apply to anything as setting pixel
  *  - Good Sign 2017/04/16
- * 
+ *
  * @author velktron
  */
 public interface FuzzMix {
@@ -35,7 +35,7 @@ public interface FuzzMix {
      * Was used by:
      * R_DrawFuzzColumn.HiColor
      * R_DrawFuzzColumnLow.HiColor
-     * 
+     *
      * Now used by BlurryTable::computePixel
      * only if the option fuzz_mix enabled
      */
@@ -43,17 +43,17 @@ public interface FuzzMix {
         // super-fast half-brite trick
         // 3DEF and >> 1: ok hue, but too dark
         // 7BDE, no shift:  good compromise
-        // 739C, no shift: results in too obvious tinting.         
+        // 739C, no shift: results in too obvious tinting.
         return (short) (rgb & 0x7BDE);
     }
 
     /**
      * Was used by:
      * R_DrawFuzzColumn.TrueColor
-     * 
+     *
      * Now used by BlurryTable::computePixel
      * only if the option fuzz_mix enabled
-     * 
+     *
      * AX: This is what makes it blurry
      */
     default int fuzzMixTrue(int rgb) {
@@ -64,10 +64,10 @@ public interface FuzzMix {
     /**
      * Was used by:
      * R_DrawFuzzColumnLow.TrueColor
-     * 
+     *
      * Now used by BlurryTable::computePixel
      * only if the option fuzz_mix enabled
-     * 
+     *
      * AX: This is what made it dark and ugly
      */
     default int fuzzMixTrueLow(int rgb) {

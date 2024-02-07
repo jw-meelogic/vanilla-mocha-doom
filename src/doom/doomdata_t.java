@@ -47,7 +47,7 @@ public class doomdata_t implements IDatagramSerializable {
         bbuf.put(player);
         bbuf.put(numtics);
 
-        // FIXME: it's probably more efficient to use System.arraycopy ? 
+        // FIXME: it's probably more efficient to use System.arraycopy ?
         // Or are the packets too small anyway? At most we'll be sending "doomdata_t's"
         for (int i = 0; i < cmds.length; i++) {
             bbuf.put(cmds[i].pack());

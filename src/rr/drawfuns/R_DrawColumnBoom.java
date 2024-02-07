@@ -9,7 +9,7 @@ import mochadoom.Loggers;
 /**
  * Adapted from Killough's Boom code. There are optimized as well as low-detail
  * versions of it.
- * 
+ *
  * @author admin
  */
 public abstract class R_DrawColumnBoom<T, V>

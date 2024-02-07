@@ -50,13 +50,13 @@ public interface ILevelLoader {
         "VERTEXES", "SEGS", "SSECTORS", "NODES",
         "SECTORS", "REJECT", "BLOCKMAP"};
 
-    /** P_SetupLevel 
-     * 
+    /** P_SetupLevel
+     *
      * @param episode
      * @param map
      * @param playermask
      * @param skill
-     * @throws IOException 
+     * @throws IOException
      */
     @P_Setup.C(P_SetupLevel)
     void SetupLevel(int episode, int map, int playermask, skill_t skill) throws IOException;
@@ -65,19 +65,19 @@ public interface ILevelLoader {
      * P_SetThingPosition Links a thing into both a block and a subsector based
      * on it's x y. Sets thing.subsector properly
      *
-     * 
+     *
      * @param thing
      */
     void SetThingPosition(mobj_t thing);
 
     /**
      * R_PointInSubsector
-     * 
+     *
      * MAES: it makes more sense to have this here.
-     * 
+     *
      * @param x fixed
      * @param y fixed
-     * 
+     *
      */
     subsector_t PointInSubsector(int x, int y);
 

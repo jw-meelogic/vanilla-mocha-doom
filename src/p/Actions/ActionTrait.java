@@ -287,7 +287,7 @@ public interface ActionTrait extends Trait, ThinkerList {
         // This gives us the index to look up (in blockmap)
         offset = y * ll.bmapwidth + x;
 
-        // The index contains yet another offset, but this time 
+        // The index contains yet another offset, but this time
         offset = ll.blockmap[offset];
 
         // MAES: blockmap terminating marker is always -1
@@ -492,7 +492,7 @@ public interface ActionTrait extends Trait, ThinkerList {
                 yl = 0x1FF & yl;        // Broke height boundary
             }
             if (yh <= ll.blockmapyneg) {
-                yh = 0x1FF & yh;   // Broke height boundary     
+                yh = 0x1FF & yh;   // Broke height boundary
             }
         }
         for (bx = xl; bx <= xh; bx++) {

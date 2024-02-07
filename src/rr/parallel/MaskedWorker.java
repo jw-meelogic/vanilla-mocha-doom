@@ -35,10 +35,10 @@ import v.graphics.Palettes;
 import v.scale.VideoScale;
 import v.tables.BlurryTable;
 
-/** A "Masked Worker" draws sprites in a split-screen strategy. Used by 
+/** A "Masked Worker" draws sprites in a split-screen strategy. Used by
  * ParallelRenderer2. Each Masked Worker is essentially a complete Things
  * drawer, and reuses much of the serial methods.
- * 
+ *
  * @author velktron
  *
  * @param <T>
@@ -148,11 +148,11 @@ public abstract class MaskedWorker<T, V> extends AbstractThings<T, V> implements
 
     /**
      * R_DrawVisSprite mfloorclip and mceilingclip should also be set.
-     * 
+     *
      * Sprites are actually drawn here. Obviously overrides the serial
      * method, and only draws a portion of the sprite.
-     * 
-     * 
+     *
+     *
      */
     @Override
     protected final void DrawVisSprite(vissprite_t<V> vis) {
@@ -218,7 +218,7 @@ public abstract class MaskedWorker<T, V> extends AbstractThings<T, V> implements
 
     /**
      * R_RenderMaskedSegRange
-     * 
+     *
      * @param ds
      * @param x1
      * @param x2
@@ -334,12 +334,12 @@ public abstract class MaskedWorker<T, V> extends AbstractThings<T, V> implements
 
     /**
      * R_DrawPSprite
-     * 
+     *
      * Draws a "player sprite" with slighly different rules than normal
      * sprites. This is actually a PITA, at best :-/
-     * 
+     *
      * Also different than normal implementation.
-     * 
+     *
      */
     @Override
     protected final void DrawPSprite(pspdef_t psp) {
@@ -445,14 +445,14 @@ public abstract class MaskedWorker<T, V> extends AbstractThings<T, V> implements
 
     /**
      * R_DrawMasked
-     * 
+     *
      * Sorts and draws vissprites (room for optimization in sorting func.)
      * Draws masked textures. Draws player weapons and overlays (psprites).
-     * 
+     *
      * Sorting function can be swapped for almost anything, and it will work
      * better, in-place and be simpler to draw, too.
-     * 
-     * 
+     *
+     *
      */
     @Override
     public void run() {
@@ -460,7 +460,7 @@ public abstract class MaskedWorker<T, V> extends AbstractThings<T, V> implements
         int ds;
         drawseg_t dss;
 
-        // Sprites should already be sorted for distance 
+        // Sprites should already be sorted for distance
         colfunc = colfuncs.masked; // Sprites use fully-masked capable
         // function.
 

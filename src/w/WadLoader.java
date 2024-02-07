@@ -81,11 +81,11 @@ public class WadLoader implements IWadLoader {
 
     /**
      * MAES: probably array of byte[]??? void** lumpcache;
-     * 
+     *
      * Actually, loaded objects will be deserialized here as the general type
      * "CacheableDoomObject" (in the worst case they will be byte[] or
      * ByteBuffer).
-     * 
+     *
      * Not to brag, but this system is FAR superior to the inline unmarshaling
      * used in other projects ;-)
      */
@@ -100,7 +100,7 @@ public class WadLoader implements IWadLoader {
      * #define strcmpi strcasecmp MAES: this is just capitalization. However we
      * can't manipulate String object in Java directly like this, so this must
      * be a return type.
-     * 
+     *
      * TODO: maybe move this in utils?
      */
     public String strupr(String s) {
@@ -136,7 +136,7 @@ public class WadLoader implements IWadLoader {
 
     /**
      * This is where lumps are actually read + loaded from a file.
-     * 
+     *
      * @param filename
      * @throws Exception
      */
@@ -186,7 +186,7 @@ public class WadLoader implements IWadLoader {
             singleinfo.filepos = 0;
             singleinfo.size = InputStreamSugar.getSizeEstimate(handle, wadinfo.entry);
 
-            // Single lumps. Only use 8 characters			
+            // Single lumps. Only use 8 characters
             singleinfo.actualname = singleinfo.name = C2JUtils.removeExtension(uri).toUpperCase();
 
             // MAES: check out certain known types of extension
@@ -202,7 +202,7 @@ public class WadLoader implements IWadLoader {
 
         } else {
             // MAES: 14/06/10 this is historical, for this is the first time I
-            // implement reading something from RAF into Doom's structs. 
+            // implement reading something from RAF into Doom's structs.
             // Kudos to the JAKE2 team who solved  this problem before me.
             // MAES: 25/10/11: In retrospect, this solution, while functional, was
             // inelegant and limited.
@@ -255,7 +255,7 @@ public class WadLoader implements IWadLoader {
 
         } // end loading wad
 
-        //  At this point, a WADFILE or LUMPFILE been successfully loaded, 
+        //  At this point, a WADFILE or LUMPFILE been successfully loaded,
         // and so is added to the list
         this.wadfiles.add(wadinfo);
 
@@ -309,7 +309,7 @@ public class WadLoader implements IWadLoader {
     /** Try to guess a realistic wad size limit based only on the number of lumps and their
      *  STATED contents, in case it's not possible to get an accurate stream size otherwise.
      *  Of course, they may be way off with deliberately malformed files etc.
-     *  
+     *
      * @param header
      * @param lumpinfo2
      * @return
@@ -449,7 +449,7 @@ public class WadLoader implements IWadLoader {
      */
     protected void addZipFile(String s, int type)
             throws IOException, Exception {
-        // Get entries				        
+        // Get entries
         BufferedInputStream is = new BufferedInputStream(
                 InputStreamSugar.createInputStreamFromURI(s, null, type)
         );
@@ -486,13 +486,13 @@ public class WadLoader implements IWadLoader {
 
     /**
      * W_CheckNumForName2 Returns -1 if name not found.
-     * 
+     *
      * A slightly better implementation, uses string hashes
      * as direct comparators (though 64-bit long descriptors
      * could be used). It's faster than the old method, but
-     * still short from the HashMap's performance by 
-     * an order of magnitude. 
-     * 
+     * still short from the HashMap's performance by
+     * an order of magnitude.
+     *
      * @param name
      * @return
      *
@@ -520,12 +520,12 @@ public class WadLoader implements IWadLoader {
 	} */
     /**
      * Old, shitty method for CheckNumForName. It's an overly literal
-     * translation of how the C original worked, which was none too good 
+     * translation of how the C original worked, which was none too good
      * even without the overhead of converting a string to
      * its integer representation. It's so bad, that it's two orders
      * of magnitude slower than a HashMap implemetation, and one from
      * a direct hash/longname comparison with linear search.
-     * 
+     *
      * @param name
      * @return
      *
@@ -652,7 +652,7 @@ public class WadLoader implements IWadLoader {
     /**
      * W_ReadLump Loads the lump into the given buffer, which must be >=
      * W_LumpLength(). SKIPS CACHING
-     * 
+     *
      * @throws IOException
      */
     @Override
@@ -685,7 +685,7 @@ public class WadLoader implements IWadLoader {
             handle = InputStreamSugar.streamSeek(handle, l.position,
                     l.wadfile.maxsize, l.wadfile.name, l.wadfile.entry, l.wadfile.type);
 
-            // read buffered. Unfortunately that interferes badly with 
+            // read buffered. Unfortunately that interferes badly with
             // guesstimating the actual stream position.
             BufferedInputStream bis = new BufferedInputStream(handle, 8192);
 
@@ -717,10 +717,10 @@ public class WadLoader implements IWadLoader {
 
     /** The most basic of the Wadloader functions. Will attempt to read a lump
      *  off disk, based on the specific class type (it will call the unpack()
-     *  method). If not possible to call the unpack method, it will leave a 
+     *  method). If not possible to call the unpack method, it will leave a
      *  DoomBuffer object in its place, with the raw byte contents. It's
-     *   
-     * 
+     *
+     *
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -781,16 +781,16 @@ public class WadLoader implements IWadLoader {
 
     /** A very useful method when you need to load a lump which can consist
      *  of an arbitrary number of smaller fixed-size objects (assuming that you
-     *  know their number/size and the size of the lump). Practically used 
+     *  know their number/size and the size of the lump). Practically used
      *  by the level loader, to handle loading of sectors, segs, things, etc.
      *  since their size/lump/number relationship is well-defined.
-     *  
+     *
      *  It possible to do this in other ways, but it's extremely convenient this way.
-     *  
+     *
      *  MAES 24/8/2011: This method is deprecated, Use the much more convenient
      *  and slipstreamed generic version, which also handles caching of arrays
      *  and auto-allocation.
-     *  
+     *
      *  @param lump The lump number to load.
      *  @param tag  Caching tag
      *  @param array The array with objects to load. Its size implies how many to read.
@@ -848,17 +848,17 @@ public class WadLoader implements IWadLoader {
 
     /** A very useful method when you need to load a lump which can consist
      *  of an arbitrary number of smaller fixed-size objects (assuming that you
-     *  know their number/size and the size of the lump). Practically used 
+     *  know their number/size and the size of the lump). Practically used
      *  by the level loader, to handle loading of sectors, segs, things, etc.
      *  since their size/lump/number relationship is well-defined.
-     *  
-     *  It possible to do this in other (more verbose) ways, but it's 
+     *
+     *  It possible to do this in other (more verbose) ways, but it's
      *  extremely convenient this way, as a lot of common and repetitive code
      *  is only written once, and generically, here. Trumps the older
      *  method in v 1.43 of WadLoader, which is deprecated.
-     *  
+     *
      *  @param lump The lump number to load.
-     *  @param num number of objects to read	 *  
+     *  @param num number of objects to read	 *
      *  @return a properly sized array of the correct type.
      */
     @Override
@@ -916,7 +916,7 @@ public class WadLoader implements IWadLoader {
 
     /** Tells us if a class implements a certain interface.
      *  If you know of a better way, be my guest.
-     * 
+     *
      * @param what
      * @param which
      * @return
@@ -1076,13 +1076,13 @@ public class WadLoader implements IWadLoader {
      * copied his implementation, but it proved troublesome later on and slower
      * than just using the language's built-in hash table. Lesson learned, kids:
      * don't reinvent the wheel.
-     * 
+     *
      * TO get an idea of how superior using a hashtable is, on 1000000 random
      * lump searches the original takes 48 seconds, searching for precomputed
      * hashes takes 2.84, and using a HashMap takes 0.2 sec.
-     * 
+     *
      * And the best part is that Java provides a perfectly reasonable implementation.
-     * 
+     *
      */
     HashMap<String, Integer> doomhash;
 
@@ -1102,7 +1102,7 @@ public class WadLoader implements IWadLoader {
 
     /*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see w.IWadLoader#CheckNumForName(java.lang.String)
      */
     @Override
@@ -1122,7 +1122,7 @@ public class WadLoader implements IWadLoader {
 
     /*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see w.IWadLoader#CheckNumForName(java.lang.String)
      */
     @Override
@@ -1188,19 +1188,19 @@ public class WadLoader implements IWadLoader {
     public static final int ns_flats = 1;
     public static final int ns_sprites = 2;
 
-    /** 
+    /**
      * Based on Boom's W_CoalesceMarkedResource
      * Sort of mashes similar namespaces together so that they form
      * a continuous space (single start and end, e.g. so that multiple
      * S_START and S_END as well as special DEUTEX lumps mash together
      * under a common S_START/S_END boundary). Also also sort of performs
      * a "bubbling down" of marked lumps at the end of the namespace.
-     * 
+     *
      * It's convenient for sprites, but can be replaced by alternatives
      * for flats.
-     * 
+     *
      * killough 4/17/98: add namespace tags
-     *   
+     *
      * @param start_marker
      * @param end_marker
      * @param namespace
@@ -1313,9 +1313,9 @@ public class WadLoader implements IWadLoader {
         Integer lumpno = zone.remove(lump);
 
         // Force nulling. This should trigger garbage collection,
-        // and reclaim some memory, provided you also nulled any other 
-        // reference to a certain lump. Therefore, make sure you null 
-        // stuff right after calling this method, if you want to make sure 
+        // and reclaim some memory, provided you also nulled any other
+        // reference to a certain lump. Therefore, make sure you null
+        // stuff right after calling this method, if you want to make sure
         // that they won't be referenced anywhere else.
         if (lumpno != null) {
             lumpcache[lumpno] = null;

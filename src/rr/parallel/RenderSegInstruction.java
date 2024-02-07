@@ -3,7 +3,7 @@ package rr.parallel;
 /** This is all the information needed to draw a particular SEG.
  * It's quite a lot, actually, but much better than in testing
  * versions.
- *  
+ *
  */
 public class RenderSegInstruction<V> {
 

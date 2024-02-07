@@ -4,7 +4,7 @@ package w;
 // Ty 08/29/98 - add source field to identify where this lump came from
 public enum wad_source_t {
     // CPhipps - define elements in order of 'how new/unusual'
-    source_iwad, // iwad file load 
+    source_iwad, // iwad file load
     source_pre, // predefined lump
     source_auto_load, // lump auto-loaded by config file
     source_pwad, // pwad file load

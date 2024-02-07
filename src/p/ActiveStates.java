@@ -31,7 +31,7 @@ import mochadoom.Loggers;
 /**
  * In vanilla doom there is union called actionf_t that can hold
  * one of the three types: actionf_p1, actionf_v and actionf_p2
- * 
+ *
  * typedef union
  * {
  *   actionf_p1	acp1;
@@ -39,47 +39,47 @@ import mochadoom.Loggers;
  *   actionf_p2	acp2;
  *
  * } actionf_t;
- * 
+ *
  * For those unfamiliar with C, the union can have only one value
  * assigned with all the values combined solving the behavior of
  * logical and of all of them)
- * 
+ *
  * actionf_p1, actionf_v and actionf_p2 are defined as these:
- * 
+ *
  * typedef  void (*actionf_v)();
  * typedef  void (*actionf_p1)( void* );
  * typedef  void (*actionf_p2)( void*, void* );
- * 
+ *
  * As you can see, they are pointers, so they all occupy the same space
  * in the union: the length of the memory pointer.
- * 
+ *
  * Effectively, this means that you can write to any of the three fields
  * the pointer to the function correspoding to the field, and
  * it will completely overwrite any other function assigned in other
  * two fields. Even more: the other fields will have the same pointer,
  * just with wrong type.
- * 
+ *
  * In Mocha Doom, this were addressed differently. A special helper enum
  * was created to hold possible names of the functions, and they were checked
  * by name, not by equality of the objects (object == object if point the same)
  * assigned to one of three fields. But, not understanding the true nature
  * of C's unions, in Mocha Doom all three fields were preserved and threated
  * like they can hold some different information at the same time.
- * 
+ *
  * I present hereby the solution that will both simplify the definition
  * and usage of the action functions, and provide a way to achieve the
  * exact same behavior as would be in C: if you assign the function,
  * you will replace the old one (virtually, "all the three fields")
  * and you can call any function with 0 to 2 arguments.
- * 
+ *
  * Also to store the functions in the same place where we declare them,
  * an Command pattern is implemented, requiring the function caller
  * to provide himself or any sufficient class that implements the Client
  * contract to provide the information needed for holding the state
  * of action functions.
- * 
+ *
  * - Good Sign 2017/04/28
- * 
+ *
  * Thinkers can either have one parameter of type (mobj_t),
  * Or otherwise be sector specials, flickering lights etc.
  * Those are atypical and need special handling.

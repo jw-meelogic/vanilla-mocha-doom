@@ -23,7 +23,7 @@ import doom.gameaction_t;
 //
 // DESCRIPTION:
 //   Duh.
-// 
+//
 //-----------------------------------------------------------------------------
 public interface DoomGameInterface {
 

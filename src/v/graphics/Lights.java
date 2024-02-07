@@ -23,7 +23,7 @@ import v.tables.GreyscaleFilter;
  * This package provides methods to dynamically generate lightmaps
  * They are intended to be used instead of COLORMAP lump to
  * compute sector brightness
- * 
+ *
  * @author Good Sign
  * @author John Carmack
  * @author Velktron
@@ -47,7 +47,7 @@ public interface Lights extends Colors {
      * in generated lights map by the difference in lights count between 5 and 8 bits lighting.
      * I have discovered, that player_t.fixedcolormap property is *stored* by game when writing files,
      * for example it could be included in savegame or demos.
-     * 
+     *
      * If we preshift inverse colormap, MochaDoom not in TrueColor bppMode or any Vanilla DOOM would crash
      * when trying to load savegame made when under invulnerabilty in TrueColor bppMode.
      *  - Good Sign 2017/04/15
@@ -73,16 +73,16 @@ public interface Lights extends Colors {
      * A difference in percents between color multipliers of two adjacent light levels
      * It took sometime to dig this out, and this could be possibly used to simplify
      * BuildLight functions without decrease in their perfectness
-     * 
+     *
      * The formula to apply to a color will then be:
      *  float ratio = 1.0f - LIGHT_INCREMENT_RATIO_24 * lightLevel;
      *  color[0] = (int) (color[0] * ratio + 0.5)
      *  color[1] = (int) (color[1] * ratio + 0.5)
      *  color[2] = (int) (color[2] * ratio + 0.5)
-     * 
+     *
      * However, this one is untested, and existing formula in function AddLight8 does effectively the same,
      * just a little slower.
-     * 
+     *
      *  - Good Sign 2017/04/17
      */
     final float LIGHT_INCREMENT_RATIO_24 = 1.0f / COLORMAP_LIGHTS_24;
@@ -91,11 +91,11 @@ public interface Lights extends Colors {
      * Builds TrueColor lights based on standard COLORMAP lump in DOOM format
      * Currently only supports lightmap manipulation, but does not change colors
      * for hacked COLORMAP lumps
-     * 
+     *
      * Color indexes in colormaps on darker color levels point to less matching
      * colors so only the direction of increase/decrease of lighting is actually
      * used from COLORMAP lump. Everything else is computed based on PLAYPAL
-     * 
+     *
      * @param int[] palette A packed RGB888 256-entry int palette
      * @param byete[][] colormap read from COLORMAP lump
      * @author Good Sign
@@ -383,7 +383,7 @@ public interface Lights extends Colors {
      * TrueColor invulnerability specials
      * The key is: get the color, compute its luminance (or other method of grey if set in cfg)
      * and substract it from white
-     * 
+     *
      * @param int[] stuff target array to set into
      * @param int[] rgb unpacked color components
      * @param index an index of the color int 256-entry int palette
@@ -398,7 +398,7 @@ public interface Lights extends Colors {
      * HiColor invulnerability specials
      * The key is: get the color, compute its luminance (or other method of grey if set in cfg)
      * and substract it from white
-     * 
+     *
      * @param short[] stuff target array to set into
      * @param int[] rgb unpacked color components
      * @param index an index of the color int 256-entry int palette
@@ -413,7 +413,7 @@ public interface Lights extends Colors {
      * Indexed invulnerability specials
      * The key is: get the color, compute its luminance (or other method of grey if set in cfg)
      * and substract it from white
-     * 
+     *
      * @param byte[] stuff target array to set into
      * @param int[] rgb unpacked color components
      * @param index an index of the color int 256-entry int palette

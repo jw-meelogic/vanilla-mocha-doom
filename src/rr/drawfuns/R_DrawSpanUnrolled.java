@@ -6,7 +6,7 @@ import i.IDoomSystem;
  * Drawspan loop unrolled by 4. However it has low rendering quality and bad
  * distortion. However it does actually does give a small speed boost (120
  * -> 130 fps with a Mul of 3.0)
- * 
+ *
  */
 public abstract class R_DrawSpanUnrolled<T, V> extends DoomSpanFunction<T, V> {
 

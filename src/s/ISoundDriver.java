@@ -59,7 +59,7 @@ public interface ISoundDriver {
     public static final int SND_FRAME_RATE = 21;
     // Was 512, but if you mix that many samples per tic you will
     // eventually outrun the buffer :-/ I fail to see the mathematical
-    // justification behind this, unless they simply wanted the buffer to 
+    // justification behind this, unless they simply wanted the buffer to
     // be a nice round number in size.
     public static final int SAMPLECOUNT = SAMPLERATE / SND_FRAME_RATE;
     public static final int MIXBUFFERSIZE = (SAMPLECOUNT * BUFMUL);
@@ -71,7 +71,7 @@ public interface ISoundDriver {
      */
     public static final int BUFFER_CHUNKS = 5;
 
-    /** Ths audio buffer size of the audioline itself. 
+    /** Ths audio buffer size of the audioline itself.
      *  Increasing this is the only effective way to combat output stuttering on
      *  slower machines.
      */
@@ -105,9 +105,9 @@ public interface ISoundDriver {
     }
 
     /** Init at program start. Return false if device invalid,
-     *  so that caller can decide best course of action. 
+     *  so that caller can decide best course of action.
      *  The suggested one is to swap the sound "driver" for a dummy.
-     *  
+     *
      * @return
      */
     boolean InitSound();
@@ -140,7 +140,7 @@ public interface ISoundDriver {
     void StopSound(int handle);
 
     /** Called by S_*() functions to see if a channel is still playing.
-	    Returns false if no longer playing, true if playing. This is 
+	    Returns false if no longer playing, true if playing. This is
 	    a relatively "high level" function, so its accuracy relies on
 	    what the "system specific" sound code reports back */
     boolean SoundIsPlaying(int handle);

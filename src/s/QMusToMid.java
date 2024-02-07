@@ -130,7 +130,7 @@ public class QMusToMid {
                 return COMUSFILE;
             }
 
-            /*if( strncmp( MUSh->ID, MUSMAGIC, 4 ) ) 
+            /*if( strncmp( MUSh->ID, MUSMAGIC, 4 ) )
 	    return NOTMUSFILE ;*/
             if ((MUSh.ScoreLength = DoomIO.freadint(file)) == -1) {
                 return COMUSFILE;
@@ -650,7 +650,7 @@ public class QMusToMid {
 
     void PrintSyntax() {
 //	  PrintHeader() ;
-//	  System.out.println( 
+//	  System.out.println(
 //	#ifdef MSDOG
 //	         "\nSyntax : QMUS2MID musfile1[.mus] {musfile2[.mus] ... | "
 //	         "midifile.mid} [options]\n"
@@ -667,7 +667,7 @@ public class QMusToMid {
 //	         "     -nocomp   : Don't compress !\n"
 //	         "     -size ### : Set the track buffer size to ### (in KB). "
 //	         "Default = 64 KB\n"
-//	         "     -t ###    : Ticks per quarter note. Default = 89\n" 
+//	         "     -t ###    : Ticks per quarter note. Default = 89\n"
 //	         ) ;
     }
 
@@ -794,7 +794,7 @@ public class QMusToMid {
 	                  fflush( stdout ) ;
 	                  do
 	                    n = toupper( getxkey() ) ;
-	                  while( (n != 'Y') && (n != 'N') && (n != K_Return) 
+	                  while( (n != 'Y') && (n != 'N') && (n != K_Return)
 	                        && (n != 'A') && (n != 'Q')) ;
 	                  switch( n )
 	                    {
@@ -828,7 +828,7 @@ public class QMusToMid {
 	    }
 	  if( !line && !nodisplay && !query )
 	    System.out.println( "Sorry, there is no MUS file matching...\n" ) ;
-	  
+
 	#else*/
         //convert( mus, mid, nodisplay, div, size, nocomp, ow ) ;
 /*	#endif*/

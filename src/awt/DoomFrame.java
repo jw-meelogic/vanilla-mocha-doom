@@ -88,7 +88,7 @@ public class DoomFrame<Window extends Component & DoomWindow<Window>> extends JF
         /**
          * Set it to be later then setResizable to avoid extra space on right and bottom
          *  - Good Sign 2017/04/09
-         * 
+         *
          * JFrame's size is auto-set here.
          */
         pack();
@@ -98,7 +98,7 @@ public class DoomFrame<Window extends Component & DoomWindow<Window>> extends JF
 
         setVisible(true);
 
-        // Gently tell the eventhandler to wake up and set itself.	  
+        // Gently tell the eventhandler to wake up and set itself.
         requestFocus();
         content.requestFocusInWindow();
     }

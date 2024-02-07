@@ -22,7 +22,7 @@ public abstract class AbstractEndLevel {
     public static final int DM_VICTIMSX = 5;
     public static final int DM_VICTIMSY = 50;
 
-    // static point_t lnodes[NUMEPISODES][NUMMAPS] 
+    // static point_t lnodes[NUMEPISODES][NUMMAPS]
     final static public point_t[][] lnodes
             = {
                 // Episode 0 World Map

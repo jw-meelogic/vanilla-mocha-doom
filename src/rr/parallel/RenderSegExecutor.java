@@ -20,26 +20,26 @@ import rr.visplane_t;
 import v.tables.LightsAndColors;
 
 /** This is what actual executes the RenderSegInstructions.
- *   *  
+ *   *
  *  Each thread actually operates on a FIXED PORTION OF THE SCREEN
  *  (e.g. half-width, third-width etc.) and only renders the portions
  *  of the RenderSegInstructions that are completely contained
  *  within its own screen area. For this reason, all threads
- *  check out all RenderSegInstructions of the list, and render any 
+ *  check out all RenderSegInstructions of the list, and render any
  *  and all portions that are within their responsability domain, so
  *  to speak.
- *  
- *  FIXME there's a complex data dependency with ceilingclip/floorclip 
+ *
+ *  FIXME there's a complex data dependency with ceilingclip/floorclip
  *  I was not quite able to fix yet. Practically, in the serial renderer,
  *  calls to RenderSegLoop are done in a correct, non-overlapping order,
  *  and certain parts are drawn before others in order to set current
  *  floor/ceiling markers and visibility e.g. think of a wall visible
  *  through windows.
- *  
- *  FIXME 7/6/2011 Data dependencies and per-thread clipping are now 
- *  fixed, however there is still visible "jitter" or "noise" on some 
+ *
+ *  FIXME 7/6/2011 Data dependencies and per-thread clipping are now
+ *  fixed, however there is still visible "jitter" or "noise" on some
  *  of the walls, probably related to column offsets.
- * 
+ *
  * @author velktron
  *
  */
@@ -113,11 +113,11 @@ public abstract class RenderSegExecutor<T, V> implements Runnable, IDetailAware 
         int topstep = rsi.topstep;
         int texturecolumn = 0; // fixed_t
         final int bias;
-        // Well is entirely contained in our screen zone 
+        // Well is entirely contained in our screen zone
         // (or the very least it starts in it).
         if (contained) {
             bias = 0;
-        } // We are continuing a wall that started in another 
+        } // We are continuing a wall that started in another
         // screen zone.
         else {
             bias = (startx - rsi.rw_x);
@@ -163,10 +163,10 @@ public abstract class RenderSegExecutor<T, V> implements Runnable, IDetailAware 
                     // FIXME: We are accessing finetangent here, the code seems pretty confident
                     // in that angle won't exceed 4K no matter what. But xtoviewangle
                     // alone can yield 8K when shifted.
-                    // This usually only overflows if we idclip and look at certain directions 
-                    // (probably angles get fucked up), however it seems rare enough to just 
+                    // This usually only overflows if we idclip and look at certain directions
+                    // (probably angles get fucked up), however it seems rare enough to just
                     // "swallow" the exception. You can eliminate it by anding with 0x1FFF
-                    // if you're so inclined. 
+                    // if you're so inclined.
                     texturecolumn = rsi.rw_offset - FixedMul(finetangent[angle], rsi.rw_distance);
                     texturecolumn >>= FRACBITS;
                     // calculate lighting
@@ -259,7 +259,7 @@ public abstract class RenderSegExecutor<T, V> implements Runnable, IDetailAware 
                 rw_scale += rw_scalestep;
                 topfrac += topstep;
                 bottomfrac += bottomstep;
-            } // end-rw 
+            } // end-rw
         } // end-block
     }
 
@@ -280,8 +280,8 @@ public abstract class RenderSegExecutor<T, V> implements Runnable, IDetailAware 
 
     /** How many instructions TOTAL are there to wade through.
      *  Not all will be executed on one thread, except in some rare
-     *  circumstances. 
-     *  
+     *  circumstances.
+     *
      * @param rsiend
      */
     public void setRSIEnd(int rsiend) {

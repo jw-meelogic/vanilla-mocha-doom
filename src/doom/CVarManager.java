@@ -35,7 +35,7 @@ import utils.ResourceIO;
  * 1. Define CVars in CommandVariable Enum
  * 2. In program entry main function, create any ICommandLineManager and pass an instance to create CVarManager
  * 3. Use methods bool, present, get and with to check or get CVars
- * 
+ *
  * @author Good Sign
  */
 public class CVarManager {
@@ -99,14 +99,14 @@ public class CVarManager {
      * Tries to apply a CVar argument at position to the consuming function
      * The magic is that you declare a lambda function or reference some method
      * and the type of object will be automatically picked from what you hinted
-     * 
+     *
      * i.e. (String s) -> System.out.println(s) will try to get string,
      * (Object o) -> map.put(key, o) or o -> list.add(o.hashCode()) will try to get objects
      * and you dont have to specify class
-     * 
+     *
      * The drawback is the ClassCastException will be thrown if the value is neither
      * what you expected, nor a subclass of it
-     * 
+     *
      * @param cv
      * @param position
      * @param action

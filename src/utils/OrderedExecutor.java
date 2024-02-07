@@ -23,7 +23,7 @@ import mochadoom.Loggers;
  * If there are more than one thread in the given {@link Executor}, tasks
  * submitted with different keys may be executed in parallel, but never
  * for tasks submitted with the same key.
- * 
+ *
  * * @param <K> type of keys.
  */
 public class OrderedExecutor<K> {

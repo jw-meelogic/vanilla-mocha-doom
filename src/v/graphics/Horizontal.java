@@ -17,8 +17,8 @@
 package v.graphics;
 
 /**
- * Horizontal represents a range from a screen buffer (byte or short or int array) 
- * 
+ * Horizontal represents a range from a screen buffer (byte or short or int array)
+ *
  * @author Good Sign
  */
 public class Horizontal {

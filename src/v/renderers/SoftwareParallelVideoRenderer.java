@@ -31,7 +31,7 @@ import mochadoom.Engine;
 
 /**
  * Base for HiColor and TrueColor parallel renderers
- * 
+ *
  * @author Good Sign
  * @author velktron
  */
@@ -69,7 +69,7 @@ abstract class SoftwareParallelVideoRenderer<T, V> extends SoftwareGraphicsSyste
     /**
      * We do not need to clear caches anymore - pallettes are applied on post-process
      *  - Good Sign 2017/04/12
-     * 
+     *
      * MEGA HACK FOR SUPER-8BIT MODES
      */
     protected final HashMap<Integer, V> colcache = new HashMap<>();

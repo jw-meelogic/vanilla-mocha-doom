@@ -21,7 +21,7 @@ import v.tables.BlurryTable;
 /**
  * This is what actual executes the RenderWallInstruction. Essentially it's a
  * self-contained column rendering function.
- * 
+ *
  * @author velktron
  */
 public abstract class RenderMaskedExecutor<T, V>

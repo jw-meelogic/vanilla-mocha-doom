@@ -419,19 +419,19 @@ public interface event_t {
             /**
              * Now also fix for -fasttic mode
              *  - Good Sign 2017/05/07
-             * 
+             *
              * Fix bug with processing mouse: the DOOM underlying engine does not
              * react on the event as fast as it came, they are processed in constant time instead.
-             * 
+             *
              * In Mocha Doom, mouse events are not generated in bulks and sent to underlying DOOM engine,
              * instead the one only mouse event reused and resend modified if was consumed.
-             * 
+             *
              * So, if we have event system reacting faster then DOOM underlying engine,
              * mouse will be harder to move because the new move is forgotten earlier then processed.
-             * 
+             *
              * As a workaround, do not replace value in moveIn, and increment it instead,
              * and only when the underlying engine gives signal it has processed event, we clear x and y
-             * 
+             *
              *  - Good Sign 2017/05/06
              */
             if (processed) {

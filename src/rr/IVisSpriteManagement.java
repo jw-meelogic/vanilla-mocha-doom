@@ -3,7 +3,7 @@ package rr;
 /** A sprite manager does everything but drawing the sprites. It creates lists
  *  of sprites-per-sector, sorts them, and stuff like that.
  *  that gory visibiliy
- *  
+ *
  * @author velkton
  *
  * @param <V>
