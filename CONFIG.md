@@ -238,6 +238,7 @@ The file is normally named `mochadoom.cfg`, but the `-config` command line param
   You can also use `Alt+Enter` key combination to switch to fullscreen in the game.
   It will attempt switching to a fullscreen mode compatible with the current resolution,
   or the closest available reported by the host OS (depending on the `fullscreen_mode` setting).
+
   NOTE:
   * Windows users might have to disable the Direct3D pipeline with the `-Dsun.java2d.d3d=false` JVM parameter for this to work.
   * Linux users might need to enable the OpenGL-based pipeline, which provides hardware acceleration: `-Dsun.java2d.opengl=true`
@@ -296,4 +297,27 @@ The file is normally named `mochadoom.cfg`, but the `-config` command line param
   * `Parallel`
   In vanilla, scene renderer is serial. Parallel can be faster.
 * `reconstruct_savegame_pointers`: `true` by default, in vanilla, infighting targets are not restored on savegame load
+
+### System Properties for Java 2D Technology
+
+On some platforms you may have to tune Java system properties for better graphics performance.
+
+#### OpenGL (Linux, Windows)
+
+The OpenGL-based pipeline for Java 2D provides hardware acceleration for simple rendering operations
+(text, images, lines, and filled primitives) as well as those that involve complex transforms, paints, composites, and clips.
+This pipeline is currently disabled by default in Java.
+To silently enable the OpenGL-based pipeline, set `sun.java2d.opengl` property to `true` e.g.:
+
+`java -Dsun.java2d.opengl=true -jar mochadoom.jar`
+
+For Mocha Doom this property seems to have a significant performance gain on Linux systems,
+so it is provided in startup scripts by default.
+
+#### D3D (Windows)
+
+On a small subset of Windows 2000 systems with buggy Direct3D drivers, the use of Direct3D can cause a system crash.
+To turn off the use of Direct3D, set `sun.java2d.d3d` property to `false` e.g.:
+
+`java -Dsun.java2d.d3d=false -jar mochadoom.jar`
 

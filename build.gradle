@@ -1,9 +1,14 @@
 import org.apache.tools.ant.filters.FixCrLfFilter
 
 plugins {
+    id 'base'
     id 'application'
     id 'java'
     id 'distribution'
+}
+
+base {
+    archivesName.set('mochadoom')
 }
 
 sourceSets {
@@ -15,11 +20,14 @@ sourceSets {
 }
 
 ext {
-   javaMainClass = 'mochadoom.Engine'
+    javaMainClass = 'mochadoom.Engine'
+}
+
+java {
+    withSourcesJar()
 }
 
 jar {
-    archiveBaseName = 'mochadoom'
     manifest {
         attributes('Main-Class': javaMainClass)
     }
@@ -34,6 +42,7 @@ distributions {
         distributionBaseName = 'mochadoom'
         contents {
             from jar
+            from sourcesJar
             from 'wads'
             from('scripts') {
                 include 'mochadoom*.sh'
@@ -73,4 +82,3 @@ tasks.withType(JavaCompile).all {
     options.compilerArgs.add('-Xlint:unchecked')
     options.compilerArgs.add('-Xlint:deprecation')
 }
-

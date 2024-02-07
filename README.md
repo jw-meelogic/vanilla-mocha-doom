@@ -19,32 +19,46 @@ fix some bugs, and provide some pre-compiled binaries and startup scripts for co
 You can find the latest distribution package under the [releases](https://github.com/gaborbata/vanilla-mocha-doom/releases/latest) link.
 
 Mocha Doom can play original variants of Doom. If you don't own any, the easiest way to obtain them is to purchase them from Steam or GOG.
-You may also download the freely distributable Shareware version of Doom (also included in this repository) from one of the following links:
-* http://cdn.debian.net/debian/pool/non-free/d/doom-wad-shareware/doom-wad-shareware_1.9.fixed.orig.tar.gz
-  (extract it and copy the `DOOM1.WAD` file into your Mocha Doom directory).
-* https://distro.ibiblio.org/slitaz/sources/packages/d/doom1.wad
+You may also use the freely distributable Shareware version of Doom (also included in this repository).
+
+Supported versions:
+
+| WAD file                 | Name                     |
+| ------------------------ | ------------------------ |
+| `doom.wad`               | Doom Registered          |
+| `doom1.wad`              | Doom Shareware           |
+| `doom2.wad`              | Doom II: Hell on Earth   |
+| `doomu.wad`, `udoom.wad` | The Ultimate Doom        |
+| `plutonia.wad`           | The Plutonia Experiment  |
+| `tnt.wad`                | TNT: Evilution           |
+| `freedoom1.wad`          | Freedoom phase 1         |
+| `freedoom2.wad`          | Freedoom phase 2         |
+| `doom2f.wad`             | French Doom II           |
+| `xbla.wad`               | Doom Xbox Live Arcade    |
+| `freedm.wad`             | FreeDM (free deathmatch) |
+
+> WAD (acronym for "Where's All the Data?") is the file format used by Doom and all Doom-engine-based games for storing data.
 
 ## How to run
 
 1. Mocha Doom requires Java, so first of all make sure you have installed Java and please make sure `PATH`,
    or `JAVA_HOME` environment variables point to that installation.
 2. Download the latest [release](https://github.com/gaborbata/vanilla-mocha-doom/releases/latest)
-   (or [build](https://github.com/gaborbata/vanilla-mocha-doom#how-to-build) a JAR file).
-3. Once you have the JAR file, you can run Mocha Doom with one of the following batch/scripts/commands.
+3. Then you can run Mocha Doom with one of the following batch/scripts/commands.
    Each script has a `classic` and `modern` version which launches Doom with classic or modern key controls, respectively.
 
    * Linux
-     * `mochadoom.sh`
      * `mochadoom-classic.sh`
      * `mochadoom-modern.sh`
+     * `mochadoom.sh` (default configuration)
    * Windows
-     * `mochadoom.bat`
      * `mochadoom-classic.bat`
      * `mochadoom-modern.bat`
+     * `mochadoom.bat` (default configuration)
    * Platform independent
-     * `java -jar mochadoom.jar`
      * `java -jar mochadoom.jar -config classic.cfg mochadoom.cfg`
      * `java -jar mochadoom.jar -config modern.cfg mochadoom.cfg`
+     * `java -jar mochadoom.jar` (default configuration)
 
    Mocha Doom tries to find a valid Doom WAD file in the directory
    defined by the `DOOMWADDIR` environment variable (defaults to the current directory).
@@ -55,13 +69,13 @@ You may also download the freely distributable Shareware version of Doom (also i
 
 ### Configuration
 
-Check [CONFIG.md](CONFIG.md) for more options to tune rendering speed and quality of Mocha Doom.
+Check [CONFIG.md](CONFIG.md) for more options to tune rendering performance and quality of Mocha Doom.
 
 ### Doom with classic or modern key controls
 
-You can use `classic.cfg` (default) configuration in order to have the old-school classic key controls (i.e. arrow keys).
-If you prefere the modern keyboard/mouse layout (WASD), use the `modern.cfg` configuration.
-If no configuration is provided, the `default.cfg` will be used which is the same as `classic.cfg`.
+You can use `classic.cfg` configuration in order to have the old-school classic key controls (i.e. arrow keys).
+If you prefer the modern keyboard/mouse layout (WASD), use the `modern.cfg` configuration.
+If no configuration is provided, the `default.cfg` will be used which is currently the same as `classic.cfg`.
 
 | Configuration   | Classic (Default)              | Modern (WASD)         |
 | --------------- | ------------------------------ | --------------------- |
@@ -81,6 +95,8 @@ If no configuration is provided, the `default.cfg` will be used which is the sam
 | mouseb_forward  | 2 (mid button)                 | 2 (mid button)        |
 
 ## How to build
+
+You can also build Mocha Doom from sources with your preferred method.
 
 ### IDE
 
@@ -122,7 +138,7 @@ After that you can use one of the following commands:
 
   `java -jar build/libs/mochadoom.jar -iwad wads/DOOM1.WAD`.
 
-  The build task also creates a distribution package under:
+  The build task also creates a distribution package with startup scripts under:
 
   `build/distributions/mochadoom.zip`
 
