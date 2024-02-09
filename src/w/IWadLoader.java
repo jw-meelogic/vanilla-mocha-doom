@@ -119,12 +119,6 @@ public interface IWadLoader {
     @W_Wad.C(W_CacheLumpNum)
     public abstract <T extends CacheableDoomObject> T CacheLumpNum(int lump, int tag, Class<T> what);
 
-    // MAES 24/8/2011: superseded by auto-allocating version with proper
-    // container-based caching.
-    @Deprecated
-    public abstract void CacheLumpNumIntoArray(int lump, int tag,
-            Object[] array, Class<?> what) throws IOException;
-
     /**
      * Return a cached lump based on its name, as raw bytes, no matter what.
      * It's rare, but has its uses.

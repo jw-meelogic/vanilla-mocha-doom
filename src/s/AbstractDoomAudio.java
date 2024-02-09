@@ -18,15 +18,14 @@ import static m.fixed_t.FixedMul;
 import mochadoom.Loggers;
 import p.mobj_t;
 
-/** Some stuff that is not implementation dependant
- *  This includes channel management, sound priorities,
- *  positioning, distance attenuation etc. It's up to
- *  lower-level "drivers" to actually implements those.
- *  This particular class needs not be a dummy itself, but
- *  the drivers it "talks" to might be.
- *
- *
- * */
+/**
+ * Some stuff that is not implementation dependant
+ * This includes channel management, sound priorities,
+ * positioning, distance attenuation etc. It's up to
+ * lower-level "drivers" to actually implements those.
+ * This particular class needs not be a dummy itself, but
+ * the drivers it "talks" to might be.
+ **/
 public class AbstractDoomAudio implements IDoomSound {
 
     private static final Logger LOGGER = Loggers.getLogger(AbstractDoomAudio.class.getName());
