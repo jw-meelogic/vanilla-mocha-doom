@@ -10,7 +10,6 @@ import static doom.SourceCode.W_Wad.W_InitMultipleFiles;
 import static doom.SourceCode.W_Wad.W_LumpLength;
 import static doom.SourceCode.W_Wad.W_ReadLump;
 import static doom.SourceCode.W_Wad.W_Reload;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.function.IntFunction;
 import java.util.logging.Level;

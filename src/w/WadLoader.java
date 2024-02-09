@@ -725,7 +725,7 @@ public class WadLoader implements IWadLoader {
                     // In case of sequential reads of similar objects, use
                     // CacheLumpNumIntoArray instead.
                     thebuffer.rewind();
-                    lumpcache[lump] = (CacheableDoomObject) what.getDeclaredConstructor().newInstance();
+                    lumpcache[lump] = what.getDeclaredConstructor().newInstance();
                     lumpcache[lump].unpack(thebuffer);
 
                     // Track it for freeing
