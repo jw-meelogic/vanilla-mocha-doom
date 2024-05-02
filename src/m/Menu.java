@@ -557,7 +557,7 @@ public class Menu<T, V> extends AbstractDoomMenu<T, V> {
 
         @Override
         public void invoke(int ch) {
-            if (ch != 'y') {
+            if (awt.EmbeddedSupport.isEmbedded() || ch != 'y') {
                 return;
             }
             if (!DOOM.netgame) {

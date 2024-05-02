@@ -398,7 +398,9 @@ public class WadLoader implements IWadLoader {
 
         for (String s : filenames) {
             if (s != null) {
-                if (C2JUtils.testReadAccess(s)) {
+                if (awt.EmbeddedSupport.isEmbedded()) {
+                    this.AddFile(s, null,InputStreamSugar.FILE);
+                }else if (C2JUtils.testReadAccess(s)) {
                     // Resource is readable, guess type.
                     int type = C2JUtils.guessResourceType(s);
                     if (C2JUtils.flags(type, InputStreamSugar.ZIP_FILE)) {

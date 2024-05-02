@@ -1,13 +1,12 @@
 package w;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import utils.C2JUtils;
@@ -52,7 +51,7 @@ public class InputStreamSugar {
 
         // No entry specified or no zip type, try everything BUT zip.
         if (entry == null || !C2JUtils.flags(type, ZIP_FILE)) {
-            is = getDirectInputStream(resource);
+            return getDirectInputStream(resource);
         } else {
             // Entry specified AND type specified to be zip
             // We might want to open even a zip file without looking
@@ -123,9 +122,25 @@ public class InputStreamSugar {
         return null;
     }
 
-    private final static InputStream getDirectInputStream(String resource) {
+    private static final Map<String,byte[]> cache = new HashMap<>();
+
+    private static InputStream getDirectInputStream(String resource) {
         InputStream is = null;
         URL u;
+
+        if (awt.EmbeddedSupport.isEmbedded()) {
+            if (!cache.containsKey(resource)) {
+                try {
+                    is = InputStreamSugar.class.getResourceAsStream("/" + resource);
+                    if (is != null) {
+                        cache.put(resource, is.readAllBytes());
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return new ByteArrayInputStream(cache.get(resource));
+        }
 
         try { // Is it a net resource?
             u = new URI(resource).toURL();
@@ -166,6 +181,16 @@ public class InputStreamSugar {
             throws IOException {
         if (is == null) {
             return is;
+        }
+
+        if (awt.EmbeddedSupport.isEmbedded()) {
+            try {
+                ByteArrayInputStream nis = new ByteArrayInputStream(cache.get(uri));
+                nis.skip(pos);
+                is.close();
+                return nis;
+            } catch (Exception e) {
+            }
         }
 
         // If we know our actual position in the stream, we can aid seeking

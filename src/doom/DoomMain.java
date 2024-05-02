@@ -232,6 +232,8 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
 
     public static final String RCSID = "$Id: DoomMain.java,v 1.109 2012/11/06 16:04:58 velktron Exp $";
 
+    public static boolean doFinish = false;
+
     //
     // EVENT HANDLING
     //
@@ -529,7 +531,8 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
             view = sceneRenderer.getView();
         }
 
-        while (true) {
+        doomSound.ResumeSound();
+        while (!doFinish) {
             // frame syncronous IO operations
             I_StartFrame:
             ;
@@ -583,6 +586,8 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
             soundDriver.SubmitSound();
             //#endif
         }
+        doomSound.StopMusic();
+        doomSound.PauseSound();
     }
 
     // To keep an "eye" on the renderer.
@@ -742,7 +747,11 @@ public class DoomMain<T, V> extends DoomStatus<T, V> implements IDoomGameNetwork
 
         // First, check for -iwad parameter.
         // If valid, then it trumps all others.
-        if (cVarManager.present(CommandVariable.IWAD)) {
+        if (awt.EmbeddedSupport.isEmbedded()) {
+            AddFile("wads/doom1.wad");
+            this.setGameMode(GameMode.shareware);
+            return "wads/doom1.wad";
+        }else if (cVarManager.present(CommandVariable.IWAD)) {
             LOGGER.log(Level.INFO, "-iwad specified. Will be used with priority");
             // It might be quoted.
             final String test = C2JUtils.unquoteIfQuoted(cVarManager.get(CommandVariable.IWAD, String.class, 0).get(), '"');

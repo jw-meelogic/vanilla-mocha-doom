@@ -8,13 +8,16 @@ plugins {
 }
 
 base {
-    archivesName.set('mochadoom')
+    archivesName.set('rcTestSupport')
 }
 
 sourceSets {
     main {
         java {
             srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['res']
         }
     }
 }

@@ -16,6 +16,7 @@
  */
 package doom;
 
+import awt.EmbeddedSupport;
 import doom.ConfigBase.Files;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
@@ -191,6 +192,7 @@ public class ConfigManager {
     }
 
     public void SaveDefaults() {
+        if (EmbeddedSupport.isEmbedded()) return;
         SETTINGS_MAP.forEach((file, settings) -> {
             // skip writing settings which are not part of the loaded config files,
             // this helps to not overwrite default.cfg with empty content in case we're using the -config argument

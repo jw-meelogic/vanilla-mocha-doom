@@ -1,5 +1,6 @@
 package m;
 
+import awt.EmbeddedSupport;
 import i.DoomSystem;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
@@ -56,6 +57,7 @@ public abstract class MenuMisc {
     // SCREEN SHOTS
     //
     public static boolean WriteFile(String name, byte[] source, int length) {
+        if (EmbeddedSupport.isEmbedded()) return false;
         OutputStream handle;
         try {
             handle = new FileOutputStream(name);
@@ -70,6 +72,7 @@ public abstract class MenuMisc {
     }
 
     public static boolean WriteFile(String name, IWritableDoomObject source) {
+        if (EmbeddedSupport.isEmbedded()) return false;
         DataOutputStream handle;
         try {
             handle = new DataOutputStream(new FileOutputStream(name));

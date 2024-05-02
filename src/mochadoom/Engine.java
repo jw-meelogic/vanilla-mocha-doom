@@ -22,15 +22,13 @@ import awt.EventBase.KeyStateInterest;
 import static awt.EventBase.KeyStateSatisfaction.WANTS_MORE_ATE;
 import static awt.EventBase.KeyStateSatisfaction.WANTS_MORE_PASS;
 import awt.EventHandler;
-import doom.CVarManager;
-import doom.CommandVariable;
-import doom.ConfigManager;
-import doom.DoomMain;
+import doom.*;
 import static g.Signals.ScanCode.SC_ENTER;
 import static g.Signals.ScanCode.SC_ESCAPE;
 import static g.Signals.ScanCode.SC_LALT;
 import static g.Signals.ScanCode.SC_PAUSE;
 import i.Strings;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -40,7 +38,38 @@ public class Engine {
 
     private static final Logger LOGGER = Loggers.getLogger(Engine.class.getName());
 
-    private static volatile Engine instance;
+    public static volatile Engine instance;
+
+    public interface UpdateFrame {
+        void update(Image image);
+    }
+
+    public static void postEvent(event_t ev) {
+        Engine.instance.DOOM.PostEvent(ev);
+    }
+
+    public static Thread setupFX(Engine.UpdateFrame updateFrame, final String... argv) {
+        synchronized (Engine.class) {
+            if (instance == null) {
+                try {
+                    LOGGER.log(Level.INFO, Strings.MOCHA_DOOM_TITLE);
+                    new Engine(updateFrame, argv);
+                } catch (Exception e) {
+                    LOGGER.log(Level.SEVERE, "Engine.setup failure", e);
+                }
+            }
+        }
+        DoomMain.doFinish = false;
+        Thread thread = new Thread(() -> {
+            try {
+                instance.DOOM.setupLoop();
+            } catch (Exception e) {
+                LOGGER.log(Level.SEVERE, "DOOM.setupLoop failure", e);
+            }
+        });
+        thread.start();
+        return thread;
+    }
 
     /**
      * Mocha Doom engine entry point
@@ -49,7 +78,7 @@ public class Engine {
         LOGGER.log(Level.INFO, Strings.MOCHA_DOOM_TITLE);
         final Engine local;
         synchronized (Engine.class) {
-            local = new Engine(argv);
+            local = new Engine(null, argv);
         }
 
         /**
@@ -74,9 +103,10 @@ public class Engine {
     public final ConfigManager cm;
     public final DoomWindowController<?, EventHandler> windowController;
     private final DoomMain<?, ?> DOOM;
+    private final UpdateFrame embeddedUpdate;
 
     @SuppressWarnings("unchecked")
-    private Engine(final String... argv) throws IOException {
+    public Engine(UpdateFrame updateFrame, final String... argv) throws IOException {
         instance = this;
 
         // reads command line arguments
@@ -88,8 +118,10 @@ public class Engine {
         // intiializes stuff
         this.DOOM = new DoomMain<>();
 
+        this.embeddedUpdate = updateFrame;
+
         // opens a window
-        this.windowController = /*cvm.bool(CommandVariable.AWTFRAME)
+        this.windowController = embeddedUpdate != null ? null :/*cvm.bool(CommandVariable.AWTFRAME)
             ? */ DoomWindow.createCanvasWindowController(
                         DOOM.graphicSystem::getScreenImage,
                         DOOM::PostEvent,
@@ -102,7 +134,7 @@ public class Engine {
                 DOOM.graphicSystem.getScreenHeight()
             )*/;
 
-        windowController.getObserver().addInterest(
+        if (windowController != null) windowController.getObserver().addInterest(
                 new KeyStateInterest<>(obs -> {
                     EventHandler.fullscreenChanges(windowController.getObserver(), windowController.switchFullscreen());
                     return WANTS_MORE_ATE;
@@ -140,7 +172,11 @@ public class Engine {
      * Temporary solution. Will be later moved in more detailed place
      */
     public static void updateFrame() {
-        instance.windowController.updateFrame();
+        if (instance.embeddedUpdate != null) {
+            instance.embeddedUpdate.update(instance.DOOM.graphicSystem.getScreenImage());
+        }else{
+            instance.windowController.updateFrame();
+        }
     }
 
     public String getWindowTitle(double frames) {
@@ -158,7 +194,7 @@ public class Engine {
                 local = Engine.instance;
                 if (local == null) {
                     try {
-                        Engine.instance = local = new Engine();
+                        Engine.instance = local = new Engine(null);
                     } catch (IOException ex) {
                         LOGGER.log(Level.SEVERE, "Engine I/O error", ex);
                         throw new Error("This launch is DOOMed");
